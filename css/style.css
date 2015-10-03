@@ -1,7 +1,41 @@
 /*@font-face { font-family: 'Helvetica Neue'; src: url('../Fonts/HelveticaNeue.dfont');}
 @font-face { font-family: 'BebasNeue'; src: url('../Fonts/BebasNeue.otf');}*/
 
-.game-con{
+.board {
+	position: absolute;
+	/*background-color: #CCC;*/
+	top: 10%;
+	left: 50%;
+	z-index: 0;
+	border-radius: 10px;
+}
+
+.tile {
+	opacity: 100;
+	display: inline-block;
+	margin: 0px;
+	position: relative;
+	border-radius: 10px;
+	background-color: white;
+}
+
+#sort {
+	background-color: #CCC;
+	position: absolute;
+	vertical-align: middle;
+	/*top: 20%;*/
+	/*margin-top:10%;
+	margin-bottom: 10%;*/
+}
+
+#unsort {
+	position: absolute;
+	top: 60%;
+	bottom: 0;
+	z-index: 3;
+}
+
+.game-con {
 	position: relative;
 	left: 50%;
 	margin-left: -55px;
@@ -15,7 +49,7 @@
 	border-radius: 3px;
 }
 
-.game-mess{
+.game-mess {
 	border-radius: 3px;
 	text-align: center;
 	postion: relative;
@@ -28,50 +62,18 @@
 	color: #fff;
 }
 
-#ng_con{
+#ng_con {
 	background-color: #3388FF;
 	border: 1 solid #FFFFFF;
 }
 
-.game-con:hover{
+.game-con:hover {
 	color:#ff9;
 	cursor:pointer;
 	box-shadow: 0px 0px 20px rgba(0,0,0,.75);
 }
 
-.board{
-	margin: 10px;
-	width: 10px;
-	height: 10px;
-	background-color: #888888;
-	top: 20%;
-	left: 50%;
-	z-index: 0;
-	position: absolute;
-	border-radius: 10px;
-}
-
-.tile{
-	opacity: 0;
-	display: inline-block;
-	margin: 0px;
-	position: realtive;
-	border-radius: 10px;
-	background-color: white;
-}
-
-#sort{
-	position:absolute;
-	top: 70%;
-}
-#unsort{
-	postion relative
-	margin-top: 10%;
-	margin-bottom: 10%;
-	z-index: 3;
-}
-
-#win{
+#win {
 	overflow: ellipsis;
 	display: none;
 	position: absolute;
@@ -87,10 +89,9 @@
 	font-size: 4em;
 	z-index: 10;
 	box-shadow: 0px 0px 20px rgba(0,0,0,.5)
-
 }
 
-#score{
+#score {
 	position: relative;
 	margin-top: 7%;
 	height: 20%;
