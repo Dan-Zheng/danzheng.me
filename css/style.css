@@ -3,7 +3,6 @@
 
 .board {
 	position: absolute;
-	/*background-color: #CCC;*/
 	top: 10%;
 	left: 50%;
 	z-index: 0;
@@ -23,9 +22,6 @@
 	background-color: #CCC;
 	position: absolute;
 	vertical-align: middle;
-	/*top: 20%;*/
-	/*margin-top:10%;
-	margin-bottom: 10%;*/
 }
 
 #unsort {
@@ -54,7 +50,6 @@
 	text-align: center;
 	postion: relative;
 	width: 100%;
-	/*top: 50%;*/
 	height: 40%;
 	position: relative;
 	font-family: Monsterrat;
