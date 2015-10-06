@@ -1,2 +1,2 @@
 # Gradients
-A simple gradient game
+A simple gradient color game.
