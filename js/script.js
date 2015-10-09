@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	var palette = ['#69D2E7','#A7DBD8','#F38630','#FA6900','#fe4365','#fc9d9a','#f9cdad','#556270','#4ecdc4','#c7f464','#ff6b6b','#c44d58','#d1e751','#000000','#4dbce9','#26ade4','#d95b43','#c02942','#542437','#53777a','#cff09e','#a8dba8','#79bd9a','#3b8686','#0b486b','#00a0b0','#6a4a3c','#cc333f','#eb6841','#edc951']
+	var palette = ['#69d2e7','#a7dbd8','#f38630','#fa6900','#fe4365','#fc9d9a','#f9cdad','#556270','#4ecdc4','#c7f464','#ff6b6b','#c44d58','#d1e751','#000000','#4dbce9','#26ade4','#d95b43','#c02942','#542437','#53777a','#cff09e','#a8dba8','#79bd9a','#3b8686','#0b486b','#00a0b0','#6a4a3c','#cc333f','#eb6841','#edc951']
 
 	// Will hold colors for gradient.
 	var color = [];
@@ -148,7 +148,6 @@ $(document).ready(function(){
 		$("#win").fadeOut(500);
 	});
 
-
 	/*
 	 * Fischer-Yates shuffle
 	*/
@@ -168,7 +167,7 @@ $(document).ready(function(){
 	    array[randomIndex] = temporaryValue;
 	  }
 
-	  return array;
+		return array;
 	}
 
 	/* Converts color from RGB format to hex
