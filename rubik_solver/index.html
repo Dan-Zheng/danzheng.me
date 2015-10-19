@@ -3,19 +3,57 @@
 <head>
   <title>Rubik Solver</title>
   <style>
-    #randomstate { visibility: hidden; }
+    #randomState { visibility: hidden; }
+    #algText { visibility: hidden; }
+    #doAlg { visibility: hidden; }
   </style>
+  <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='../bower_components/font-awesome/css/font-awesome.min.css'>
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:700,400' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href='css/style.css'>
+
+  <script src='../bower_components/jquery/dist/jquery.min.js'></script>
+  <script src='../bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+  <script src='cubejs/lib/cube.js'></script>
+  <script src='cubejs/lib/async.js'></script>
+  <script src='js/script.js'></script>
 </head>
 
-<body>
-  <p id="status"></p>
-  <p id="randomstate">
-    <button>Scramble</button><br>
-    <span class="result"></span>
-  </p>
+<header>
+  <nav class='navbar navbar-default'>
+    <div class='container'>
+      <div class='navbar-header page-scroll'>
+          <button type='btn btn-primary' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false'>
+              <span class='sr-only'>Toggle navigation</span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+              <span class='icon-bar'></span>
+          </button>
+          <a class='navbar-brand page-scroll' href='#'>
+            <i class='fa fa-cube'></i> Rubik Solver
+          </a>
+      </div>
+      <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
+        <ul class='nav navbar-nav navbar-right'>
+          <li><a href='/'>Home</a></li>
+          <li><a id='nav-about' href='#about-section'>About</a></li>
+          <li><a id='nav-contact' href='#contact-section'>Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
 
-  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="cubejs/lib/cube.js"></script>
-  <script src="cubejs/lib/async.js"></script>
-  <script src="js/script.js"></script>
+<body>
+  <br>
+  <div class='container'>
+    <div class='center-block text-center' id='status'></div>
+  </div>
+  <div class='text-center' id='randomState'>
+    <button id='scramble' type='btn btn-success'>Scramble</button><br><br>
+    <span class='text-center' id='algText'>Algorithm: <input type="text" id="algInput" value="hi"></span>
+    <button id='doAlg' type='btn btn-success'>Do Algorithm</button><br><br>
+    <span class='resultText'></span><br>
+    <span class='result'></span>
+  </div>
 </body>

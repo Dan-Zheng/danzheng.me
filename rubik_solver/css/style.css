@@ -1,0 +1,25 @@
+.navbar {
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0px;
+
+  background-color: black;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: white;
+}
+
+.status {
+  margin: auto;
+  width: 50%;
+}
+
+.randomState {
+  margin: auto;
+  width: 80%;
+}

@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
 	var palette = ['#69d2e7','#a7dbd8','#f38630','#fa6900','#fe4365','#fc9d9a','#f9cdad','#556270','#4ecdc4','#c7f464','#ff6b6b','#c44d58','#d1e751','#000000','#4dbce9','#26ade4','#d95b43','#c02942','#542437','#53777a','#cff09e','#a8dba8','#79bd9a','#3b8686','#0b486b','#00a0b0','#6a4a3c','#cc333f','#eb6841','#edc951']
 
@@ -6,39 +6,46 @@ $(document).ready(function(){
 	var color = [];
 	// Number of blocks
 	var numberOfBlocks = 5;
-	//unsortNumber used to make random tiles. USED WITH UNSORT
+	// unsortNumber used to make random tiles. USED WITH UNSORT
 	var unsortNumber = numberOfBlocks - 2;
-	//Used to check players guess against actual
+	// Used to check players guess against actual
 	var playerGuess = [];
-	//Scores
+	// Scores
 	var roundScore = 0;
 	var totalScore = 0;
 
 	makeBoard();
 
-	function makeBoard(colorStop){
+	function makeBoard(colorStop) {
 		numberOfBlocks = totalScore + 3;
 		unsortNumber = numberOfBlocks - 2;
-		//Holds color-stops in a gradient
-		var colorStop = [palette[randomInt(palette.length - 1)], palette[randomInt(palette.length - 1)]];
+
+		// Holds color-stops in a gradient
+		do {
+			var colorStop = [palette[randomInt(palette.length - 1)], palette[randomInt(palette.length - 1)]];
+			console.log(colorStop)
+		} while(colorStop[0] === colorStop[1])
+
 		color = [];
-		if (totalScore > 0){
+
+		if (totalScore > 0) {
 			for (var i = 0; i < numberOfBlocks; i++) {
 				$('#' + i).remove();
 				$('#' + (100+i)).remove();
 			}
 		}
+
 		for (var i = 0; i < unsortNumber; i++) {
 			$("#unsort").append($("<div class='unsort tile' id='" + i + "'></div>"));
 			$('#' + i).animate({'opacity': .8},1200);
 		}
 
-		for (var i = 0; i < (numberOfBlocks); i++){
+		for (var i = 0; i < (numberOfBlocks); i++) {
 			$("#sort").append("<div class='sort tile drop' id='" + (i + 100) + "'></div>");
 			$('#' + (100 + i)).animate({'opacity': 1},500);
 		}
 
-		for (var i = 1; i <= (unsortNumber); i++){
+		for (var i = 1; i <= (unsortNumber); i++) {
 			color.push($.xcolor.gradientlevel(colorStop[0], colorStop[1], i, numberOfBlocks).getHex());
 		}
 
@@ -48,37 +55,36 @@ $(document).ready(function(){
 		$('#' + (100 + (numberOfBlocks - 1))).css('background-color',colorStop[1]);
 		$('#' + (100 + (numberOfBlocks - 1))).removeClass('drop');
 
-		//Deck will be shuffled
+		// Deck will be shuffled
 		var tempColor = color.slice();
 		var deck = shuffle(color);
 		color = tempColor;
 
-		for (var i = 0; i < (unsortNumber); i++){
+		for (var i = 0; i < (unsortNumber); i++) {
 			$("#"+i).css('background-color', deck[i]);
 		}
 
 		$(".unsort").draggable();
 		$(".sort").droppable({
-			drop: function(event,ui,numberOfBlocks){
-				console.log(color)
-				console.log($(this));
-				console.log(color);
-				console.log(color[($(this).attr('id') - 101)]);
+			drop: function(event,ui,numberOfBlocks) {
+				// console.log(color)
+				// console.log($(this));
+				// console.log(color);
+				// console.log(color[($(this).attr('id') - 101)]);
 				var rgb = $('#'+$(ui.draggable).attr('id')).css('background-color');
-				console.log(toHex(rgb));
+				// console.log(toHex(rgb));
 				if (color[($(this).attr('id') - 101)] == toHex($('#'+$(ui.draggable).attr('id')).css('background-color'))) {
 					$(this).css('background-color',color[($(this).attr('id') - 101)]);
 					$(ui.draggable).fadeOut(300);
 					roundScore++;
 					if (roundScore == (unsortNumber)) {
-						console.log(unsortNumber);
+						// console.log(unsortNumber);
 						$('#win').fadeIn(500);
 						totalScore++;
 						roundScore = 0;
 						$("#score").replaceWith("<div id='score'>Level: " + totalScore + "</div><div id='ng_con' class='game game-con'><div id='ng' class='game game-button'>New Game</div>");
 					}
 				} else {
-
 					$(ui.draggable).animate({'opacity':'0.9'},0);
 					$(ui.draggable).animate({'top':'-=20'},40);
 					$(ui.draggable).animate({'top':'+=20'},40);
@@ -92,7 +98,6 @@ $(document).ready(function(){
 
 	/*
 	 * CSS stuff (position)
-	 *
 	*/
 	function resize(numberOfBlocks, board){
 		var winY = $(window).height();
@@ -104,26 +109,26 @@ $(document).ready(function(){
 		// var tileS = ((boardWidth - border) / numberOfBlocks - border);
 
 		if (board == 'sort') {
-			//console.log(unsortNumber);
+			// console.log(unsortNumber);
 			var boardWidth = winX * .7;
 			var tileS = ((boardWidth - border) / numberOfBlocks - border);
-			//console.log('sort: ' + tileS);
+			// console.log('sort: ' + tileS);
 		} else if (board == 'unsort') {
 			var boardWidth = winX * .7 / (unsortNumber + 2) * unsortNumber;
-			var tileS = ((boardWidth - border) / numberOfBlocks - border); // FUCKING MATH WORK NOW
-			//console.log('unsort: ' + tileS);
+			var tileS = ((boardWidth - border) / numberOfBlocks - border);
+			// console.log('unsort: ' + tileS);
 		}
 
 		var boardHeight = (tileS + 2 * border); // double border
 		var marginLeft = -boardWidth / 2;
 
-		$('#'+board).css({
+		$('#'+board).css( {
 			"width": boardWidth + "px",
 			"height": boardHeight + "px",
 			"margin-left": marginLeft + "px"
 		});
 
-		$('.tile.'+board).css({
+		$('.tile.'+board).css( {
 			"width": tileS,
 			"height": tileS,
 			"margin-left": border,
@@ -138,11 +143,11 @@ $(document).ready(function(){
 	/*
 	 * Extension of styles
 	*/
-	$('.game').mousedown(function(event){
+	$('.game').mousedown(function(event) {
 		$(this).css('background-color','#2277ee');
 	});
 
-	$('.game').mouseup(function(event){
+	$('.game').mouseup(function(event) {
 		$(this).css('background-color','#3388FF');
 		makeBoard();
 		$("#win").fadeOut(500);
