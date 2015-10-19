@@ -7,6 +7,26 @@
 (function() {
     var start, progressHandle;
 
+    var cubeTest = function() {
+        var cube = new Cube();
+        console.log(cube.asString());
+        //cube.move("F");
+        cube.move("F B2 R' D2 B R U D' R L' D' F' R2 D F2 B' U D' R L' F B' U D'");
+
+        Cube.initSolver();
+        var result = cube.solve();
+        cube.move(cube.solve());
+
+        console.log(cube.asString());
+
+        if (cube.isSolved()) {
+            console.log("the cube is solved");
+            console.log(result);
+        } else {
+            console.log("the cube is not solved");
+        }
+    };
+
     var progress = function() {
         // add dot to represent progress
         $('#status').text(function(index, text) {
@@ -34,21 +54,21 @@
         // make random pattern algorithm in input
         var algList = ["F B2 R' D2 B R U D' R L' D' F' R2 D F2 B'",
                        "U2 D2 F2 B2 L2 R2",
-                       "U F B' L2 U2 L2 F' B U2 L2 U ",
-                       "R2 L' D F2 R' D' R' L U' D R D B2 R' U D2 ",
-                       "F L F U' R U F2 L2 U' L' B D' B' L2 U ",
+                       "U F B' L2 U2 L2 F' B U2 L2 U",
+                       "R2 L' D F2 R' D' R' L U' D R D B2 R' U D2",
+                       "F L F U' R U F2 L2 U' L' B D' B' L2 U",
                        "U' L' U' F' R2 B' R F U B2 U B' L U' F U R F'",
                        "L U B' U' R L' B R' F B' D R D' F'",
                        "U D' R L' F B' U D'",
                        "F R' U L F' L' F U' R U L' U' L F'",
-                       "F B2 R' D2 B R U D' R L' D' F' R2 D F2 B' U D' R L' F B' U D'"
+                       "U F2 B2 L R F B' U D R U F2 U2 F2 L2 R2 U2 B2 D L2 R2 B2"
                     ];
         $('input[id=algInput]').val(algList.randomElement());
     };
 
     var generateScramble = function() {
         // hide status
-        $('#status').hide();
+        $('#init').hide();
 
         // show algorithm textbox and button
         $('#algText').css('visibility', 'visible');
@@ -59,7 +79,7 @@
             var s = alg.replace(/\s+/g, '');  // remove spaces
             var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&alg=" + s;
             var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&r=y225x34z180&alg=" + s;
-            $('#randomState .resultText').html(alg);
+            $('#randomState .resultText').html("<br>" + alg);
             $('#randomState .resultFront').html("<br>(Front view):<br><img src=\"" + urlOne + "\">" + "<br>");
             $('#randomState .resultBack').html("<br>(Back view):<br><img src=\"" + urlTwo + "\">" + "<br><br>");
         });
@@ -72,7 +92,7 @@
         var algSpaceless = algo.replace(/\s+/g, ''); // remove spaces
         var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&alg=" + algSpaceless;
         var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&r=y225x34z180&alg=" + algSpaceless;
-        $('#randomState .resultText').html(algo);
+        $('#randomState .resultText').html("<br>" + algo);
         $('#randomState .resultFront').html("<br>(Front view):<br><img src=\"" + urlOne + "\">" + "<br>");
         $('#randomState .resultBack').html("<br>(Back view):<br><img src=\"" + urlTwo + "\">" + "<br><br>");
     };
