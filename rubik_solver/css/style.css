@@ -1,40 +1,40 @@
 @font-face {
-  font-family: 'Monoid Regular';
-  src: url('../fonts/Monoid-Regular.eot');
-  src: url('../fonts/Monoid-Regular.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/Monoid-Regular.woff2') format('woff2'),
-  url('../fonts/Monoid-Regular.woff') format('woff'),
-  url('../fonts/Monoid-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Monoid Regular';
+    src: url('../fonts/Monoid-Regular.eot');
+    src: url('../fonts/Monoid-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/Monoid-Regular.woff2') format('woff2'),
+    url('../fonts/Monoid-Regular.woff') format('woff'),
+    url('../fonts/Monoid-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body, header {
-  font-family: 'Monoid Regular';
+    font-family: 'Monoid Regular';
 }
 
 .navbar {
-  margin-bottom: 0;
-  border: none;
-  border-radius: 0px;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0px;
 
-  background-color: black;
+    background-color: black;
 }
 
 .navbar a {
-  color: white !important;
+    color: white !important;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-  background-color: white;
+    background-color: white;
 }
 
 .status {
-  margin: auto;
-  width: 50%;
+    margin: auto;
+    width: 50%;
 }
 
 .randomState {
-  margin: auto;
-  width: 80%;
+    margin: auto;
+    width: 80%;
 }
