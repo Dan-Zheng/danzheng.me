@@ -32,16 +32,16 @@
         $('#doAlg').on('click', doAlg);
 
         // make random pattern algorithm in input
-        var algList = ["F B2 R’ D2 B R U D’ R L’ D’ F’ R2 D F2 B’",
+        var algList = ["F B2 R' D2 B R U D' R L' D' F' R2 D F2 B'",
                        "U2 D2 F2 B2 L2 R2",
-                       "U F B’ L2 U2 L2 F’ B U2 L2 U",
-                       "R2 L’ D F2 R’ D’ R’ L U’ D R D B2 R’ U D2",
-                       "F L F U’ R U F2 L2 U’ L’ B D’ B’ L2 U",
-                       "U’ L’ U’ F’ R2 B’ R F U B2 U B’ L U’ F U R F’",
-                       "L U B’ U’ R L’ B R’ F B’ D R D’ F’",
-                       "U D’ R L’ F B’ U D’",
-                       "F R’ U L F’ L’ F U’ R U L’ U’ L F’",
-                       "F B2 R’ D2 B R U D’ R L’ D’ F’ R2 D F2 B’ U D’ R L’ F B’ U D’"
+                       "U F B' L2 U2 L2 F' B U2 L2 U ",
+                       "R2 L' D F2 R' D' R' L U' D R D B2 R' U D2 ",
+                       "F L F U' R U F2 L2 U' L' B D' B' L2 U ",
+                       "U' L' U' F' R2 B' R F U B2 U B' L U' F U R F'",
+                       "L U B' U' R L' B R' F B' D R D' F'",
+                       "U D' R L' F B' U D'",
+                       "F R' U L F' L' F U' R U L' U' L F'",
+                       "F B2 R' D2 B R U D' R L' D' F' R2 D F2 B' U D' R L' F B' U D'"
                     ];
         $('input[id=algInput]').val(algList.randomElement());
     };
