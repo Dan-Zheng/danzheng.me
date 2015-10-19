@@ -46,7 +46,8 @@
             var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&alg=" + s;
             var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&r=y225x34z180&alg=" + s;
             $('#randomState .resultText').html(alg);
-            $('#randomState .result').html("<br>(Front view):<br><img src=\"" + urlOne + "\">" + "<br><br>(Back view):<br><img src=\"" + urlTwo + "\">" + "<br><br>");
+            $('#randomState .resultFront').html("<br>(Front view):<br><img src=\"" + urlOne + "\">" + "<br>");
+            $('#randomState .resultBack').html("<br>(Back view):<br><img src=\"" + urlTwo + "\">" + "<br><br>");
         });
     };
 
@@ -58,7 +59,8 @@
         var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&alg=" + algSpaceless;
         var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&r=y225x34z180&alg=" + algSpaceless;
         $('#randomState .resultText').html(algo);
-        $('#randomState .result').html("<br>(Front view):<br><img src=\"" + urlOne + "\">" + "<br><br>(Back view):<br><img src=\"" + urlTwo + "\">" + "<br><br>");
+        $('#randomState .resultFront').html("<br>(Front view):<br><img src=\"" + urlOne + "\">" + "<br>");
+        $('#randomState .resultBack').html("<br>(Back view):<br><img src=\"" + urlTwo + "\">" + "<br><br>");
     };
 
     var formatString = function(algString) {

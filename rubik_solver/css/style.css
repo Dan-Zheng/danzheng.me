@@ -38,3 +38,15 @@ body, header {
     margin: auto;
     width: 80%;
 }
+
+.result {
+    display: flex;
+}
+
+.resultFront {
+    width: 50%;
+}
+
+.resultBack {
+    flex-grow: 1;
+}
