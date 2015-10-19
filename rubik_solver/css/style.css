@@ -13,6 +13,10 @@ body, header {
     font-family: 'Monoid Regular';
 }
 
+body {
+    padding-top: 50px;
+}
+
 .navbar {
     margin-bottom: 0;
     border: none;
