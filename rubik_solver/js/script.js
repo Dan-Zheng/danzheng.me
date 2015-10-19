@@ -76,23 +76,21 @@
 
         // make a scramble
         Cube.asyncScramble(function(alg) {
-            var s = alg.replace(/\s+/g, '');  // remove spaces
-            var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&alg=" + s;
-            var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&r=y225x34z180&alg=" + s;
-            $('#randomState .resultText').html("<br>" + alg);
-            $('#randomState .resultFront').html("<br>(Front view):<br><img src=\"" + urlOne + "\">" + "<br>");
-            $('#randomState .resultBack').html("<br>(Back view):<br><img src=\"" + urlTwo + "\">" + "<br><br>");
+            makeImage(alg);
         });
     };
 
     var doAlg = function() {
-        // console.log($('#algInput')[0].value);
         // perform moves in the move box
-        var algo = formatString($('#algInput')[0].value);
-        var algSpaceless = algo.replace(/\s+/g, ''); // remove spaces
-        var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&alg=" + algSpaceless;
-        var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&r=y225x34z180&alg=" + algSpaceless;
-        $('#randomState .resultText').html("<br>" + algo);
+        var alg = formatString($('#algInput')[0].value);
+        makeImage(alg);
+    };
+
+    var makeImage = function(alg) {
+        var algSpaceless = alg.replace(/\s+/g, ''); // remove spaces
+        var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&bg=t&alg=" + algSpaceless;
+        var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
+        $('#randomState .resultText').html("<br><b>" + alg + "</b>");
         $('#randomState .resultFront').html("<br>(Front view):<br><img src=\"" + urlOne + "\">" + "<br>");
         $('#randomState .resultBack').html("<br>(Back view):<br><img src=\"" + urlTwo + "\">" + "<br><br>");
     };
@@ -102,11 +100,8 @@
         var moveBasic = ['U', 'D', 'F', 'B', 'L', 'R', 'u', 'd', 'f', 'b', 'l', 'r'];
         var moveModify = ['2', '\''];
 
-        console.log(algString);
         algString = algString.replace(/\s+/g, ''); // remove spaces
-        console.log(algString);
         algString = algString.replace(/\u2019+/g, '\''); // replace utf8 right quotation with ASCII quotation
-        console.log(algString);
 
         var i = 0;
         while (i < algString.length) {
