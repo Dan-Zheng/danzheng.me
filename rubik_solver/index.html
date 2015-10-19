@@ -54,10 +54,16 @@
                 <div class='resultFront'></div>
                 <div class='resultBack'></div>
             </div>
-            <button type='button' class='btn btn-primary' id='scramble'>Scramble</button>
+            <span id='scramble'>
+                <button type='button' class='btn btn-primary'>Scramble</button><br><br>
+            </span>
             <div class='text-center' id='algText'>
-                <br>Enter algorithm: <input type="text" id="algInput" size=61 value=""><br><br>
-                <button type='button' class='btn btn-primary' id='doAlg'>Do Algorithm</button>
+                <div class='input-group'>
+                    <input type='text' id="algInput" class='form-control' placeholder='Enter algorithm' value=''>
+                    <span class='input-group-btn'>
+                        <button type='button' id='doAlg' class='btn btn-primary' >Do Algorithm</button>
+                    </span>
+                </div>
             </div>
 
         </div>
