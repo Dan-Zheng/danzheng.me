@@ -1,2 +1,2 @@
-# Rubik's Cube Solver
-This is a Rubik's Cube solver.
+# [rubik_solver](http://danzheng.me/rubik_solver)
+A Rubik's Cube solver.
