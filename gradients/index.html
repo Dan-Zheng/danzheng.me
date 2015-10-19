@@ -1,16 +1,21 @@
 <DOCTYPE html>
+<!-- Gradients: A simple color game
+Author: Dan Zheng
+Date: 10/2/2015
+Created for Vandyhacks
+ -->
 <html>
 
 <head>
-    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css'>
-	<link rel='stylesheet' href='bower_components/font-awesome/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='../bower_components/font-awesome/css/font-awesome.min.css'>
 	<link rel="stylesheet" href="css/style.css" type="text/stylesheet" />
 
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-	<script src="bower_components/jquery.pep/src/jquery.pep.js"></script>
-	<script src="bower_components/xcolor/jquery.xcolor.min.js"></script>
-	<script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script src="../bower_components/jquery.pep/src/jquery.pep.js"></script>
+	<script src="../bower_components/xcolor/jquery.xcolor.min.js"></script>
+	<script src='../bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
 	<script src="js/script.js"></script>
 </head>
 
@@ -30,11 +35,11 @@
             </div>
             <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
                 <ul class='nav navbar-nav navbar-right'>
-                    <li><a href='index.html'>Home</a></li><!--
+                    <li><a href='../index.html'>Home</a></li><!--
                     <li><a id='nav-about' href='#about-section'>About</a></li>
                     <li><a id='nav-contact' href='#contact-section'>Contact</a></li>-->
-					<li><a id='nav-gradi' href='gradients/index.html'>Gradients</a></li>
-					<li><a id='nav-rubik' href='rubik_solver/index.html'>Rubik Solver</a></li>
+					<li><a id='nav-gradi' href='index.html'>Gradients</a></li>
+					<li><a id='nav-rubik' href='../rubik_solver/index.html'>Rubik Solver</a></li>
                 </ul>
             </div>
         </div>
@@ -42,13 +47,14 @@
 </header>
 
 <body>
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Hello, world!</h1>
-            <p>There's nothing here yet. Try using the navbar!</p>
-            <p><a class="btn btn-primary btn-lg" href="#" role="button">Useless button!</a></p>
-        </div>
-    </div>
+	<div id="sort" class='board'></div>
+	<div id="unsort" class='board'></div>
+	<div id="win">
+		<div id="score">Score: </div>
+		<div id="ng_con" class='game game-con'>
+			<button type='button' class='btn btn-primary'>Next Level</button>
+		</div>
+	</div>
 </body>
 
 </html>
