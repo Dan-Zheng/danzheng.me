@@ -1,3 +1,18 @@
+@font-face {
+  font-family: 'Monoid Regular';
+  src: url('../fonts/Monoid-Regular.eot');
+  src: url('../fonts/Monoid-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/Monoid-Regular.woff2') format('woff2'),
+  url('../fonts/Monoid-Regular.woff') format('woff'),
+  url('../fonts/Monoid-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, header {
+  font-family: 'Monoid Regular';
+}
+
 .navbar {
   margin-bottom: 0;
   border: none;
