@@ -1,23 +1,23 @@
-body, header {
+header {
     font-family: 'Monoid Regular';
 }
 
 body {
+    font-family: monospace, monospace;
     padding-top: 50px;
 }
 
 h1 {
-    font-family: "Menlo";
     font-weight: bold;
-	font-size: 4.8vw;
+	font-size: 4.4vw;
 }
 
 h2 {
-    font-size: 2.6vw;
+    font-size: 2vw;
 }
 
 h3 {
-    font-size: 1.4vw;
+    font-size: 1.6vw;
 }
 
 section {
@@ -29,10 +29,22 @@ section .section-heading {
     margin-bottom: 15px;
 }
 
-section .section-space {
-    font-family: "Menlo";
-    padding: 25px 0;
+section .section-text {
+    margin-top: 0;
+    margin-bottom: 5px;
 }
+
+/*
+a:link {
+    color: #8ed3f3;
+}
+a:visited {
+
+}
+a:hover, a:active {
+    color: #b9dded;
+    text-decoration: underline;
+}*/
 
 a:link {
 
@@ -47,6 +59,21 @@ a:hover {
 a:active {
     color: #3e8bcf;
     text-decoration: underline;
+}
+
+#sentence2 {
+    opacity: 0.4;
+}
+
+#sentence3 {
+    margin-top: 5px;
+    opacity: 0.3;
+}
+
+#sentence-display {
+    text-align: left;
+    font-family: monospace, monospace;
+    padding: 1% 0;
 }
 
 .vertical-center {

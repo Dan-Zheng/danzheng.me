@@ -50,6 +50,16 @@ $(document).ready(function() {
         ["battens", "down hatches"]
     ];
 
+    //init();
+    //generateString();
+
+    function init() {
+        // console.log($("#sentence-display").height());
+        // $(".pre-scrollable").css("height:",$(".section-space").height());
+        // console.log($("#sentence").height());
+
+    }
+
 	function generateString() {
         Array.prototype.randomElement = function () {
             return this[Math.floor(Math.random() * this.length)];
@@ -62,16 +72,45 @@ $(document).ready(function() {
         var sentence = randomPhrase[0] + " your " + randomPhrase[1];
         $("#sentence").html("<a href=\"http://www.google.com/search?q="+sentence+"\" target=\"_blank\">" + sentenceString + "</a>");
 
-        if (clickCount > 2) {
-            $("#explanation").html("Don't understand? Click on the sentence for an explanation.");
+        if (clickCount === 1) {
+            $("#sentence-counter").html(clickCount + " sentence generated.");
+        } else {
+            $("#sentence-counter").html(clickCount + " sentences generated.");
+        }
+        if (clickCount >= 2) {
+            $("#sentence2").show();
+        }
+        if (clickCount >= 3) {
+            $("#sentence3").show();
+        }
+        if (clickCount > 3) {
+            $("#explanation").html("Don't understand? Click on a sentence for its explanation.");
             $("#explanation").fadeIn(700);
+        }
+        if (clickCount > 100) {
+            $("#sentence-counter").append(" That's too many.");
+        } else if (clickCount > 80) {
+            $("#sentence-counter").append(" That's a lot.");
+        } else if (clickCount > 60) {
+            $("#sentence-counter").append(" Woah.");
+        } else if (clickCount > 40) {
+            $("#sentence-counter").append(" Gosh.");
+        } else if (clickCount > 20) {
+            $("#sentence-counter").append(" Wow.");
         }
     }
 
+    function shiftString() {
+        $("#sentence3").html($("#sentence2").html());
+        $("#sentence2").html($("#sentence").html());
+    }
+
     $('#generate').on('click', function() {
+        clickCount++;
+        $("#sentence-display").show();
+        shiftString();
 		generateString();
         $("#sentence").show();
-        clickCount++;
 	});
 
 });

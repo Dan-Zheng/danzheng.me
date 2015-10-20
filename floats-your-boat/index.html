@@ -4,8 +4,11 @@
     <title>Floats Your Boat</title>
     <meta charset="UTF-8">
     <style>
-        #sentence { display: none }
-        #explanation { display: none }
+        /*#sentence { display: none }*/
+        #sentence-display { display: none; }
+        #sentence2 { display: none; }
+        #sentence3 { display: none; }
+        #explanation { display: none; }
     </style>
     <link rel="shortcut icon" href='../code.ico'/>
     <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'>
@@ -58,11 +61,16 @@
         <div class='container text-center'>
             <div class='row'>
                 <div class=col-lg-12 text-center>
-                    <h1 class ='section-heading' id='title'>Floats-your-boat Generator</h1>
-                    <h3 class ='section-heading' id='subtitle'>(Hey, whatever generates your sentences!)</h2>
-                    <h2 class ='section-heading section-space' id='sentence'></h3>
+                    <h1 class='section-heading' id='title'>Floats-your-boat Generator</h1>
+                    <h3 class='section-heading' id='subtitle'>(Hey, whatever generates your sentences!)</h3>
+                    <div class='section-heading' id='sentence-display'>
+                        <h2 class='section-text' id='sentence3'></h2>
+                        <h2 class='section-text' id='sentence2'></h2>
+                        <h2 class='section-text' id='sentence'><br></h2>
+                    </div>
                     <button id='generate' type='button' class='btn btn-primary'>Generate</button><br><br>
-                    <h3 class ='section-heading' id='explanation'></h3>
+                    <h3 class='section-heading' id='sentence-counter'></h3>
+                    <h3 class='section-heading' id='explanation'></h3>
                 </div>
             </div>
         </div>
