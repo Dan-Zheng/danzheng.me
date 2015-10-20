@@ -77,10 +77,14 @@ body {
 
 #level {
     font-family: 'Monoid Regular';
-    font-size: 2vw;
+    font-size: 32px;
+}
+
+#win-message {
+    font-size: 20px;
+    text-align: center;
 }
 
 #level-btn {
-    font-size: 20;
     text-align: center;
 }

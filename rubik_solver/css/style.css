@@ -29,19 +29,17 @@ body {
     overflow-y:hidden;
 }
 
-.status {
-    margin: auto;
-    width: 50%;
+#status {
+    font-size: 20px;
 }
 
 .randomState {
-    margin: auto;
-    width: 80%;
+
 }
 
 .resultText {
     font-family: 'Monoid Bold';
-    font-size: 18px;
+    font-size: 22px;
 }
 
 .result {

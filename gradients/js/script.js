@@ -1,13 +1,41 @@
 /* jshint -W004, -W033 */
-/* TO DO:
- * - Make droppable work for collision, not centers
- * - Find better way to display sort and unsort divs
- * - Find better positions for sort and unsort (shouldn't be too hard, limiting factor is height)
+/*
+	TO DO:
+	- Make droppable work for collision, not centers
+	- Add point system/timing system for more fun (must finish level in given time or lose, give option to restart)
+	- Fix sort/unsort position (problem with jQuery height, might not represent actual viewport)
+
+	DONE:
+	- Find better way to display sort and unsort divs
 */
 
 $(document).ready(function() {
 
 	var palette = ['#69d2e7','#a7dbd8','#f38630','#fa6900','#fe4365','#fc9d9a','#f9cdad','#556270','#4ecdc4','#c7f464','#ff6b6b','#c44d58','#d1e751','#000000','#4dbce9','#26ade4','#d95b43','#c02942','#542437','#53777a','#cff09e','#a8dba8','#79bd9a','#3b8686','#0b486b','#00a0b0','#6a4a3c','#cc333f','#eb6841','#edc951'];
+
+	var messagesGood = ["Nice.",
+					"Good job.",
+					"Keep it up.",
+					"Hurray.",
+					"Yay.",
+					"Way to go.",
+					"Good work.",
+					"Not bad.",
+					"Wow.",
+					"Awesome.",
+					"Wonderful.",
+					"Splendid."
+				];
+
+	var messagesBad = ["Bzzzt.",
+					"Derp.",
+					"No.",
+					"Nope.",
+					"Not quite.",
+					"Wrong.",
+					"Incorrect.",
+					"Fail."
+				];
 
 	// Will hold colors for gradient.
 	var color = [];
@@ -25,6 +53,7 @@ $(document).ready(function() {
 	makeBoard();
 
 	function makeBoard(colorStop) {
+
 		numberOfBlocks = totalScore + 3;
 		unsortNumber = numberOfBlocks - 2;
 
@@ -92,16 +121,20 @@ $(document).ready(function() {
 					//$(ui.draggable).hide(); // causes shifting in unsort
 
 					if (levelScore == (unsortNumber)) {
-						// console.log(unsortNumber);
-						//$('#level-btn').fadeIn(500);
+			            $('#win-message').html(messagesGood.randomElement());
 						$('#level-btn').css('visibility', 'visible');
-						$('#space').hide();
+						$('#level-btn').show();
+						$('#win-message').css('visibility', 'visible');
+						$('.space-show').hide();
+						$('.space-hide').show();
 						$('#unsort').hide();
 						totalScore++;
 						levelScore = 0;
 						levelNumber++;
 					}
 				} else {
+					$('#win-message').html(messagesBad.randomElement());
+					$('#win-message').css('visibility', 'visible');
 					$(ui.draggable).animate({'opacity':'0.9'},0);
 					$(ui.draggable).animate({'top':'-=20'},40);
 					$(ui.draggable).animate({'top':'+=20'},40);
@@ -125,18 +158,27 @@ $(document).ready(function() {
 		var boardWidth;
 		var tileSide;
 
+		// console.log('winX' + winX);
+		// console.log('winY' + winY);
+
 		// var tileSide = ((boardWidth - border) / numberOfBlocks - border);
 
+		if (winX < winY) {
+			//console.log('case 1 x < y')
+			boardWidth = winX * 0.9;
+		} else {
+			//console.log('case 2 x > y')
+			boardWidth = winY * 0.9;
+		}
+
 		if (board == 'sort') {
-			// console.log(unsortNumber);
-			boardWidth = winX * 0.7;
-			tileSide = ((boardWidth - border) / numberOfBlocks - border);
-			// console.log('sort: ' + tileSide);
+
 		} else if (board == 'unsort') {
-			boardWidth = winX * 0.7 / (unsortNumber + 2) * unsortNumber;
-			tileSide = ((boardWidth - border) / numberOfBlocks - border);
+			boardWidth = boardWidth / (unsortNumber + 2) * unsortNumber;
 			// console.log('unsort: ' + tileSide);
 		}
+
+		tileSide = ((boardWidth - border) / numberOfBlocks - border);
 
 		var boardHeight = (tileSide + 2 * border); // double border
 		var marginLeft = -boardWidth / 2;
@@ -166,10 +208,13 @@ $(document).ready(function() {
 	*/
 	$('#level-btn').on('click', function() {
 		makeBoard();
-		$('#space').show();
+		$('.space-show').show();
+		$('.space-hide').hide();
 		$('#unsort').show();
 		$("#level").html("Level: " + levelNumber);
 		$('#level-btn').css('visibility', 'hidden');
+		$('#level-btn').hide();
+		$('#win-message').css('visibility', 'hidden');
 	});
 
 	function collision($div1, $div2) {
@@ -189,6 +234,10 @@ $(document).ready(function() {
       if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
       return true;
     }
+
+	Array.prototype.randomElement = function () {
+        return this[Math.floor(Math.random() * this.length)];
+    };
 
 	/*
 	 * Fischer-Yates shuffle

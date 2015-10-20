@@ -12,7 +12,9 @@ Created for Vandyhacks
     <link rel="shortcut icon" href='../code.ico'/>
     <style>
         #level-btn { visibility: hidden; }
-        #space { visibility: hidden; }
+        #win-message { visibility: hidden; }
+        .space-show { visibility: hidden; }
+        .space-hide { visibility: hidden; }
     </style>
     <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'>
 	<link rel='stylesheet' href='../bower_components/font-awesome/css/font-awesome.min.css'>
@@ -66,9 +68,15 @@ Created for Vandyhacks
         <br>
         <div id='level' class = 'text-center'></div><br>
     	<div id="sort" class='board'></div>
-        <div id='space'><br><br></div>
-    	<div id="unsort" class='board'></div><br>
-        <div id='level-btn'><button type='button' class='btn btn-primary'>Next Level</button></div>
+        <div class='space-show'><br></div>
+    	<div id="unsort" class='board'></div>
+        <div class='space-hide'><br></div>
+        <div id='level-win'>
+            <div class='space-show'><br></div>
+            <div id='level-btn'><button type='button' class='btn btn-primary'>Next Level</button></div>
+            <div class='space-hide'><br></div>
+            <div id='win-message'></div>
+        </div>
     </div>
 </body>
 
