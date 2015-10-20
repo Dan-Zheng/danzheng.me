@@ -12,6 +12,7 @@
 $(document).ready(function() {
 
     var randomPhrase;
+    var clickCount = 0;
     var stringList = [["steams", "clams"],
         ["burps", "baby"],
         ["roasts", "chestnuts"],
@@ -41,7 +42,7 @@ $(document).ready(function() {
         ["restrains", "relative"],
         ["plucks", "poultry"],
         ["ages", "Camembert"],
-        ["pins", "the tail on donkey"],
+        ["pins", "tail on donkey"],
         ["saddles", "pony"],
         ["staffs", "help desk"],
         ["churns", "butter"],
@@ -59,11 +60,18 @@ $(document).ready(function() {
         randomPhrase = stringList.randomElement();
         console.log(randomPhrase);
 
-        $("#sentence").html("Hey, whatever <code>" + randomPhrase[0] + "</code> your <code>" + randomPhrase[1] + "</code>!");
+        var sentenceString = "Hey, whatever <code>" + randomPhrase[0] + "</code> your <code>" + randomPhrase[1] + "</code>!";
+        var sentence = randomPhrase[0] + " your " + randomPhrase[1];
+        console.log(sentence);
+        $("#sentence").html("<a href=\"http://www.google.com/search?q="+sentence+"\">" + sentenceString + "</a>");
+        if (clickCount > 2) {
+            $("#explanation").html("Don't understand? Click on the sentence for an explanation.");
+        }
     }
 
     $('#generate').on('click', function() {
 		generateString();
+        clickCount++;
 	});
 
 });
