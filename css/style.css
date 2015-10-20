@@ -7,5 +7,5 @@ body {
 }
 
 #bold {
-	font-family: 'Monoid Bold';
+	font-weight: bold;
 }
