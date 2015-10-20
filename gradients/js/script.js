@@ -203,9 +203,6 @@ $(document).ready(function() {
 	setInterval(function() {resize(numberOfBlocks, 'sort')}, 100);
 	setInterval(function() {resize(unsortNumber, 'unsort')}, 100);
 
-	/*
-	 * Extension of styles
-	*/
 	$('#level-btn').on('click', function() {
 		makeBoard();
 		$('.space-show').show();
