@@ -46,20 +46,6 @@ body {
     overflow-y:hidden;
 }
 
-.navbar {
-    margin-bottom: 0;
-    border: none;
-    border-radius: 0px;
-}
-
-.navbar a {
-    color: white !important;
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: black;
-}
-
 .board {
 	position: relative;
 	top: 10%;

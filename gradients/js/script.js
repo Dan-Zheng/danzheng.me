@@ -2,6 +2,7 @@
 /* TO DO:
  * - Make droppable work for collision, not centers
  * - Find better way to display sort and unsort divs
+ * - Find better positions for sort and unsort (shouldn't be too hard, limiting factor is height)
 */
 
 $(document).ready(function() {
