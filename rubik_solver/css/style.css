@@ -16,7 +16,7 @@ body {
 }
 
 .resultText {
-    font-family: 'Monoid Bold';
+    font-weight: bold;
     font-size: 22px;
 }
 

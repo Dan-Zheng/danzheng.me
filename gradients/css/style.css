@@ -41,12 +41,11 @@ body {
 
 }
 #game-title {
-    font-family: 'Monoid Bold';
+    font-weight: bold;
     font-size: 2vw;
 }
 
 #level {
-    font-family: 'Monoid Regular';
     font-size: 32px;
 }
 

@@ -7,7 +7,7 @@ body {
 }
 
 #title {
-    font-family: 'Monoid Bold';
+    font-weight: bold;
 	font-size: 7vmin;
 }
 
