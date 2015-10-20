@@ -32,7 +32,7 @@ $(document).ready(function() {
 			var colorStop = [palette[randomInt(palette.length - 1)], palette[randomInt(palette.length - 1)]];
 			console.log(colorStop);
 			console.log($.xcolor.distance(colorStop[0], colorStop[1]));
-		} while($.xcolor.distance(colorStop[0], colorStop[1])<100);
+		} while($.xcolor.distance(colorStop[0], colorStop[1])<130);
 
 		color = [];
 
