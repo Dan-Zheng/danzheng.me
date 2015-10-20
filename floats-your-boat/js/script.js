@@ -50,8 +50,6 @@ $(document).ready(function() {
         ["battens", "down hatches"]
     ];
 
-    generateString();
-
 	function generateString() {
         Array.prototype.randomElement = function () {
             return this[Math.floor(Math.random() * this.length)];
@@ -62,16 +60,17 @@ $(document).ready(function() {
 
         var sentenceString = "Hey, whatever <code>" + randomPhrase[0] + "</code> your <code>" + randomPhrase[1] + "</code>!";
         var sentence = randomPhrase[0] + " your " + randomPhrase[1];
-        console.log(sentence);
         $("#sentence").html("<a href=\"http://www.google.com/search?q="+sentence+"\" target=\"_blank\">" + sentenceString + "</a>");
+
         if (clickCount > 2) {
             $("#explanation").html("Don't understand? Click on the sentence for an explanation.");
-            $("#explanation").fadeIn();
+            $("#explanation").fadeIn(700);
         }
     }
 
     $('#generate').on('click', function() {
 		generateString();
+        $("#sentence").show();
         clickCount++;
 	});
 

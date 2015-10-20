@@ -6,25 +6,32 @@ body {
     padding-top: 50px;
 }
 
-#title {
+h1 {
+    font-family: "Menlo";
     font-weight: bold;
-	font-size: 7vmin;
+	font-size: 4.8vw;
 }
 
-#subtitle {
-	font-size: 2vmin;
+h2 {
+    font-size: 2.6vw;
 }
 
-#sentence {
-	font-size: 4vmin;
+h3 {
+    font-size: 1.4vw;
 }
 
-#explanation {
-	font-size: 2vmin;
+section {
+    padding: 25px 0;
 }
 
-#container {
+section .section-heading {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
 
+section .section-space {
+    font-family: "Menlo";
+    padding: 25px 0;
 }
 
 a:link {
