@@ -7,6 +7,9 @@ Created for Vandyhacks
 <html>
 
 <head>
+    <style>
+        #level-btn { visibility: hidden; }
+    </style>
     <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'>
 	<link rel='stylesheet' href='../bower_components/font-awesome/css/font-awesome.min.css'>
 	<link rel="stylesheet" href="css/style.css" type="text/stylesheet" />
@@ -47,14 +50,14 @@ Created for Vandyhacks
 </header>
 
 <body>
-	<div id="sort" class='board'></div>
-	<div id="unsort" class='board'></div>
-	<div id="win">
-		<div id="score">Score: </div>
-		<div id="ng_con" class='game game-con'>
-			<button type='button' class='btn btn-primary'>Next Level</button>
-		</div>
-	</div>
+    <div class='container'>
+        <!--<div id='game-title' class='text-center'>Gradients: a simple color game</div>-->
+        <br>
+        <div id='level' class = 'text-center'></div><br>
+    	<div id="sort" class='board'></div>
+    	<div id="unsort" class='board'></div><br>
+        <div id='level-btn'><button type='button' class='btn btn-primary'>Next Level</button></div>
+    </div>
 </body>
 
 </html>

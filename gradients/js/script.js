@@ -13,8 +13,9 @@ $(document).ready(function() {
 	// Used to check players guess against actual
 	var playerGuess = [];
 	// Scores
-	var roundScore = 0;
+	var levelScore = 0;
 	var totalScore = 0;
+	var levelNumber = 1;
 
 	makeBoard();
 
@@ -66,25 +67,32 @@ $(document).ready(function() {
 			$("#"+i).css('background-color', deck[i]);
 		}
 
+		$("#level").html("Level: " + levelNumber);
+
 		$(".unsort").draggable();
 		$(".sort").droppable({
 			drop: function(event,ui,numberOfBlocks) {
-				// console.log(color)
-				// console.log($(this));
-				// console.log(color);
-				// console.log(color[($(this).attr('id') - 101)]);
+				console.log(color)
 				var rgb = $('#'+$(ui.draggable).attr('id')).css('background-color');
-				// console.log(toHex(rgb));
+				console.log(toHex(rgb));
 				if (color[($(this).attr('id') - 101)] == toHex($('#'+$(ui.draggable).attr('id')).css('background-color'))) {
+					levelScore++;
 					$(this).css('background-color',color[($(this).attr('id') - 101)]);
-					$(ui.draggable).fadeOut(300);
-					roundScore++;
-					if (roundScore == (unsortNumber)) {
+
+					//THE LINE BELOW CONTROLS THE PROBLEM OF SHIFTING UNSORT
+					$(ui.draggable).css('background-color','transparent');
+					//$(ui.draggable).css('z-index','-10'); // this doesn't work
+					//$(".unsort").draggable("cancel"); // this causes shfting in unsort
+					//$(ui.draggable).hide();
+
+					if (levelScore == (unsortNumber)) {
 						// console.log(unsortNumber);
-						$('#win').fadeIn(500);
+						//$('#level-btn').fadeIn(500);
+						$('#level-btn').css('visibility', 'visible');
+						$('#unsort').hide();
 						totalScore++;
-						roundScore = 0;
-						$("#score").html("<div id='score'>Level: " + totalScore + "</div>");
+						levelScore = 0;
+						levelNumber++;
 					}
 				} else {
 					$(ui.draggable).animate({'opacity':'0.9'},0);
@@ -108,22 +116,22 @@ $(document).ready(function() {
 		// var border = 5 - ((unsortNumber - 2) * 1.1);
 		var border = 5;
 		var boardWidth;
-		var tileS;
+		var tileSide;
 
-		// var tileS = ((boardWidth - border) / numberOfBlocks - border);
+		// var tileSide = ((boardWidth - border) / numberOfBlocks - border);
 
 		if (board == 'sort') {
 			// console.log(unsortNumber);
 			boardWidth = winX * 0.7;
-			tileS = ((boardWidth - border) / numberOfBlocks - border);
-			// console.log('sort: ' + tileS);
+			tileSide = ((boardWidth - border) / numberOfBlocks - border);
+			// console.log('sort: ' + tileSide);
 		} else if (board == 'unsort') {
 			boardWidth = winX * 0.7 / (unsortNumber + 2) * unsortNumber;
-			tileS = ((boardWidth - border) / numberOfBlocks - border);
-			// console.log('unsort: ' + tileS);
+			tileSide = ((boardWidth - border) / numberOfBlocks - border);
+			// console.log('unsort: ' + tileSide);
 		}
 
-		var boardHeight = (tileS + 2 * border); // double border
+		var boardHeight = (tileSide + 2 * border); // double border
 		var marginLeft = -boardWidth / 2;
 
 		$('#'+board).css( {
@@ -133,28 +141,27 @@ $(document).ready(function() {
 		});
 
 		$('.tile.'+board).css( {
-			"width": tileS,
-			"height": tileS,
+			"width": tileSide,
+			"height": tileSide,
 			"margin-left": border,
 			"margin-top": border,
 			"margin-bottom": border
 		});
+		//console.log(board);
 	}
 
+	// setInterval time = refresh time, make 0 for instantaneous
 	setInterval(function() {resize(numberOfBlocks, 'sort')}, 100);
 	setInterval(function() {resize(unsortNumber, 'unsort')}, 100);
 
 	/*
 	 * Extension of styles
 	*/
-	$('.game').mousedown(function(event) {
-		$(this).css('background-color','#2277ee');
-	});
-
-	$('.game').mouseup(function(event) {
-		$(this).css('background-color','#3388FF');
+	$('#level-btn').on('click', function() {
 		makeBoard();
-		$("#win").fadeOut(500);
+		$('#unsort').show();
+		$("#level").html("Level: " + levelNumber);
+		$('#level-btn').css('visibility', 'hidden');
 	});
 
 	/*
