@@ -47,7 +47,10 @@
         $('#status').text('Done! (' + duration + ' seconds)');
 
         // visualize scramble
-        $('#randomState').css('visibility', 'visible');
+        // $('#result').css('visibility', 'visible');
+        // $('#randomState').css('visibility', 'visible');
+        $('#randomState').show();
+        $('.result').hide();
         $('#scramble').on('click', generateScramble);
         $('#doAlg').on('click', doAlg);
         $('#genAlg').on('click', function() {
@@ -72,8 +75,8 @@
         $('#init').hide();
 
         // show algorithm textbox and button
-        $('#algText').css('visibility', 'visible');
-        $('#doAlg').css('visibility', 'visible');
+        $('.result').show();
+        $('#algText').show();
 
         // make a scramble
         Cube.asyncScramble(function(alg) {

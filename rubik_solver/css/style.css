@@ -47,9 +47,11 @@ body {
 }
 
 .resultFront {
+    height: 360px;
     width: 50%;
 }
 
 .resultBack {
+    height: 360px;
     flex-grow: 1;
 }
