@@ -63,7 +63,7 @@ body {
 	position: relative;
 	top: 10%;
 	left: 50%;
-	z-index: 0;
+	z-index: 1;
 	border-radius: 10px;
 }
 
@@ -78,20 +78,11 @@ body {
 
 #sort {
 	background-color: #CCC;
-	/*position: absolute;
-	vertical-align: middle;
-	border: none;
-    border-radius: 0px;*/
 }
-/*
+
 #unsort {
-	position: absolute;
-	top: 60%;
-	bottom: 0;
-	z-index: 3;
-	border: none;
-    border-radius: 0px;
-}*/
+
+}
 #game-title {
     font-family: 'Monoid Bold';
     font-size: 2vw;

@@ -1,4 +1,8 @@
 /* jshint -W004, -W033 */
+/* TO DO:
+ * - Make droppable work for collision, not centers
+ * - Find better way to display sort and unsort divs
+*/
 
 $(document).ready(function() {
 
@@ -27,7 +31,8 @@ $(document).ready(function() {
 		do {
 			var colorStop = [palette[randomInt(palette.length - 1)], palette[randomInt(palette.length - 1)]];
 			console.log(colorStop);
-		} while(colorStop[0] === colorStop[1]);
+			console.log($.xcolor.distance(colorStop[0], colorStop[1]));
+		} while($.xcolor.distance(colorStop[0], colorStop[1])<100);
 
 		color = [];
 
@@ -80,15 +85,16 @@ $(document).ready(function() {
 					$(this).css('background-color',color[($(this).attr('id') - 101)]);
 
 					//THE LINE BELOW CONTROLS THE PROBLEM OF SHIFTING UNSORT
-					$(ui.draggable).css('background-color','transparent');
-					//$(ui.draggable).css('z-index','-10'); // this doesn't work
-					//$(".unsort").draggable("cancel"); // this causes shfting in unsort
-					//$(ui.draggable).hide();
+					//console.log($(ui.draggable).attr('id'));
+					$(ui.draggable).css('visibility', 'hidden');
+					//$(ui.draggable).css('z-index','-10'); // doesn't work
+					//$(ui.draggable).hide(); // causes shifting in unsort
 
 					if (levelScore == (unsortNumber)) {
 						// console.log(unsortNumber);
 						//$('#level-btn').fadeIn(500);
 						$('#level-btn').css('visibility', 'visible');
+						$('#space').hide();
 						$('#unsort').hide();
 						totalScore++;
 						levelScore = 0;
@@ -159,10 +165,29 @@ $(document).ready(function() {
 	*/
 	$('#level-btn').on('click', function() {
 		makeBoard();
+		$('#space').show();
 		$('#unsort').show();
 		$("#level").html("Level: " + levelNumber);
 		$('#level-btn').css('visibility', 'hidden');
 	});
+
+	function collision($div1, $div2) {
+      var x1 = $div1.offset().left;
+      var y1 = $div1.offset().top;
+      var h1 = $div1.outerHeight(true);
+      var w1 = $div1.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $div2.offset().left;
+      var y2 = $div2.offset().top;
+      var h2 = $div2.outerHeight(true);
+      var w2 = $div2.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+    }
 
 	/*
 	 * Fischer-Yates shuffle
