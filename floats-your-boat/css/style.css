@@ -1,0 +1,32 @@
+body, header {
+    font-family: 'Monoid Regular';
+}
+
+body {
+    padding-top: 50px;
+}
+
+#title {
+    font-family: 'Monoid Bold';
+	font-size: 7vmin;
+}
+
+#subtitle {
+	font-size: 2vmin;
+}
+
+#sentence {
+	font-size: 3vmin;
+}
+
+#container {
+
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
