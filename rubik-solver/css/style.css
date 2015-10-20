@@ -1,0 +1,34 @@
+body, header {
+    font-family: 'Monoid Regular';
+}
+
+body {
+    padding-top: 50px;
+}
+
+#status {
+    font-size: 20px;
+}
+
+.randomState {
+
+}
+
+.resultText {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.result {
+    display: flex;
+}
+
+.resultFront {
+    height: 360px;
+    width: 50%;
+}
+
+.resultBack {
+    height: 360px;
+    flex-grow: 1;
+}
