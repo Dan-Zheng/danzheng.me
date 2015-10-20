@@ -63,9 +63,10 @@ $(document).ready(function() {
         var sentenceString = "Hey, whatever <code>" + randomPhrase[0] + "</code> your <code>" + randomPhrase[1] + "</code>!";
         var sentence = randomPhrase[0] + " your " + randomPhrase[1];
         console.log(sentence);
-        $("#sentence").html("<a href=\"http://www.google.com/search?q="+sentence+"\">" + sentenceString + "</a>");
+        $("#sentence").html("<a href=\"http://www.google.com/search?q="+sentence+"\" target=\"_blank\">" + sentenceString + "</a>");
         if (clickCount > 2) {
             $("#explanation").html("Don't understand? Click on the sentence for an explanation.");
+            $("#explanation").fadeIn();
         }
     }
 

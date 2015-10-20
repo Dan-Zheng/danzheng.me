@@ -62,7 +62,7 @@ $(document).ready(function() {
 			var colorStop = [palette[randomInt(palette.length - 1)], palette[randomInt(palette.length - 1)]];
 			console.log(colorStop);
 			console.log($.xcolor.distance(colorStop[0], colorStop[1]));
-		} while($.xcolor.distance(colorStop[0], colorStop[1])<130);
+		} while($.xcolor.distance(colorStop[0], colorStop[1]) < 130);
 
 		color = [];
 
@@ -108,8 +108,8 @@ $(document).ready(function() {
 		$(".sort").droppable({
 			drop: function(event,ui,numberOfBlocks) {
 				console.log(color)
-				var rgb = $('#'+$(ui.draggable).attr('id')).css('background-color');
-				console.log(toHex(rgb));
+				//var rgb = $('#'+$(ui.draggable).attr('id')).css('background-color');
+				//console.log(toHex(rgb));
 				if (color[($(this).attr('id') - 101)] == toHex($('#'+$(ui.draggable).attr('id')).css('background-color'))) {
 					levelScore++;
 					$(this).css('background-color',color[($(this).attr('id') - 101)]);
@@ -121,10 +121,12 @@ $(document).ready(function() {
 					//$(ui.draggable).hide(); // causes shifting in unsort
 
 					if (levelScore == (unsortNumber)) {
+						$('#level-win').hide();
 			            $('#win-message').html(messagesGood.randomElement());
-						$('#level-btn').css('visibility', 'visible');
+						//$('#win-message').css('visibility', 'visible');
+						//$('#level-btn').css('visibility', 'visible');
 						$('#level-btn').show();
-						$('#win-message').css('visibility', 'visible');
+						$('#level-win').fadeIn();
 						$('.space-show').hide();
 						$('.space-hide').show();
 						$('#unsort').hide();
@@ -133,14 +135,15 @@ $(document).ready(function() {
 						levelNumber++;
 					}
 				} else {
-					$('#win-message').html(messagesBad.randomElement());
-					$('#win-message').css('visibility', 'visible');
 					$(ui.draggable).animate({'opacity':'0.9'},0);
-					$(ui.draggable).animate({'top':'-=20'},40);
-					$(ui.draggable).animate({'top':'+=20'},40);
-					$(ui.draggable).animate({'top':'-=20'},40);
-					$(ui.draggable).animate({'top':'+=20'},40);
+					$(ui.draggable).animate({'top':'-=15'},40);
+					$(ui.draggable).animate({'top':'+=15'},40);
+					$(ui.draggable).animate({'top':'-=15'},40);
+					$(ui.draggable).animate({'top':'+=15'},40);
 					$(ui.draggable).animate({'opacity':'1'},0);
+					$('#level-btn').hide();
+					$('#win-message').html(messagesBad.randomElement());
+					$('#level-win').show();
 				}
 			}
 		});
@@ -160,9 +163,7 @@ $(document).ready(function() {
 
 		// console.log('winX' + winX);
 		// console.log('winY' + winY);
-
-		// var tileSide = ((boardWidth - border) / numberOfBlocks - border);
-
+		
 		if (winX < winY) {
 			//console.log('case 1 x < y')
 			boardWidth = winX * 0.9;
@@ -209,9 +210,9 @@ $(document).ready(function() {
 		$('.space-hide').hide();
 		$('#unsort').show();
 		$("#level").html("Level: " + levelNumber);
-		$('#level-btn').css('visibility', 'hidden');
-		$('#level-btn').hide();
-		$('#win-message').css('visibility', 'hidden');
+		$('#level-win').hide();
+		//$('#level-btn').css('visibility', 'hidden');
+		//$('#win-message').css('visibility', 'hidden');
 	});
 
 	function collision($div1, $div2) {

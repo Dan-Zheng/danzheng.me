@@ -27,6 +27,21 @@ body {
 
 }
 
+a:link {
+
+}
+a:visited {
+    color: #9c2f6f;
+}
+a:hover {
+    color: #275882;
+    text-decoration: underline;
+}
+a:active {
+    color: #3e8bcf;
+    text-decoration: underline;
+}
+
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
   min-height: 100vh; /* These two lines are counted as one :-)       */
