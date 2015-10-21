@@ -9,6 +9,14 @@ body {
 #status {
     font-size: 20px;
 }
+#main {
+    padding: 25px 0;
+}
+
+.module {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
 
 .randomState {
 
@@ -20,15 +28,14 @@ body {
 }
 
 .result {
+    height: 320px;
     display: flex;
 }
 
 .resultFront {
-    height: 360px;
     width: 50%;
 }
 
 .resultBack {
-    height: 360px;
     flex-grow: 1;
 }

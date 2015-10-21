@@ -62,17 +62,17 @@
 </header>
 
 <body>
-    <div class='container'>
-        <div id='init'><br><div class='center-block text-center' id='status'></div><br></div>
+    <div class='container' id='main'>
+        <div class='center-block text-center module' id='status'></div>
         <div class='text-center' id='randomState'>
-            <div class='resultText'></div>
+            <div class='resultText module'></div>
             <div class='result'>
                 <div class='resultFront'></div>
                 <div class='resultBack'></div>
             </div>
-            <span id='scramble'>
-                <button type='button' class='btn btn-primary'>Scramble</button><br><br>
-            </span>
+            <div class='module' id='scramble'>
+                <button type='button' class='btn btn-primary'>Scramble</button>
+            </div>
             <div class='text-center' id='algText'>
                 <div class='input-group col-md-8 col-md-offset-2'>
                     <input type='text' id="algInput" class='form-control' placeholder='Enter algorithm here:' value=''>

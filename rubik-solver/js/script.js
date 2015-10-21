@@ -72,7 +72,7 @@
 
     var generateScramble = function() {
         // hide status
-        $('#init').hide();
+        $('#status').hide();
 
         // show algorithm textbox and button
         $('.result').css({"display":"flex"});
@@ -94,9 +94,9 @@
         var algSpaceless = alg.replace(/\s+/g, ''); // remove spaces
         var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&bg=t&alg=" + algSpaceless;
         var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
-        $('#randomState .resultText').html("<br><b>" + alg + "</b>");
-        $('#randomState .resultFront').html("<br>(Front view):<br><img src=\"" + urlOne + "\">" + "<br>");
-        $('#randomState .resultBack').html("<br>(Back view):<br><img src=\"" + urlTwo + "\">" + "<br><br>");
+        $('#randomState .resultText').html("<b>" + alg + "</b>");
+        $('#randomState .resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
+        $('#randomState .resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
     };
 
     var formatString = function(algString) {
