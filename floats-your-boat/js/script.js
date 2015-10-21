@@ -63,7 +63,7 @@ $(document).ready(function() {
             minOpacity = 0.2;
 
         for (var i = 0; i < numberOfSentences; i++) {
-			$("#sentence-display").append($("<h2 class='section-text' id='sentence" + i + "' style='display: none;'></h2>"));
+			$("#sentence-display").append($("<h3 class='section-text' id='sentence" + i + "' style='display: none;'></h3>"));
             var temp = maxOpacity - i / (numberOfSentences - 1) * (maxOpacity - minOpacity)
             console.log("#sentence" + i + " opacity: " + temp);
 			$('#sentence' + i).animate({'opacity': temp},1200);
