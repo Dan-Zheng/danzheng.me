@@ -1,2 +1,2 @@
 # [happy-libs](http://danzheng.me/happy-libs)
-A simple happy-libs generator.
+A simple mad-libs generator.
