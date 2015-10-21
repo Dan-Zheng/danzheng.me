@@ -9,15 +9,15 @@ body {
 
 h1 {
     font-weight: bold;
-	font-size: 4.4vw;
+	font-size: 64px;
 }
 
 h2 {
-    font-size: 1.8vw;
+    font-size: 28px;
 }
 
 h3 {
-    font-size: 1.4vw;
+    font-size: 22px;
 }
 
 section {
@@ -72,7 +72,7 @@ a:active {
 #sentence-display {
     text-align: left;
     font-family: monospace, monospace;
-    padding: 1% 0;
+    /*padding: 1% 0;*/
 }
 
 .vertical-center {
