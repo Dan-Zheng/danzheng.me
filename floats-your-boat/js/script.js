@@ -97,15 +97,15 @@ $(document).ready(function() {
             $("#explanation").html("Don't understand? Click on a sentence for its explanation.");
             $("#explanation").fadeIn(700);
         }
-        if (clickCount > 100) {
+        if (clickCount >= 100) {
             $("#sentence-counter").append(" That's too many.");
-        } else if (clickCount > 80) {
+        } else if (clickCount >= 80) {
             $("#sentence-counter").append(" That's a lot.");
-        } else if (clickCount > 60) {
+        } else if (clickCount >= 60) {
             $("#sentence-counter").append(" Woah.");
-        } else if (clickCount > 40) {
+        } else if (clickCount >= 40) {
             $("#sentence-counter").append(" Gosh.");
-        } else if (clickCount > 20) {
+        } else if (clickCount >= 20) {
             $("#sentence-counter").append(" Wow.");
         }
     }
