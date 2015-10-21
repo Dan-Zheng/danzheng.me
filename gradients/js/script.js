@@ -75,7 +75,7 @@ $(document).ready(function() {
 
 		for (var i = 0; i < unsortNumber; i++) {
 			$("#unsort").append($("<div class='unsort tile' id='" + i + "'></div>"));
-			$('#' + i).animate({'opacity': 0.8},1200);
+			$('#' + i).animate({'opacity': 0.8},500);
 		}
 
 		for (var i = 0; i < (numberOfBlocks); i++) {
@@ -163,7 +163,7 @@ $(document).ready(function() {
 
 		// console.log('winX' + winX);
 		// console.log('winY' + winY);
-		
+
 		if (winX < winY) {
 			//console.log('case 1 x < y')
 			boardWidth = winX * 0.9;

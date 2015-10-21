@@ -11,6 +11,7 @@
 
 $(document).ready(function() {
 
+    var numberOfSentences = 5;
     var randomPhrase;
     var clickCount = 0;
     var stringList = [["steams", "clams"],
@@ -50,14 +51,23 @@ $(document).ready(function() {
         ["battens", "down hatches"]
     ];
 
-    //init();
-    //generateString();
-
+    makeSentences();
     function init() {
         // console.log($("#sentence-display").height());
         // $(".pre-scrollable").css("height:",$(".section-space").height());
         // console.log($("#sentence").height());
+    }
 
+    function makeSentences() {
+        var maxOpacity = 1.0,
+            minOpacity = 0.2;
+
+        for (var i = 0; i < numberOfSentences; i++) {
+			$("#sentence-display").append($("<h2 class='section-text' id='sentence" + i + "' style='display: none;'></h2>"));
+            var temp = maxOpacity - i / (numberOfSentences - 1) * (maxOpacity - minOpacity)
+            console.log("#sentence" + i + " opacity: " + temp);
+			$('#sentence' + i).animate({'opacity': temp},1200);
+		}
     }
 
 	function generateString() {
@@ -70,20 +80,19 @@ $(document).ready(function() {
 
         var sentenceString = "Hey, whatever <code>" + randomPhrase[0] + "</code> your <code>" + randomPhrase[1] + "</code>!";
         var sentence = randomPhrase[0] + " your " + randomPhrase[1];
-        $("#sentence").html("<a href=\"http://www.google.com/search?q="+sentence+"\" target=\"_blank\">" + sentenceString + "</a>");
+        $("#sentence0").html("<a href=\"http://www.google.com/search?q="+sentence+"\" target=\"_blank\">" + sentenceString + "</a>");
 
         if (clickCount === 1) {
             $("#sentence-counter").html(clickCount + " sentence generated.");
         } else {
             $("#sentence-counter").html(clickCount + " sentences generated.");
         }
-        if (clickCount >= 2) {
-            $("#sentence2").show();
+        for (var j = 0; j < numberOfSentences; j++) {
+            if (clickCount >= j) {
+                $("#sentence" + j).show();
+            }
         }
-        if (clickCount >= 3) {
-            $("#sentence3").show();
-        }
-        if (clickCount > 3) {
+        if (clickCount > numberOfSentences) {
             $("#explanation").html("Don't understand? Click on a sentence for its explanation.");
             $("#explanation").fadeIn(700);
         }
@@ -101,8 +110,9 @@ $(document).ready(function() {
     }
 
     function shiftString() {
-        $("#sentence3").html($("#sentence2").html());
-        $("#sentence2").html($("#sentence").html());
+        for (var k = numberOfSentences - 1; k >= 1; k--) {
+            $("#sentence" + k).html($("#sentence" + (k-1)).html());
+        }
     }
 
     $('#generate').on('click', function() {
