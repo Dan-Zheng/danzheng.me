@@ -75,7 +75,7 @@
         $('#init').hide();
 
         // show algorithm textbox and button
-        $('.result').show();
+        $('.result').css({"display":"flex"});
         $('#algText').show();
 
         // make a scramble
