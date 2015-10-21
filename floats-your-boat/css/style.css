@@ -15,7 +15,10 @@ h2 {
 h3 {
     font-size: 1em;
 }
-
+.row {
+    margin-left: auto;
+    margin-right: auto;
+}
 #main {
     padding: 25px 0;
 }
@@ -42,6 +45,8 @@ h3 {
 
 @media (min-width: 768px) {
     .container {
+        padding-right: 0px;
+        padding-left: 0px;
         width: 750px;
     }
     h1 {
