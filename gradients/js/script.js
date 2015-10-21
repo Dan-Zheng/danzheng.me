@@ -1,6 +1,7 @@
-/* jshint -W004, -W033 */
+/* jshint -W004, -W033, -W069 */
 /*
 	TO DO:
+	- Add jquery-pep somehow (problem with position: absolute interaction with position: relative)
 	- Make droppable work for collision, not centers
 	- Add point system/timing system for more fun (must finish level in given time or lose, give option to restart)
 	- Fix sort/unsort position (problem with jQuery height, might not represent actual viewport)
@@ -50,9 +51,6 @@ $(document).ready(function() {
 	var totalScore = 0;
 	var levelNumber = 1;
 
-	// enable mobile functionality using jquery.pep.js
-	$('#sort').pep();
-	$('#unsort').pep();
 	makeBoard();
 
 	function makeBoard(colorStop) {
@@ -81,12 +79,12 @@ $(document).ready(function() {
 			$('#' + i).animate({'opacity': 0.8},500);
 		}
 
-		for (var i = 0; i < (numberOfBlocks); i++) {
+		for (var i = 0; i < numberOfBlocks; i++) {
 			$("#sort").append("<div class='sort tile drop' id='" + (i + 100) + "'></div>");
 			$('#' + (100 + i)).animate({'opacity': 1},500);
 		}
 
-		for (var i = 1; i <= (unsortNumber); i++) {
+		for (var i = 1; i <= unsortNumber; i++) {
 			color.push($.xcolor.gradientlevel(colorStop[0], colorStop[1], i, numberOfBlocks).getHex());
 		}
 
@@ -101,11 +99,38 @@ $(document).ready(function() {
 		var deck = shuffle(color);
 		color = tempColor;
 
-		for (var i = 0; i < (unsortNumber); i++) {
+		for (var i = 0; i < unsortNumber; i++) {
 			$("#"+i).css('background-color', deck[i]);
 		}
 
 		$("#level").html("Level: " + levelNumber);
+
+		function asdf() {
+			var $win = $('#game-container');
+			var top = $win.offset()['top'];
+			var left = $win.offset()['left'];
+            var right = $win.offset()['left'] + $win.width();
+            var bottom = $win.offset()['top'] + $win.height();
+            return [top, right, bottom, left];
+		}
+
+		function alskdfj() {
+			console.log($("#myTable").offset().top);
+		}
+
+		// enable mobile functionality using jquery.pep.js
+		/*
+		for (var i = 0; i < unsortNumber; i++) {
+			var $win = $('#game-container');
+			var top = $win.offset()['top'];
+			console.log(top);
+			$('#'+i).pep({
+				droppable: '#sort',
+				//constrainTo: ['top', 'right', 'bottom', 'left'],
+				useCSSTranslation: false,
+				constrainTo: 'window'
+			});
+		}*/
 
 		$(".unsort").draggable();
 		$(".sort").droppable({
@@ -130,8 +155,6 @@ $(document).ready(function() {
 						//$('#level-btn').css('visibility', 'visible');
 						$('#level-btn').show();
 						$('#level-win').fadeIn();
-						$('.space-show').hide();
-						$('.space-hide').show();
 						$('#unsort').hide();
 						totalScore++;
 						levelScore = 0;
@@ -151,9 +174,21 @@ $(document).ready(function() {
 			}
 		});
 	}
+	function Pep(el, options) {
+
+	    // reference to our DOM object
+	    // and it's jQuery equivalent.
+	    this.el = el;
+	    this.$el = $(el);
+
+	    // store document/window so we don't need to keep grabbing them
+	    // throughout the code
+	    this.$document = $(this.$el[0].ownerDocument);
+	    this.$window = $(window);
+	}
 
 	/*
-	 * CSS stuff (position)
+	 * CSS positioning
 	*/
 	function resize(numberOfBlocks, board){
 		var winY = $(window).height();
@@ -209,8 +244,6 @@ $(document).ready(function() {
 
 	$('#level-btn').on('click', function() {
 		makeBoard();
-		$('.space-show').show();
-		$('.space-hide').hide();
 		$('#unsort').show();
 		$("#level").html("Level: " + levelNumber);
 		$('#level-win').hide();

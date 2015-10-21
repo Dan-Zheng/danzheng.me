@@ -16,6 +16,15 @@ body {
     overflow-y:hidden;
 }
 
+#main {
+    padding: 25px 0;
+}
+
+.module {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
 .board {
 	position: relative;
 	top: 10%;

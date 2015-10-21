@@ -13,8 +13,6 @@ Created for Vandyhacks
     <link rel="shortcut icon" href='../code.ico'/>
     <style>
         #level-win { display: none; }
-        .space-show { visibility: hidden; }
-        .space-hide { visibility: hidden; }
     </style>
     <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'>
 	<link rel='stylesheet' href='../bower_components/font-awesome/css/font-awesome.min.css'>
@@ -65,18 +63,13 @@ Created for Vandyhacks
 </header>
 
 <body>
-    <div class='container'>
+    <div class='container' id='main'>
         <!--<div id='game-title' class='text-center'>Gradients: a simple color game</div>-->
-        <br>
-        <div id='level' class = 'text-center'></div><br>
-    	<div id="sort" class='board'></div>
-        <div class='space-show'><br></div>
-    	<div id="unsort" class='board'></div>
-        <div class='space-hide'><br></div>
+        <div class = 'module text-center' id='level'></div>
+    	<div class='board module' id="sort"></div>
+    	<div id="unsort" class='board module'></div>
         <div id='level-win'>
-            <div class='space-show'><br></div>
-            <div id='level-btn'><button type='button' class='btn btn-primary'>Next Level</button></div>
-            <div class='space-hide'><br></div>
+            <div id='level-btn' class='module'><button type='button' class='btn btn-primary'>Next Level</button></div>
             <div id='win-message'></div>
         </div>
     </div>
