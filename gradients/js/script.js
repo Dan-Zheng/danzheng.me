@@ -50,6 +50,9 @@ $(document).ready(function() {
 	var totalScore = 0;
 	var levelNumber = 1;
 
+	// enable mobile functionality using jquery.pep.js
+	$('#sort').pep();
+	$('#unsort').pep();
 	makeBoard();
 
 	function makeBoard(colorStop) {

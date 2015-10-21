@@ -52,6 +52,7 @@ $(document).ready(function() {
     ];
 
     makeSentences();
+
     function init() {
         // console.log($("#sentence-display").height());
         // $(".pre-scrollable").css("height:",$(".section-space").height());
