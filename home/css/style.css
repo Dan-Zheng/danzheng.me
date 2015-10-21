@@ -1,8 +1,9 @@
-body, header {
+header {
     font-family: 'Monoid Regular';
 }
 
 body {
+    font-family: monospace, monospace;
     padding-top: 50px;
 }
 
