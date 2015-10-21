@@ -51,15 +51,9 @@ $(document).ready(function() {
         ["battens", "down hatches"]
     ];
 
-    makeSentences();
+    init();
 
     function init() {
-        // console.log($("#sentence-display").height());
-        // $(".pre-scrollable").css("height:",$(".section-space").height());
-        // console.log($("#sentence").height());
-    }
-
-    function makeSentences() {
         var maxOpacity = 1.0,
             minOpacity = 0.2;
 
@@ -69,6 +63,12 @@ $(document).ready(function() {
             console.log("#sentence" + i + " opacity: " + temp);
 			$('#sentence' + i).animate({'opacity': temp},1200);
 		}
+
+        var sentenceString = "Hey, whatever <code>floats</code> your <code>boat</code>!";
+        var sentence = "whatever floats your boat";
+        $("#sentence0").html("<a href=\"http://www.google.com/search?q="+sentence+"\" target=\"_blank\">" + sentenceString + "</a>");
+        $("#sentence-display").show();
+        $("#sentence0").show();
     }
 
 	function generateString() {
@@ -118,7 +118,7 @@ $(document).ready(function() {
 
     $('#generate').on('click', function() {
         clickCount++;
-        $("#sentence-display").show();
+        //$("#sentence-display").show();
         shiftString();
 		generateString();
         $("#sentence").show();
