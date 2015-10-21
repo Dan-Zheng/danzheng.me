@@ -111,14 +111,15 @@ a:link {
 a:visited {
     color: #9c2f6f;
 }
-a:hover {
+a:hover, a:active {
     color: #275882;
     text-decoration: underline;
 }
+/*
 a:active {
     color: #3e8bcf;
     text-decoration: underline;
-}
+}*/
 
 .vertical-center {
   min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
