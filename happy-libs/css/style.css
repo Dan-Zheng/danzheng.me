@@ -1,0 +1,130 @@
+header {
+    font-family: 'Monoid Regular';
+}
+body {
+    font-family: monospace;
+    padding-top: 50px;
+}
+h1 {
+    font-weight: bold;
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.2em;
+}
+h3 {
+    font-size: 1em;
+}
+
+#main {
+    padding: 25px 0;
+}
+#sentence2 {
+    opacity: 0.4;
+}
+#sentence3 {
+    opacity: 0.3;
+}
+#sentence-display {
+    margin-left: 10%;
+    text-align: left;
+    font-family: monospace, monospace;
+}
+
+.section-module {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+.section-text {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+    h1 {
+    	font-size: 4em;
+    }
+    h2 {
+        font-size: 1.75em;
+    }
+    h3 {
+        font-size: 1.35em;
+    }
+    #sentence-display {
+        margin-left: 0;
+        /*padding: 1% 0;*/
+    }
+}
+@media (min-width: 880px) {
+    .container {
+        width: 860px;
+    }
+    h1 {
+    	font-size: 4.5em;
+    }
+    h2 {
+        font-size: 1.75em;
+    }
+    h3 {
+        font-size: 1.6em;
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+    h1 {
+        font-weight: bold;
+    	font-size: 5em;
+    }
+    h2 {
+        font-size: 1.75em;
+    }
+    h3 {
+        font-size: 1.8em;
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/*
+a:link {
+    color: #8ed3f3;
+}
+a:visited {
+
+}
+a:hover, a:active {
+    color: #b9dded;
+    text-decoration: underline;
+}*/
+
+a:link {
+
+}
+a:visited {
+    color: #9c2f6f;
+}
+a:hover, a:active {
+    color: #275882;
+    text-decoration: underline;
+}
+/*
+a:active {
+    color: #3e8bcf;
+    text-decoration: underline;
+}*/
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
