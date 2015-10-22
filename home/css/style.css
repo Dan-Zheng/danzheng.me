@@ -3,21 +3,66 @@ header {
 }
 
 body {
-    font-family: monospace;
+    /*font-family: 'Monoid Regular';*/
+    font-family: 'Roboto';
     padding-top: 50px;
 }
 
-h1 {
+#main {
+
+}
+
+.jumbotron {
+    padding: 10px 0;
+}
+
+.jumbotron h1 {
     font-weight: bold;
+    font-size: 3.6em;
+}
+
+.jumbotron p {
+    font-size: 1.3em;
+}
+
+@media (min-width: 768px) {
+    .jumbotron {
+        padding: 25px 0;
+    }
+    .jumbotron h1 {
+    	font-size: 6em;
+    }
+    .jumptron p {
+        font-size: 1.8em;
+    }
+}
+
+@media (min-width: 992px) {
+    .jumbotron h1 {
+    	font-size: 7em;
+    }
+    .jumptron p {
+        font-size: 2.1em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .jumbotron h1 {
+    	font-size: 8em;
+    }
+    .jumptron p {
+        font-size: 2.4em;
+    }
+}
+
+#subtitle {
+    margin-bottom: 0px;
 }
 
 #liga {
     font-size: 16px;
 }
 
-.jumbotron {
-    padding: 25px 0;
-}
 .noselect {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
