@@ -1,3 +1,7 @@
+*:not(button) {
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-feature-settings: "liga" on, "calt" on;
+}
 .navbar-inverse {
   background-color: #242424;
   border-color: #080808;
