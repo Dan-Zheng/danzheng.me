@@ -4,7 +4,7 @@ header {
 
 body {
     /*font-family: 'Monoid Regular';*/
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     padding-top: 50px;
 }
 
