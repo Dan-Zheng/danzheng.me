@@ -74,7 +74,7 @@ $(document).ready(function() {
         $('.alg-button').on('click', function() {
             //var move = $(this).html();
             var move = this.value;
-            var newAlg = formatString($('#resultText').html() + move);
+            var newAlg = formatString(lastAlgorithm + move);
             makeImage(move, false);
         });
     };
@@ -90,7 +90,8 @@ $(document).ready(function() {
 
         // make a scramble
         Cube.asyncScramble(function(alg) {
-            lastAlgorithm = alg;
+            lastAlgorithm = String(alg);
+            console.log(lastAlgorithm);
             makeImage(lastAlgorithm, true);
         });
     };
@@ -104,11 +105,10 @@ $(document).ready(function() {
 
     var makeImage = function(alg, changeResultText) {
         var algSpaceless = lastAlgorithm.replace(/\s+/g, ''); // remove spaces
-        console.log(algSpaceless);
         if (changeResultText) {
             $('#lastMoves').hide();
             $('#lastMoves').html('Moves: ');
-            $('#resultText').html(lastAlgorithm);
+            setLastResultText();
         } else {
             $('#lastMoves').show();
             $('#lastMoves').append(alg + ' ');
@@ -146,6 +146,10 @@ $(document).ready(function() {
             }
         }
         return result;
+    };
+
+    var setLastResultText = function() {
+        $('#resultText').html("Last Algorithm: " + String(lastAlgorithm));
     };
 
     Array.prototype.randomElement = function () {
