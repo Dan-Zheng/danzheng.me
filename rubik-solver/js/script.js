@@ -117,7 +117,7 @@ $(document).ready(function() {
         }
         console.log(algSpaceless);
         var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
-        var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
+        var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x-34&alg=" + algSpaceless;
         //var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
         //var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
 
