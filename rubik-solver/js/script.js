@@ -6,6 +6,7 @@
 
 $(document).ready(function() {
     var start, progressHandle;
+    var lastAlgorithm;
 
     var cubeTest = function() {
         var cube = new Cube();
@@ -73,15 +74,8 @@ $(document).ready(function() {
         $('.alg-button').on('click', function() {
             //var move = $(this).html();
             var move = this.value;
-            var newAlg = formatString($('#resultText').html() + move);
-            //var newAlg = formatString($('#resultText').append\\(move));
-            console.log(newAlg);
-            makeImage(newAlg);
-            //makeImage(newAlg);
-            //$('#resultText').append(move);
             //var newAlg = formatString($('#resultText').html() + move);
-            //$('#resultText').append(move);
-            //console.log(newResultText);
+            makeImage(move, false);
         });
     };
 
@@ -96,36 +90,40 @@ $(document).ready(function() {
 
         // make a scramble
         Cube.asyncScramble(function(alg) {
-            makeImage(alg);
+            makeImage(alg, true);
         });
     };
 
     var doAlg = function() {
         // perform moves in the move box
         var alg = formatString($('#algInput')[0].value);
-        makeImage(alg);
+        makeImage(alg, true);
     };
 
-    var makeImage = function(alg) {
-        alg = String(alg);
-        console.log(alg);
+    var makeImage = function(alg, changeResultText) {
         var algSpaceless = alg.replace(/\s+/g, ''); // remove spaces
         console.log(algSpaceless);
         var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
         var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
         //var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
         //var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
-        $('#resultText').html(alg);
+        if (changeResultText) {
+            $('#lastMoves').hide();
+            $('#lastMoves').html('Moves: ');
+            $('#resultText').html(alg);
+        } else {
+            $('#lastMoves').show();
+            $('#lastMoves').append(alg + ' ');
+        }
         $('#resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
         $('#resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
     };
 
-    var formatString = function(alg) {
+    var formatString = function(algString) {
         var result = '';
         var moveBasic = ['U', 'D', 'F', 'B', 'L', 'R', 'u', 'd', 'f', 'b', 'l', 'r'];
         var moveModify = ['2', '\''];
 
-        algString = String(alg);
         algString = algString.replace(/\s+/g, ''); // remove spaces
         algString = algString.replace(/\u2019+/g, '\''); // replace utf8 right quotation with ASCII quotation
 

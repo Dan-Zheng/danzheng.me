@@ -19,7 +19,6 @@ body {
     font-weight: bold;
     font-size: 22px;
 }
-
 #result {
     height: 320px;
     display: flex;
@@ -31,6 +30,9 @@ body {
 
 #resultBack {
     flex-grow: 1;
+}
+#lastMoves {
+    font-size: 16px;
 }
 
 .module {

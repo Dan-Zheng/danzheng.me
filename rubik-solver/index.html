@@ -16,6 +16,7 @@
         #randomState { display: none; }
         #algText { display: none; }
         #algMoves { display: none; }
+        #lastMoves { display: none; }
     </style>
 
     <script src='../bower_components/jquery/dist/jquery.min.js'></script>
@@ -64,7 +65,7 @@
 
 <body>
     <div class='container' id='main'>
-        <div class='center-block text-center module' id='status'></div>
+        <div class='module text-center' id='status'></div>
         <div class='text-center' id='randomState'>
             <div class='module' id='resultText'></div>
             <div class='noselect' id='result'>
@@ -85,7 +86,7 @@
                     </span>
                 </div>
             </div>
-            <div class='text-center noselect' role='toolbar' id='algMoves'>
+            <div class='module text-center noselect' role='toolbar' id='algMoves'>
                 <div class='btn-group text-center' role='group' id='algTranslate'>
                     <button type='button' class='btn btn-primary alg-button' value='U'>U</button>
                     <button type='button' class='btn btn-primary alg-button' value='U&#39;'>U'</button>
@@ -110,6 +111,7 @@
                 </div>
             </div>
         </div>
+        <div class='module text-center' id='lastMoves'>Moves: </div>
     </div>
 </body>
 
