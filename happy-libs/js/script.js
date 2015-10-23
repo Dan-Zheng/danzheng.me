@@ -11,7 +11,7 @@
 
 $(document).ready(function() {
 
-    var numberOfSentences = 1;
+    var numberOfSentences = 3;
     var randomPhrase;
     var clickCount = 0;
     var stringList = ["alpha",
