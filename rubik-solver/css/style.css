@@ -12,6 +12,26 @@ body {
 #main {
     padding: 25px 0;
 }
+#algMoves {
+
+}
+#resultText {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+#result {
+    height: 320px;
+    display: flex;
+}
+
+#resultFront {
+    width: 50%;
+}
+
+#resultBack {
+    flex-grow: 1;
+}
 
 .module {
     margin-top: 0;
@@ -20,24 +40,6 @@ body {
 
 .randomState {
 
-}
-
-.resultText {
-    font-weight: bold;
-    font-size: 22px;
-}
-
-.result {
-    height: 320px;
-    display: flex;
-}
-
-.resultFront {
-    width: 50%;
-}
-
-.resultBack {
-    flex-grow: 1;
 }
 
 .noselect {
