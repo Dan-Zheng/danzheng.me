@@ -7,6 +7,7 @@
 $(document).ready(function() {
     var start, progressHandle;
     var lastAlgorithm;
+    var lastMove;
 
     var cubeTest = function() {
         var cube = new Cube();
@@ -103,17 +104,31 @@ $(document).ready(function() {
         makeImage(lastAlgorithm, true);
     };
 
-    var makeImage = function(alg, changeResultText) {
+    var makeImage = function(move, changeResultText) {
         var algSpaceless = lastAlgorithm.replace(/\s+/g, ''); // remove spaces
         if (changeResultText) {
             $('#lastMoves').hide();
             $('#lastMoves').html('Moves: ');
             setLastResultText();
         } else {
+            console.log(move);
+            console.log($('#lastMoves').html().slice(-(move.length+1)));
+            console.log($('#lastMoves').html().slice(-1));
+            // CHECK MORE CONDITIONS
+            // U U'
+            // U2 U2
+            if (move === $('#lastMoves').html().slice(-(move.length+1),-1) && $('#lastMoves').html().slice(-1) != '2') {
+                console.log("true");
+                var baseMove = move[0] + '2 ';
+                var newText = $('#lastMoves').html().slice(0, -(move.length+1)) + baseMove;
+                $('#lastMoves').html(newText);
+            } else {
+                $('#lastMoves').append(move + ' ');
+            }
             $('#lastMoves').show();
-            $('#lastMoves').append(alg + ' ');
-            lastAlgorithm = lastAlgorithm + ' ' + alg;
+            lastAlgorithm = lastAlgorithm + ' ' + move;
             algSpaceless = lastAlgorithm.replace(/\s+/g, '');
+            lastMove = move;
         }
         console.log(algSpaceless);
         var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
