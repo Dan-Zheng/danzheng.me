@@ -4,20 +4,21 @@
  * TO DO: FIND A WAY TO DUMP PHP IMAGES
  */
 
-(function() {
+$(document).ready(function() {
     var start, progressHandle;
 
     var cubeTest = function() {
         var cube = new Cube();
         console.log(cube.asString());
         //cube.move("F");
-        cube.move("F B2 R' D2 B R U D' R L' D' F' R2 D F2 B' U D' R L' F B' U D'");
+        cube.move("R");
+
+        console.log(cube.toJSON());
+        console.log(cube.asString());
 
         Cube.initSolver();
         var result = cube.solve();
         cube.move(cube.solve());
-
-        console.log(cube.asString());
 
         if (cube.isSolved()) {
             console.log("the cube is solved");
@@ -39,6 +40,7 @@
     };
 
     var initialized = function() {
+        //cubeTest();
         // if finished loading stop adding dots
         clearInterval(progressHandle);
 
@@ -50,7 +52,7 @@
         // $('#result').css('visibility', 'visible');
         // $('#randomState').css('visibility', 'visible');
         $('#randomState').show();
-        $('.result').hide();
+        $('#result').hide();
         $('#scramble').on('click', generateScramble);
         $('#doAlg').on('click', doAlg);
         $('#genAlg').on('click', function() {
@@ -68,6 +70,19 @@
                         ];
             $('input[id=algInput]').val(algList.randomElement());
         });
+        $('.alg-button').on('click', function() {
+            //var move = $(this).html();
+            var move = this.value;
+            var newAlg = formatString($('#resultText').html() + move);
+            //var newAlg = formatString($('#resultText').append\\(move));
+            console.log(newAlg);
+            makeImage(newAlg);
+            //makeImage(newAlg);
+            //$('#resultText').append(move);
+            //var newAlg = formatString($('#resultText').html() + move);
+            //$('#resultText').append(move);
+            //console.log(newResultText);
+        });
     };
 
     var generateScramble = function() {
@@ -75,8 +90,9 @@
         $('#status').hide();
 
         // show algorithm textbox and button
-        $('.result').css({"display":"flex"});
+        $('#result').css({"display":"flex"});
         $('#algText').show();
+        $('#algMoves').show();
 
         // make a scramble
         Cube.asyncScramble(function(alg) {
@@ -91,21 +107,25 @@
     };
 
     var makeImage = function(alg) {
+        alg = String(alg);
+        console.log(alg);
         var algSpaceless = alg.replace(/\s+/g, ''); // remove spaces
-        var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
-        var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
-        //var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&bg=t&alg=" + algSpaceless;
-        //var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
-        $('#randomState .resultText').html("<b>" + alg + "</b>");
-        $('#randomState .resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
-        $('#randomState .resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
+        console.log(algSpaceless);
+        //var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
+        //var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
+        var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
+        var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
+        $('#resultText').html(alg);
+        $('#resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
+        $('#resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
     };
 
-    var formatString = function(algString) {
+    var formatString = function(alg) {
         var result = '';
         var moveBasic = ['U', 'D', 'F', 'B', 'L', 'R', 'u', 'd', 'f', 'b', 'l', 'r'];
         var moveModify = ['2', '\''];
 
+        algString = String(alg);
         algString = algString.replace(/\s+/g, ''); // remove spaces
         algString = algString.replace(/\u2019+/g, '\''); // replace utf8 right quotation with ASCII quotation
 
@@ -140,4 +160,4 @@
         // async precomputing
         Cube.asyncInit('cubejs/lib/worker.js', initialized);
     });
-})();
+});
