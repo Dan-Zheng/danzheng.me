@@ -4,7 +4,7 @@
  * TO DO: FIND A WAY TO DUMP PHP IMAGES
  */
 
-(function() {
+$(document).ready(function() {
     var start, progressHandle;
 
     var cubeTest = function() {
@@ -92,10 +92,10 @@
 
     var makeImage = function(alg) {
         var algSpaceless = alg.replace(/\s+/g, ''); // remove spaces
-        var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
-        var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
-        //var urlOne = "http://cube.crider.co.uk/visualcube.png?size=300&bg=t&alg=" + algSpaceless;
-        //var urlTwo = "http://cube.crider.co.uk/visualcube.png?size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
+        //var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
+        //var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
+        var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
+        var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
         $('#randomState .resultText').html("<b>" + alg + "</b>");
         $('#randomState .resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
         $('#randomState .resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
@@ -140,4 +140,4 @@
         // async precomputing
         Cube.asyncInit('cubejs/lib/worker.js', initialized);
     });
-})();
+});
