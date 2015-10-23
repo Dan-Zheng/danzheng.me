@@ -74,7 +74,7 @@ $(document).ready(function() {
         $('.alg-button').on('click', function() {
             //var move = $(this).html();
             var move = this.value;
-            //var newAlg = formatString($('#resultText').html() + move);
+            var newAlg = formatString($('#resultText').html() + move);
             makeImage(move, false);
         });
     };
@@ -90,31 +90,37 @@ $(document).ready(function() {
 
         // make a scramble
         Cube.asyncScramble(function(alg) {
-            makeImage(alg, true);
+            lastAlgorithm = alg;
+            makeImage(lastAlgorithm, true);
         });
     };
 
     var doAlg = function() {
         // perform moves in the move box
         var alg = formatString($('#algInput')[0].value);
-        makeImage(alg, true);
+        lastAlgorithm = alg;
+        makeImage(lastAlgorithm, true);
     };
 
     var makeImage = function(alg, changeResultText) {
-        var algSpaceless = alg.replace(/\s+/g, ''); // remove spaces
+        var algSpaceless = lastAlgorithm.replace(/\s+/g, ''); // remove spaces
+        console.log(algSpaceless);
+        if (changeResultText) {
+            $('#lastMoves').hide();
+            $('#lastMoves').html('Moves: ');
+            $('#resultText').html(lastAlgorithm);
+        } else {
+            $('#lastMoves').show();
+            $('#lastMoves').append(alg + ' ');
+            lastAlgorithm = lastAlgorithm + ' ' + alg;
+            algSpaceless = lastAlgorithm.replace(/\s+/g, '');
+        }
         console.log(algSpaceless);
         var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
         var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
         //var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
         //var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
-        if (changeResultText) {
-            $('#lastMoves').hide();
-            $('#lastMoves').html('Moves: ');
-            $('#resultText').html(alg);
-        } else {
-            $('#lastMoves').show();
-            $('#lastMoves').append(alg + ' ');
-        }
+
         $('#resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
         $('#resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
     };
