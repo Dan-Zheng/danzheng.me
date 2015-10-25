@@ -103,16 +103,6 @@ $(document).ready(function() {
         lastAlgorithm = alg;
         makeImage(lastAlgorithm, true);
     };
-    
-    var makeImage = function(alg) {
-        var algSpaceless = alg.replace(/\s+/g, ''); // remove spaces
-        //var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
-        //var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
-        var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
-        var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
-        $('#randomState .resultText').html("<b>" + alg + "</b>");
-        $('#randomState .resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
-        $('#randomState .resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
 
     var makeImage = function(move, changeResultText) {
         var algSpaceless = lastAlgorithm.replace(/\s+/g, ''); // remove spaces
