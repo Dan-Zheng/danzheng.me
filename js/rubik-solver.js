@@ -6,8 +6,8 @@
 
 $(document).ready(function() {
     var start, progressHandle;
-    var lastAlgorithm;
-    var lastMove;
+    var lastAlgorithm = [];
+    var moves = [];
 
     var cubeTest = function() {
         var cube = new Cube();
@@ -56,7 +56,11 @@ $(document).ready(function() {
         $('#randomState').show();
         $('#result').hide();
         $('#scramble').on('click', generateScramble);
-        $('#doAlg').on('click', doAlg);
+        $('#doAlg').on('click', function() {
+            var stringToUse = $('input[id=algInput]').val();
+            lastAlgorithm = stringToArray(stringToUse);
+            changeResultText();
+        });
         $('#genAlg').on('click', function() {
             // make random pattern algorithm in input
             var algList = ["F B2 R' D2 B R U D' R L' D' F' R2 D F2 B'",
@@ -73,10 +77,10 @@ $(document).ready(function() {
             $('input[id=algInput]').val(algList.randomElement());
         });
         $('.alg-button').on('click', function() {
-            //var move = $(this).html();
-            var move = this.value;
-            var newAlg = formatString(lastAlgorithm + move);
-            makeImage(move, false);
+            moves.push(this.value);
+            console.log(moves);
+            showMoves();
+            // ADD HERE
         });
     };
 
@@ -91,80 +95,75 @@ $(document).ready(function() {
 
         // make a scramble
         Cube.asyncScramble(function(alg) {
-            lastAlgorithm = String(alg);
-            console.log(lastAlgorithm);
-            makeImage(lastAlgorithm, true);
+            lastAlgorithm = stringToArray(alg);
+            changeResultText();
         });
     };
 
-    var doAlg = function() {
-        // perform moves in the move box
-        var alg = formatString($('#algInput')[0].value);
-        lastAlgorithm = alg;
-        makeImage(lastAlgorithm, true);
+    var stringToArray = function(string) {
+        var array = string.split(" ");
+        return array;
     };
 
-    var makeImage = function(move, changeResultText) {
-        var algSpaceless = lastAlgorithm.replace(/\s+/g, ''); // remove spaces
-        if (changeResultText) {
-            $('#lastMoves').hide();
-            $('#lastMoves').html('Moves: ');
-            setLastResultText();
-        } else {
-            console.log(move);
-            console.log($('#lastMoves').html().slice(-(move.length+1)));
-            console.log($('#lastMoves').html().slice(-1));
-            // CHECK MORE CONDITIONS
-            // U U'
-            // U2 U2
-            if (move === $('#lastMoves').html().slice(-(move.length+1),-1) && $('#lastMoves').html().slice(-1) != '2') {
-                console.log("true");
-                var baseMove = move[0] + '2 ';
-                var newText = $('#lastMoves').html().slice(0, -(move.length+1)) + baseMove;
-                $('#lastMoves').html(newText);
-            } else {
-                $('#lastMoves').append(move + ' ');
-            }
-            $('#lastMoves').show();
-            lastAlgorithm = lastAlgorithm + ' ' + move;
-            algSpaceless = lastAlgorithm.replace(/\s+/g, '');
-            lastMove = move;
+    var arrayToString = function(array) {
+        var string = '';
+        for (var i = 0; i < array.length; i++) {
+            string = string + array[i] + ' ';
         }
-        console.log(algSpaceless);
-        var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
-        var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x-34&alg=" + algSpaceless;
-        //var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
-        //var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
+        return string;
+    };
+
+    var changeResultText = function() {
+        $('#lastMoves').hide();
+        newResultText = arrayToString(lastAlgorithm);
+        $('#resultText').html("Last Algorithm: " + newResultText);
+    };
+
+    var makeImage = function() {
+        var stringOne = arrayToString(lastAlgorithm).replace(/\s+/g, '');
+        var stringTwo = arrayToString(moves).replace(/\s+/g, '');
+        var string = stringOne + stringTwo;
+        var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + string;
+        var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x-34&alg=" + string;
+        //var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + string;
+        //var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + string;
 
         $('#resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
         $('#resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
     };
 
-    var formatString = function(algString) {
-        var result = '';
-        var moveBasic = ['U', 'D', 'F', 'B', 'L', 'R', 'u', 'd', 'f', 'b', 'l', 'r'];
-        var moveModify = ['2', '\''];
-
-        algString = algString.replace(/\s+/g, ''); // remove spaces
-        algString = algString.replace(/\u2019+/g, '\''); // replace utf8 right quotation with ASCII quotation
-
-        var i = 0;
-        while (i < algString.length) {
-            if (moveBasic.indexOf(algString[i]) != -1) {
-                if (i < algString.length - 1 && moveModify.indexOf(algString[i+1]) != -1) {
-                    result = result + ' ' + algString.slice(i,i+2) + ' ';
-                    i += 2;
-                } else {
-                    result = result + ' ' + algString[i];
-                    i += 1;
+    var showMoves = function() {
+        var index = moves.length - 1;
+        for (var i = 0; i < index; i ++) {
+            if (index >= 1 && moves[index-1] == moves[index]) { // duplicate
+                if (moves[index-1].indexOf('2') == -1) {
+                    console.log("double" + moves[index-1]);
+                    moves[index-1] = moves[index] + '2';
+                    moves.pop();
                 }
+                if (index >= 0 && moves[index-1].indexOf('2') == 1) {
+                    console.log("double" + moves[index-1]);
+                    moves.pop();
+                    moves.pop();
+                    console.log("");
+                }
+            } else if (index >= 0 && moveInverse(moves[index-1]) == moves[index]) {
+                console.log("inverse");
+                moves.pop();
+                moves.pop();
             }
         }
-        return result;
+        $('#lastMoves').html('Moves: ' + arrayToString(moves));
+        $('#lastMoves').show();
     };
 
-    var setLastResultText = function() {
-        $('#resultText').html("Last Algorithm: " + String(lastAlgorithm));
+    var moveInverse = function(move) {
+        if (move.indexOf('\'') != -1) {
+            move = move.slice(0, -1);
+        } else if (move.indexOf('2' === -1)) {
+            move = move + '\'';
+        }
+        return move;
     };
 
     Array.prototype.randomElement = function () {
