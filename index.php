@@ -19,6 +19,7 @@
 	<script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
 	<script src="home/js/script.js"></script>
 </head>
+<!--
 <header>
     <nav class='navbar navbar-inverse navbar-fixed-top noselect'>
         <div class='container'>
@@ -35,9 +36,9 @@
             </div>
             <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
                 <ul class='nav navbar-nav navbar-right'>
-                    <li><a href='./index.html'>Home</a></li><!--
+                    <li><a href='./index.html'>Home</a></li>--><!--
                     <li><a id='nav-about' href='#about-section'>About</a></li>
-                    <li><a id='nav-contact' href='#contact-section'>Contact</a></li>-->
+                    <li><a id='nav-contact' href='#contact-section'>Contact</a></li>--><!--
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -52,9 +53,9 @@
             </div>
         </div>
     </nav>
-</header>
+</header>-->
 
-<?php include ('header.php');?>
+<?php include("header.php");?>
 
 <body>
     <div class="jumbotron text-center">
