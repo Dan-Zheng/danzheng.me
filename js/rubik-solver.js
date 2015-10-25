@@ -60,6 +60,7 @@ $(document).ready(function() {
             var stringToUse = $('input[id=algInput]').val();
             lastAlgorithm = stringToArray(stringToUse);
             changeResultText();
+            makeImage();
         });
         $('#genAlg').on('click', function() {
             // make random pattern algorithm in input
@@ -78,9 +79,8 @@ $(document).ready(function() {
         });
         $('.alg-button').on('click', function() {
             moves.push(this.value);
-            console.log(moves);
             showMoves();
-            // ADD HERE
+            makeImage();
         });
     };
 
@@ -97,6 +97,7 @@ $(document).ready(function() {
         Cube.asyncScramble(function(alg) {
             lastAlgorithm = stringToArray(alg);
             changeResultText();
+            makeImage();
         });
     };
 
@@ -127,6 +128,8 @@ $(document).ready(function() {
         var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x-34&alg=" + string;
         //var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + string;
         //var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + string;
+        //console.log(urlOne);
+        //console.log(urlTwo);
 
         $('#resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
         $('#resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
@@ -135,13 +138,28 @@ $(document).ready(function() {
     var showMoves = function() {
         var index = moves.length - 1;
         for (var i = 0; i < index; i ++) {
-            if (index >= 1 && moves[index-1] == moves[index]) { // duplicate
+            console.log(moves);
+            if (index >= 1 && moves[index-1] == moves[index]) { // duplicate'
+                console.log("moves[index-1]: " + moves[index-1]);
+                console.log("moves[index]: " + moves[index]);
                 if (moves[index-1].indexOf('2') == -1) {
                     console.log("double" + moves[index-1]);
                     moves[index-1] = moves[index] + '2';
                     moves.pop();
                 }
-                if (index >= 0 && moves[index-1].indexOf('2') == 1) {
+            } else if (index >= 0 && moveInverse(moves[index-1]) == moves[index]) {
+                console.log("inverse");
+                moves.pop();
+                moves.pop();
+            }
+        }
+        index = moves.length - 1;
+        for (var j = 0; j < index; j ++) {
+            console.log(moves);
+            if (index >= 1 && moves[index-1] == moves[index]) { // duplicate'
+                console.log(moves[index-1]);
+                console.log(moves[index]);
+                if (moves[index-1].indexOf('2') == 1) {
                     console.log("double" + moves[index-1]);
                     moves.pop();
                     moves.pop();
