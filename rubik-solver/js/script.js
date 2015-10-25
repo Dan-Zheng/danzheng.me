@@ -4,20 +4,23 @@
  * TO DO: FIND A WAY TO DUMP PHP IMAGES
  */
 
-(function() {
+$(document).ready(function() {
     var start, progressHandle;
+    var lastAlgorithm;
+    var lastMove;
 
     var cubeTest = function() {
         var cube = new Cube();
         console.log(cube.asString());
         //cube.move("F");
-        cube.move("F B2 R' D2 B R U D' R L' D' F' R2 D F2 B' U D' R L' F B' U D'");
+        cube.move("R");
+
+        console.log(cube.toJSON());
+        console.log(cube.asString());
 
         Cube.initSolver();
         var result = cube.solve();
         cube.move(cube.solve());
-
-        console.log(cube.asString());
 
         if (cube.isSolved()) {
             console.log("the cube is solved");
@@ -39,6 +42,7 @@
     };
 
     var initialized = function() {
+        //cubeTest();
         // if finished loading stop adding dots
         clearInterval(progressHandle);
 
@@ -50,7 +54,7 @@
         // $('#result').css('visibility', 'visible');
         // $('#randomState').css('visibility', 'visible');
         $('#randomState').show();
-        $('.result').hide();
+        $('#result').hide();
         $('#scramble').on('click', generateScramble);
         $('#doAlg').on('click', doAlg);
         $('#genAlg').on('click', function() {
@@ -68,6 +72,12 @@
                         ];
             $('input[id=algInput]').val(algList.randomElement());
         });
+        $('.alg-button').on('click', function() {
+            //var move = $(this).html();
+            var move = this.value;
+            var newAlg = formatString(lastAlgorithm + move);
+            makeImage(move, false);
+        });
     };
 
     var generateScramble = function() {
@@ -75,21 +85,25 @@
         $('#status').hide();
 
         // show algorithm textbox and button
-        $('.result').css({"display":"flex"});
+        $('#result').css({"display":"flex"});
         $('#algText').show();
+        $('#algMoves').show();
 
         // make a scramble
         Cube.asyncScramble(function(alg) {
-            makeImage(alg);
+            lastAlgorithm = String(alg);
+            console.log(lastAlgorithm);
+            makeImage(lastAlgorithm, true);
         });
     };
 
     var doAlg = function() {
         // perform moves in the move box
         var alg = formatString($('#algInput')[0].value);
-        makeImage(alg);
+        lastAlgorithm = alg;
+        makeImage(lastAlgorithm, true);
     };
-
+    
     var makeImage = function(alg) {
         var algSpaceless = alg.replace(/\s+/g, ''); // remove spaces
         //var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
@@ -99,6 +113,41 @@
         $('#randomState .resultText').html("<b>" + alg + "</b>");
         $('#randomState .resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
         $('#randomState .resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
+
+    var makeImage = function(move, changeResultText) {
+        var algSpaceless = lastAlgorithm.replace(/\s+/g, ''); // remove spaces
+        if (changeResultText) {
+            $('#lastMoves').hide();
+            $('#lastMoves').html('Moves: ');
+            setLastResultText();
+        } else {
+            console.log(move);
+            console.log($('#lastMoves').html().slice(-(move.length+1)));
+            console.log($('#lastMoves').html().slice(-1));
+            // CHECK MORE CONDITIONS
+            // U U'
+            // U2 U2
+            if (move === $('#lastMoves').html().slice(-(move.length+1),-1) && $('#lastMoves').html().slice(-1) != '2') {
+                console.log("true");
+                var baseMove = move[0] + '2 ';
+                var newText = $('#lastMoves').html().slice(0, -(move.length+1)) + baseMove;
+                $('#lastMoves').html(newText);
+            } else {
+                $('#lastMoves').append(move + ' ');
+            }
+            $('#lastMoves').show();
+            lastAlgorithm = lastAlgorithm + ' ' + move;
+            algSpaceless = lastAlgorithm.replace(/\s+/g, '');
+            lastMove = move;
+        }
+        console.log(algSpaceless);
+        var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
+        var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x-34&alg=" + algSpaceless;
+        //var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + algSpaceless;
+        //var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + algSpaceless;
+
+        $('#resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
+        $('#resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
     };
 
     var formatString = function(algString) {
@@ -124,6 +173,10 @@
         return result;
     };
 
+    var setLastResultText = function() {
+        $('#resultText').html("Last Algorithm: " + String(lastAlgorithm));
+    };
+
     Array.prototype.randomElement = function () {
         return this[Math.floor(Math.random() * this.length)];
     };
@@ -140,4 +193,4 @@
         // async precomputing
         Cube.asyncInit('cubejs/lib/worker.js', initialized);
     });
-})();
+});
