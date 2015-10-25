@@ -21,9 +21,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a id='nav-gradi' href='gradients.php'>Gradients</a></li>
-        					<li><a id='nav-rubik' href='rubik-solver.php'>Rubik Solver</a></li>
                             <li><a id='nav-floats' href='floats-your-boat.php'>Floats Your Boat</a></li>
                             <li role="separator" class="divider"></li>
+                            <li><a id='nav-rubik' href='rubik-solver.php'>Rubik Solver</a></li>
                             <li><a id='nav-libs' href='happy-libs.php'>Happy Libs</a></li>
                         </ul>
                     </li>

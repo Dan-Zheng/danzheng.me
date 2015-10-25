@@ -96,6 +96,7 @@ $(document).ready(function() {
         // make a scramble
         Cube.asyncScramble(function(alg) {
             lastAlgorithm = stringToArray(alg);
+            moves = [];
             changeResultText();
             makeImage();
         });
