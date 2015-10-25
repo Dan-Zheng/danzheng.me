@@ -3,16 +3,16 @@ A personal website.
 
 ### Completed Projects
 
-#### [gradients](http://danzheng.me/gradients)		
-* A simple gradient color game.
+* #### [gradients](http://danzheng.me/gradients.php)		
+  * A simple gradient color game.
 
-#### [floats-your-boat](http://danzheng.me/floats-your-boat)
-* A generator for phrases like "Hey, whatever floats your boat."
+* #### [floats-your-boat](http://danzheng.me/floats-your-boat.php)
+  * A generator for phrases like "Hey, whatever floats your boat."
 
 ### Works in Progress
 
-#### [rubik-solver](http://danzheng.me/rubik-solver)		
-* A Rubik's Cube solver.
+* #### [rubik-solver](http://danzheng.me/rubik-solver.php)		
+  * A Rubik's Cube solver.
 
-#### [happy-libs](http://danzheng.me/happy-libs)		
-* A simple mad-libs generator.
+* #### [happy-libs](http://danzheng.me/happy-libs.php)		
+  * A simple mad-libs generator.
