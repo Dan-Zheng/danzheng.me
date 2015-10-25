@@ -4,14 +4,14 @@
 <head>
     <title>Floats Your Boat</title>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href='../terminal.ico'/>
+    <link rel="shortcut icon" href='terminal.ico'/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
-    <link rel='stylesheet' href='../bower_components/bootstrap/dist/css/bootstrap.min.css'>
-    <link rel='stylesheet' href='../bower_components/font-awesome/css/font-awesome.min.css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="../home/css/header.css" type="text/stylesheet">
-    <link rel="stylesheet" href="../home/css/fonts.css" type="text/stylesheet">
-    <link rel="stylesheet" href="css/style.css" type="text/stylesheet">
+    <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='bower_components/font-awesome/css/font-awesome.min.css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:100.300,400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/header.css" type="text/stylesheet">
+    <link rel="stylesheet" href="css/fonts.css" type="text/stylesheet">
+    <link rel="stylesheet" href="css/floats-your-boat.css" type="text/stylesheet">
 
     <style>
         /*#sentence { display: none }*/
@@ -21,12 +21,12 @@
         #explanation { display: none; }
     </style>
 
-    <script src='../bower_components/jquery/dist/jquery.min.js'></script>
-    <script src='../bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
-    <script src='js/script.js'></script>
+    <script src='bower_components/jquery/dist/jquery.min.js'></script>
+    <script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+    <script src='js/floats-your-boat.js'></script>
 </head>
 
-<?php include("../header.php");?>
+<?php include("header.php");?>
 
 <body>
     <div class='container text-center' id='main'>
