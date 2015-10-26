@@ -23,6 +23,7 @@ var mainState = {
         this.bird = this.game.add.sprite(100, 245, 'bird');
         game.physics.arcade.enable(this.bird);
         this.bird.body.gravity.y = 1000;
+        //game.input.onDown.add(enableBirdPhysics());
 
         // New anchor position
         this.bird.anchor.setTo(-0.2, 0.5);
@@ -102,6 +103,10 @@ var mainState = {
         this.score += 1;
         this.labelScore.text = this.score;
     },
+
+    enableBirdPhysics: function() {
+        this.bird.body.gravity.y = 1000;
+    }
 };
 
 game.state.add('main', mainState);
