@@ -24,7 +24,7 @@
 <body>
   <div class='container text-center'>
       <h1>Flappy Bird</h1>
-      <p id='subtitle'>Press spacebar to flap.</p>
+      <p id='subtitle'>Press spacebar to flap. Don't hit the walls.</p>
       <div class='text-center' id="game"></div>
   </div>
 </body>
