@@ -137,41 +137,38 @@ $(document).ready(function() {
     };
 
     var showMoves = function() {
-        var index = moves.length - 1;
-        for (var i = 0; i < index; i ++) {
+        var checkAgain = true;
+        while (checkAgain === true) {
+            checkAgain = false;
+            var index = moves.length - 1;
+            console.log("index: " + index);
             console.log(moves);
-            if (index >= 1 && moves[index-1] == moves[index]) { // duplicate'
-                console.log("moves[index-1]: " + moves[index-1]);
-                console.log("moves[index]: " + moves[index]);
-                if (moves[index-1].indexOf('2') == -1) {
-                    console.log("double" + moves[index-1]);
-                    moves[index-1] = moves[index][0] + '2';
+            if (index >= 1) {
+                if (moves[index-1] == moves[index]) { // duplicate'
+                    console.log("moves[index-1]: " + moves[index-1]);
+                    console.log("moves[index]: " + moves[index]);
+                    if (moves[index-1].indexOf('2') == -1) {
+                        console.log("double " + moves[index-1] + ", make into 2 turn");
+                        moves[index-1] = moves[index][0] + '2';
+                        moves.pop();
+                        checkAgain = true;
+                        console.log("checkagain");
+                    } else if (moves[index-1].indexOf('2') == 1) {
+                        console.log("double " + moves[index-1] + ", make into nothing");
+                        moves.pop();
+                        moves.pop();
+                        checkAgain = true;
+                    }
+                } else if (moveInverse(moves[index-1]) == moves[index]) {
+                    console.log("inverse");
                     moves.pop();
+                    moves.pop();
+                    checkAgain = true;
+                    console.log("checkagain");
                 }
-            } else if (index >= 0 && moveInverse(moves[index-1]) == moves[index]) {
-                console.log("inverse");
-                moves.pop();
-                moves.pop();
             }
         }
-        index = moves.length - 1;
-        for (var j = 0; j < index; j ++) {
-            console.log(moves);
-            if (index >= 1 && moves[index-1] == moves[index]) { // duplicate'
-                console.log(moves[index-1]);
-                console.log(moves[index]);
-                if (moves[index-1].indexOf('2') == 1) {
-                    console.log("double" + moves[index-1]);
-                    moves.pop();
-                    moves.pop();
-                    console.log("");
-                }
-            } else if (index >= 0 && moveInverse(moves[index-1]) == moves[index]) {
-                console.log("inverse");
-                moves.pop();
-                moves.pop();
-            }
-        }
+        console.log(moves);
         $('#lastMoves').html('Moves: ' + arrayToString(moves));
         $('#lastMoves').show();
     };
