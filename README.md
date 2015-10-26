@@ -6,6 +6,9 @@ A personal website.
 * #### [gradients](http://danzheng.me/gradients.php)		
   * A simple gradient color game.
 
+* #### [flappy-bird](http://danzheng.me/flappy-bird.php)		
+  * A clone of Flappy Bird made using phaser.js.
+
 * #### [floats-your-boat](http://danzheng.me/floats-your-boat.php)
   * A generator for phrases like "Hey, whatever floats your boat."
 
