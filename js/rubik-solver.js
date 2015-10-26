@@ -145,7 +145,7 @@ $(document).ready(function() {
                 console.log("moves[index]: " + moves[index]);
                 if (moves[index-1].indexOf('2') == -1) {
                     console.log("double" + moves[index-1]);
-                    moves[index-1] = moves[index] + '2';
+                    moves[index-1] = moves[index][0] + '2';
                     moves.pop();
                 }
             } else if (index >= 0 && moveInverse(moves[index-1]) == moves[index]) {
