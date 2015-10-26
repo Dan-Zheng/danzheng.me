@@ -1,4 +1,7 @@
+/* jshint -W041 */
+
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game', null, false, false);
+var changeSprite = false;
 
 var mainState = {
 
@@ -7,6 +10,8 @@ var mainState = {
 
         game.load.image('bird', 'assets/bird2.png');
         game.load.image('pipe', 'assets/pipe3.png');
+        game.load.image('birdAlt', 'assets/purdue.png');
+        game.load.image('pipeAlt', 'assets/iu.png');
 
         // Load the jump sound
         game.load.audio('jump', 'assets/jump.wav');
@@ -17,10 +22,17 @@ var mainState = {
 
         this.pipes = game.add.group();
         this.pipes.enableBody = true;
-        this.pipes.createMultiple(20, 'pipe');
+
+        if (changeSprite) {
+            this.bird = this.game.add.sprite(100, 245, 'birdAlt');
+            this.pipes.createMultiple(20, 'pipeAlt');
+        } else {
+            this.bird = this.game.add.sprite(100, 245, 'bird');
+            this.pipes.createMultiple(20, 'pipe');
+        }
+
         this.timer = this.game.time.events.loop(1500, this.addRowOfPipes, this);
 
-        this.bird = this.game.add.sprite(100, 245, 'bird');
         game.physics.arcade.enable(this.bird);
         this.bird.body.gravity.y = 1000;
         //game.input.onDown.add(enableBirdPhysics());
@@ -30,6 +42,9 @@ var mainState = {
 
         var spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         spaceKey.onDown.add(this.jump, this);
+
+        var switchSpriteKey = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
+        switchSpriteKey.onDown.add(this.switchSprite, this);
 
         this.score = 0;
         this.labelScore = this.game.add.text(20, 20, "0", { font: "30px monospace", fill: "#ffffff" });
@@ -61,6 +76,19 @@ var mainState = {
 
         // Play sound
         this.jumpSound.play();
+    },
+
+    switchSprite: function() {
+        if (this.bird.key === 'bird') {
+            console.log("switch to purdue");
+            changeSprite = true;
+            this.bird.loadTexture('birdAlt');
+            //this.pipe.loadTexture(pipeAlt);
+        } else {
+            changeSprite = false;
+            this.bird.loadTexture('bird');
+            //this.pipe.loadTexture('assets/pipe2.png');
+        }
     },
 
     hitPipe: function() {
