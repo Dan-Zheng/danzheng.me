@@ -8,7 +8,7 @@ var mainState = {
     preload: function() {
         game.stage.backgroundColor = '#74c6cd';
 
-        game.load.image('bird', 'assets/bird2.png');
+        game.load.image('bird', 'assets/bird3.png');
         game.load.image('pipe', 'assets/pipe3.png');
         game.load.image('birdAlt', 'assets/purdue.png');
         game.load.image('pipeAlt', 'assets/iu.png');
