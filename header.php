@@ -15,8 +15,8 @@
             <div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>
                 <ul class='nav navbar-nav navbar-right'>
                     <li><a href='index.php'>Home</a></li>
-                    <li><a id='nav-about' href='#about-section'>About</a>
-                    <li><a id='nav-contact' href='#contact-section'>Contact</a></li>
+                    <li><a id='nav-about' href='coming-soon.php'>About</a>
+                    <li><a id='nav-contact' href='coming-soon.php'>Contact</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
                         <ul class="dropdown-menu">

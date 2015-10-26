@@ -13,8 +13,10 @@
     <link rel="stylesheet" href="css/index.css" type="text/stylesheet">
 
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script src="bower_components/jquery.pep/src/jquery.pep.js"></script>
+	<script src="bower_components/xcolor/jquery.xcolor.min.js"></script>
 	<script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
-	<script src="js/index.js"></script>
 </head>
 
 <?php include("header.php");?>
@@ -22,8 +24,8 @@
 <body>
     <div class="jumbotron text-center">
         <div class="container" id='main'>
-            <h1>Hello, world!</h1>
-            <p class='section-module' id='subtitle'>This website is a repository for projects by <a href="http://github.com/Dan-Zheng">Dan Zheng</a>.</p>
+            <h1>Coming soon!</h1>
+            <p class='section-module' id='subtitle'>Sorry, this page is still under construction.</p>
             <!--<p class='text-center' id='liga'>->> >> -> <=> ==> >>= -- := =:= == != <= >= // /** /* */ && .& || !! :: >> __ ___ .. ...</p>-->
             <p class='section-module'><a class="btn btn-primary btn-lg" href="#" role="button" id='randomProject'>Random Project!</a></p>
             <ul class="list-inline social-buttons">
@@ -33,7 +35,5 @@
                 </li>
             </ul>
         </div>
-    </div>
-    <div class='container' id='hi'>
     </div>
 </body>
