@@ -6,7 +6,11 @@ var changeSprite = false;
 var mainState = {
 
     preload: function() {
-        game.stage.backgroundColor = '#74c6cd';
+        if (changeSprite) {
+            game.stage.backgroundColor = '#e0c198';
+        } else {
+            game.stage.backgroundColor = '#74c6cd';
+        }
 
         game.load.image('bird', 'assets/birdSprite.png');
         game.load.image('pipe', 'assets/pipeSprite.png');
@@ -24,10 +28,10 @@ var mainState = {
         this.pipes.enableBody = true;
 
         if (changeSprite) {
-            this.bird = this.game.add.sprite(100, 245, 'birdAlt');
+            this.bird = this.game.add.sprite(100, 235, 'birdAlt');
             this.pipes.createMultiple(20, 'pipeAlt');
         } else {
-            this.bird = this.game.add.sprite(100, 245, 'bird');
+            this.bird = this.game.add.sprite(100, 235, 'bird');
             this.pipes.createMultiple(20, 'pipe');
         }
 
@@ -81,14 +85,11 @@ var mainState = {
 
     switchSprite: function() {
         if (this.bird.key === 'bird') {
-            console.log("switch to purdue");
             changeSprite = true;
             this.bird.loadTexture('birdAlt');
-            //this.pipe.loadTexture(pipeAlt);
         } else {
             changeSprite = false;
             this.bird.loadTexture('bird');
-            //this.pipe.loadTexture('assets/pipe2.png');
         }
     },
 
