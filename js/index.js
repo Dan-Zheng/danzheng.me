@@ -6,6 +6,7 @@ $(document).ready(function() {
         var projects = ["gradients",
                     "rubik-solver",
                     "floats-your-boat",
+                    "flappy-bird",
                     "happy-libs",
     ];
         var project = projects[Math.floor(Math.random() * projects.length)];
