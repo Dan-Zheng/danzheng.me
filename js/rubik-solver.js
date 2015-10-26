@@ -59,6 +59,7 @@ $(document).ready(function() {
         $('#doAlg').on('click', function() {
             var stringToUse = $('input[id=algInput]').val();
             lastAlgorithm = stringToArray(stringToUse);
+            moves = [];
             changeResultText();
             makeImage();
         });
