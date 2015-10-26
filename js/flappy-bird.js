@@ -45,6 +45,7 @@ var mainState = {
 
         var switchSpriteKey = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
         switchSpriteKey.onDown.add(this.switchSprite, this);
+        switchSpriteKey.onDown.add(this.restartGame, this);
 
         this.score = 0;
         this.labelScore = this.game.add.text(20, 20, "0", { font: "30px monospace", fill: "#ffffff" });
