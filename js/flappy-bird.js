@@ -51,7 +51,7 @@ var mainState = {
         switchSpriteKey.onDown.add(this.switchSprite, this);
         switchSpriteKey.onDown.add(this.restartGame, this);
 
-        this.score = 0;
+        this.score = -1;
         this.labelScore = this.game.add.text(20, 20, "0", { font: "30px monospace", fill: "#ffffff" });
 
         // Add the jump sound
@@ -61,6 +61,9 @@ var mainState = {
     update: function() {
         if (this.bird.inWorld == false)
             this.restartGame();
+
+        if (this.score >= 5)
+            $('#hidden-msg').fadeIn(700);
 
         game.physics.arcade.overlap(this.bird, this.pipes, this.hitPipe, null, this);
 

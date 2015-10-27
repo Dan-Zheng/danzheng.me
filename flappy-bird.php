@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="css/fonts.css" type="text/stylesheet">
     <link rel="stylesheet" href="css/flappy-bird.css" type="text/stylesheet">
 
+    <style>
+        #hidden-msg { display: none; }
+    </style>
+
     <script src='bower_components/jquery/dist/jquery.min.js'></script>
     <script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
     <script type="text/javascript" src="bower_components/phaser/build/phaser.min.js"></script>
@@ -24,8 +28,9 @@
 <body>
   <div class='container text-center'>
       <h1>Flappy Bird</h1>
-      <p id='subtitle'>Press <code>spacebar</code> to flap. Avoid the walls. (Press <code>p</code> for an easter egg.)</p>
-      <div class='text-center' id="game"></div>
+      <p id='subtitle'>Press <code>spacebar</code> to flap. Avoid the walls.</p>
+      <div class='text-center section-text' id="game"></div>
+      <p class='section-text' id='hidden-msg'>(Good job! Press <code>p</code> for an easter egg.)</p>
   </div>
 </body>
 
