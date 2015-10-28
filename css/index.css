@@ -19,8 +19,8 @@ body {
     margin-right: 0;
 }
 .lots-of-space {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 .gimme-space {
     margin: 25px 0;
@@ -49,6 +49,8 @@ body {
     font-weight: 300;
 }
 #title {
+    margin-top: 10px;
+    margin-bottom: 10px;
     font-weight: 400;
     font-size: 2.6em;
 }
@@ -86,8 +88,8 @@ body {
         transform: translateY(-50%);
     }
     .lots-of-space {
-        margin-top: 100px;
-        margin-bottom: 100px;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
 }
 
@@ -104,6 +106,10 @@ body {
     #slim {
         font-size: 1.9em;
     }
+    .lots-of-space {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -118,6 +124,10 @@ body {
     }
     #slim {
         font-size: 2.2em;
+    }
+    .lots-of-space {
+        padding-top: 100px;
+        padding-bottom: 100px;
     }
 }
 
