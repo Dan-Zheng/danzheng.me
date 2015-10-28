@@ -67,9 +67,16 @@ var mainState = {
 
         game.physics.arcade.overlap(this.bird, this.pipes, this.hitPipe, null, this);
 
-        // Slowly rotate the bird downward, up to a certain point.
-        if (this.bird.angle < 20)
+        if (this.bird.angle < 15)
             this.bird.angle += 1;
+
+        /*if (game.input.activePointer.withinGame) {
+            this.bird.body.gravity.y = 1000;
+            // Slowly rotate the bird downward, up to a certain point.
+            if (this.bird.angle < 15)
+                this.bird.angle += 1;
+        }*/
+
     },
 
     jump: function() {

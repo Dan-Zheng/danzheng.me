@@ -22,12 +22,12 @@ Created for Vandyhacks
         #level-win { display: none; }
     </style>
 
-	<script src="bower_components/jquery/dist/jquery.min.js"></script>
-	<script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
-	<script src="bower_components/jquery.pep/src/jquery.pep.js"></script>
-	<script src="bower_components/xcolor/jquery.xcolor.min.js"></script>
-	<script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
-	<script src="js/gradients.js"></script>
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="bower_components/jquery.pep/src/jquery.pep.js"></script>
+	<script type="text/javascript" src="bower_components/xcolor/jquery.xcolor.min.js"></script>
+	<script type="text/javascript" src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+	<script type="text/javascript" src="js/gradients.js"></script>
 </head>
 
 <?php include("header.php");?>

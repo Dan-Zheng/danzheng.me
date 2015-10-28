@@ -20,12 +20,12 @@
         #lastMoves { display: none; }
     </style>
 
-    <script src='bower_components/jquery/dist/jquery.min.js'></script>
-    <script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
-    <script src='cubejs/lib/cube.js'></script>
-    <script src='cubejs/lib/solve.js'></script>
-    <script src='cubejs/lib/async.js'></script>
-    <script src='js/rubik-solver.js'></script>
+    <script type="text/javascript" src='bower_components/jquery/dist/jquery.min.js'></script>
+    <script type="text/javascript" src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src='cubejs/lib/cube.js'></script>
+    <script type="text/javascript" src='cubejs/lib/solve.js'></script>
+    <script type="text/javascript" src='cubejs/lib/async.js'></script>
+    <script type="text/javascript" src='js/rubik-solver.js'></script>
 </head>
 
 <?php include("header.php");?>

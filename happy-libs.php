@@ -14,13 +14,16 @@
     <link rel="stylesheet" href="css/happy-libs.css" type="text/stylesheet">
 
     <style>
-        #sentence-display { display: none; }
-        #subtitle { display: none; }
+        #tagged-text { display: none; }
+        #tagged-title { display: none; }
     </style>
 
-    <script src='bower_components/jquery/dist/jquery.min.js'></script>
-    <script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
-    <script src='js/happy-libs.js'></script>
+    <script type="text/javascript" src='bower_components/jquery/dist/jquery.min.js'></script>
+    <script type="text/javascript" src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src="js/lexer.js"></script>
+    <script type="text/javascript" src="js/lexicon.js"></script>
+    <script type="text/javascript" src="js/POSTagger.js"></script>
+    <script type="text/javascript" src='js/happy-libs-test.js'></script>
 </head>
 
 <?php include("header.php");?>
@@ -30,12 +33,17 @@
         <div class='row'>
             <div class='col-lg-12 text-center'>
                 <h1 class='section-module' id='title'>Happy Libs Generator</h1>
-                <h3 class='section-module' id='subtitle'>(This is a subtitle.)</a></h3>
-                <div class='section-module text-center noselect' id='sentence-display'></div>
-                <div class='section-module noselect'>
+                <h2 id='subtitle'>(Still a work in progress!)</h2>
+                <h3>Sample Text</h3>
+                <input type='text' class='form-control section-module' id='input-text' placeholder='Type sentence here:' value=''>
+                </input>
+
+                <div class='noselect'>
                     <button id='generate' type='button' class='btn btn-primary'>Generate</button>
                 </div>
-                <h3 class='section-module' id='sentence-counter'></h3>
+
+                <h3 id="tagged-title">Tagged Sample Text</h3>
+                <div id="tagged-text"></div>
             </div>
         </div>
     </div>

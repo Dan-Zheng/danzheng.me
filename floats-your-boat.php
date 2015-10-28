@@ -21,9 +21,9 @@
         #explanation { display: none; }
     </style>
 
-    <script src='bower_components/jquery/dist/jquery.min.js'></script>
-    <script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
-    <script src='js/floats-your-boat.js'></script>
+    <script type="text/javascript" src='bower_components/jquery/dist/jquery.min.js'></script>
+    <script type="text/javascript" src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src='js/floats-your-boat.js'></script>
 </head>
 
 <?php include("header.php");?>
