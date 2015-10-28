@@ -30,6 +30,7 @@ body {
     margin-bottom: 5px;
 }
 .jumbotron {
+    margin-bottom: 0;
     padding: 10px 0;
 }
 .jumbotron h1 {
