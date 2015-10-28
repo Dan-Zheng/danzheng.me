@@ -34,6 +34,32 @@
             </ul>
         </div>
     </div>
-    <div class='container' id='hi'>
+    <div class='container' id='projects'>
+        <h2 class='text-center'>Completed Projects</h2>
+        <div class="list-group" id='completed-projects'>
+            <a href="gradients.php" class="list-group-item">
+                <h4 class="list-group-item-heading">gradients</h4>
+                <p class="list-group-item-text">A simple gradient color game.</p>
+            </a>
+            <a href="flappy-bird.php" class="list-group-item">
+                <h4 class="list-group-item-heading">flappy-bird</h4>
+                <p class="list-group-item-text">A clone of Flappy Bird made using phaser.js.</p>
+            </a>
+            <a href="floats-your-boat.php" class="list-group-item">
+                <h4 class="list-group-item-heading">floats-your-boat</h4>
+                <p class="list-group-item-text">A generator for phrases like "Hey, whatever floats your boat."</p>
+            </a>
+        </div>
+        <h2 class='text-center'>Works in Progress</h2>
+        <div class="list-group" id='incomplete-projects'>
+            <a href="rubik-solver.php" class="list-group-item">
+                <h4 class="list-group-item-heading">rubik-solver</h4>
+                <p class="list-group-item-text">A Rubik's Cube solver.</p>
+            </a>
+            <a href="happy-libs.php" class="list-group-item">
+                <h4 class="list-group-item-heading">happy-libs</h4>
+                <p class="list-group-item-text">A simple mad-libs generator.</p>
+            </a>
+        </div>
     </div>
 </body>

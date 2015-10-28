@@ -25,7 +25,7 @@ body {
 
 .jumbotron h1 {
     font-weight: bold;
-    font-size: 3.6em;
+    font-size: 4.4em;
 }
 .jumbotron p {
     font-weight: 300;
@@ -41,13 +41,16 @@ body {
 #liga {
     font-size: 16px;
 }
+#projects * {
+    font-weight: 300;
+}
 
 @media (min-width: 768px) {
     .jumbotron {
         padding: 25px 0;
     }
     .jumbotron h1 {
-    	font-size: 6em;
+    	font-size: 8em;
     }
     .jumbotron p {
         font-size: 1.8em;
@@ -59,7 +62,7 @@ body {
 
 @media (min-width: 992px) {
     .jumbotron h1 {
-    	font-size: 7em;
+    	font-size: 9em;
     }
     .jumbotron p {
         font-size: 2.1em;
@@ -71,7 +74,7 @@ body {
 
 @media (min-width: 1200px) {
     .jumbotron h1 {
-    	font-size: 8em;
+    	font-size: 10em;
     }
     .jumbotron p {
         font-size: 2.4em;
