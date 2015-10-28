@@ -49,7 +49,7 @@ var mainState = {
 
         var switchSpriteKey = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
         switchSpriteKey.onDown.add(this.switchSprite, this);
-        switchSpriteKey.onDown.add(this.restartGame, this);
+        //switchSpriteKey.onDown.add(this.restartGame, this);
 
         this.score = -1;
         this.labelScore = this.game.add.text(20, 20, "0", { font: "30px monospace", fill: "#ffffff" });
@@ -97,9 +97,13 @@ var mainState = {
         if (this.bird.key === 'bird') {
             changeSprite = true;
             this.bird.loadTexture('birdAlt');
+            game.stage.backgroundColor = '#e0c198';
+            this.pipes.createMultiple(20, 'pipeAlt');
         } else {
             changeSprite = false;
             this.bird.loadTexture('bird');
+            game.stage.backgroundColor = '#74c6cd';
+            this.pipes.createMultiple(20, 'pipe');
         }
     },
 
