@@ -32,17 +32,17 @@
     <div class='container text-center' id='main'>
         <div class='row'>
             <div class='col-lg-12 text-center'>
-                <h1 class='section-module' id='title'>Happy Libs Generator</h1>
-                <h2 id='subtitle'>(Still a work in progress!)</h2>
-                <h3>Sample Text</h3>
-                <input type='text' class='form-control section-module' id='input-text' placeholder='Type sentence here:' value=''>
+                <h1 class='section-divider' id='title'>Happy Libs Generator</h1>
+                <h3 class='section-divider' id='subtitle'>(Still a work in progress! Currently only identifies parts of speech.)</h3>
+                <h2 class='section-divider'>Raw Input</h2>
+                <input type='text' class='form-control input-lg section-divider' id='input-text' placeholder='Type sentence here:' value=''>
                 </input>
 
-                <div class='noselect'>
+                <div class='section-divider noselect'>
                     <button id='generate' type='button' class='btn btn-primary'>Generate</button>
                 </div>
 
-                <h3 id="tagged-title">Tagged Sample Text</h3>
+                <h2 class='section-divider' id="tagged-title">Tagged Output</h2>
                 <div id="tagged-text"></div>
             </div>
         </div>
