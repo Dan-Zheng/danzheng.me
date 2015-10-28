@@ -21,10 +21,10 @@
 
 <body>
     <div class="jumbotron text-center">
-        <div class="container" id='main'>
+        <div class="container lots-of-space" id='main'>
             <div class='row'>
                 <h1>Hello, world!</h1>
-                <p class='section-module' id='subtitle'>This website is a repository for projects by <a href="http://github.com/Dan-Zheng">Dan Zheng</a>.</p>
+                <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>.</p>
                 <!--<p class='text-center' id='liga'>->> >> -> <=> ==> >>= -- := =:= == != <= >= // /** /* */ && .& || !! :: >> __ ___ .. ...</p>-->
                 <p class='section-module'><a class="btn btn-primary btn-lg" href="#" role="button" id='randomProject'>Random Project!</a></p>
                 <ul class="list-inline social-buttons">
@@ -36,8 +36,9 @@
             </div>
         </div>
     </div>
-    <div class='container' id='projects'>
-        <h2 class='text-center'>Completed Projects</h2>
+    <div class='container lots-of-space' id='projects'>
+        <h1 class='text-center' id='title'>Projects</h1>
+        <h2 class='text-center gimme-space'>Completed Projects</h2>
         <div class="list-group" id='completed-projects'>
             <a href="gradients.php" class="list-group-item">
                 <h4 class="list-group-item-heading">gradients</h4>
@@ -52,7 +53,7 @@
                 <p class="list-group-item-text">A generator for phrases like "Hey, whatever floats your boat."</p>
             </a>
         </div>
-        <h2 class='text-center'>Works in Progress</h2>
+        <h2 class='text-center gimme-space'>Works in Progress</h2>
         <div class="list-group" id='incomplete-projects'>
             <a href="rubik-solver.php" class="list-group-item">
                 <h4 class="list-group-item-heading">rubik-solver</h4>
