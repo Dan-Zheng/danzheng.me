@@ -21,19 +21,17 @@
 
 <body>
     <div class="jumbotron text-center">
-        <div class="container lots-of-space" id='main'>
-            <div class='row'>
-                <h1>Hello, world!</h1>
-                <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>.</p>
-                <!--<p class='text-center' id='liga'>->> >> -> <=> ==> >>= -- := =:= == != <= >= // /** /* */ && .& || !! :: >> __ ___ .. ...</p>-->
-                <p class='section-module'><a class="btn btn-primary btn-lg" href="#" role="button" id='randomProject'>Random Project!</a></p>
-                <ul class="list-inline social-buttons">
-                    <li><a href="https://github.com/Dan-Zheng" target="_blank"><i class="fa fa-github"></i></a>
-                    </li>
-                    <li><a href="https://www.facebook.com/VoidQuery" target="_blank"><i class="fa fa-facebook"></i></a>
-                    </li>
-                </ul>
-            </div>
+        <div class='row' id='main'>
+            <h1>Hello, world!</h1>
+            <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>.</p>
+            <!--<p class='text-center' id='liga'>->> >> -> <=> ==> >>= -- := =:= == != <= >= // /** /* */ && .& || !! :: >> __ ___ .. ...</p>-->
+            <p class='section-module'><a class="btn btn-primary btn-lg" href="#" role="button" id='randomProject'>Random Project!</a></p>
+            <ul class="list-inline social-buttons">
+                <li><a href="https://github.com/Dan-Zheng" target="_blank"><i class="fa fa-github"></i></a>
+                </li>
+                <li><a href="https://www.facebook.com/VoidQuery" target="_blank"><i class="fa fa-facebook"></i></a>
+                </li>
+            </ul>
         </div>
     </div>
     <div class='container lots-of-space' id='projects'>
