@@ -18,4 +18,7 @@ $(document).ready(function() {
         $("#tagged-title").show();
         $("#tagged-text").show();
     });
+    $('#tag-explain').on('click', function() {
+        $('#tag').toggle();
+    });
 });

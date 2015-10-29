@@ -16,6 +16,7 @@
     <style>
         #tagged-text { display: none; }
         #tagged-title { display: none; }
+        #tag { display: none }
     </style>
 
     <script type="text/javascript" src='bower_components/jquery/dist/jquery.min.js'></script>
@@ -40,6 +41,70 @@
 
                 <div class='section-divider noselect'>
                     <button id='generate' type='button' class='btn btn-primary'>Generate</button>
+                    <button id='tag-explain' type='button' class='btn btn-primary'>Show Tags</button>
+                </div>
+
+                <div id='tag'>
+                    <div class='col-md-3'>
+                        <p>CC Coordinating conjunction</p>
+                        <p>NN Noun, sing. or mass</p>
+                        <p>CD Cardinal number</p>
+                        <p>NNS Noun, plural</p>
+                        <p>DT Determiner</p>
+                        <p>NNP Proper noun, sing.</p>
+                        <p>EX Existential there</p>
+                        <p>NNPS Proper noun, plural</p>
+                        <p>FW Foreign word</p>
+                        <p>PDT Predeterminer</p>
+                        <p>IN Preposition</p>
+
+                    </div>
+                    <div class='col-md-3'>
+                        <p>POS Possessive ending</p>
+                        <p>JJ Adjective</p>
+                        <p>PP Personal pronoun</p>
+                        <p>JJR Adj., comparative</p>
+                        <p>PP$ Possessive pronoun</p>
+                        <p>JJS Adj., superlative</p>
+                        <p>RB Adverb</p>
+                        <p>LS List item marker</p>
+                        <p>RBR Adverb, comparative</p>
+                        <p>MD Modal</p>
+                        <p>RBS Adverb, superlative</p>
+
+                    </div>
+                    <div class='col-md-3'>
+                        <p>RP Particle</p>
+                        <p>WP$ Possessive-Wh</p>
+                        <p>SYM Symbol</p>
+                        <p>WRB Wh-adverb</p>
+                        <p>TO "to"</p>
+                        <p>$ Dollar sign</p>
+                        <p>UH Interjection</p>
+                        <p># Pound sign</p>
+                        <p>VB verb, base form</p>
+                        <p>" quote</p>
+                        <p>VBD verb, past tense</p>
+
+                    </div>
+                    <div class='col-md-3'>
+                        <p>) Right paren</p>
+                        <p>VBP Verb, present</p>
+                        <p>, Comma</p>
+                        <p>VBZ Verb, present</p>
+                        <p>. Sent-final punct</p>
+                        <p>WDT Wh-determiner</p>
+                        <p>: Mid-sent punct.</p>
+                        <p>WP Wh pronoun</p>
+                        <p>VBG verb, gerund</p>
+                        <p>( Left paren</p>
+                        <p>VBN verb, past part</p>
+                    </div>
+
+
+
+
+
                 </div>
 
                 <h2 class='section-divider' id="tagged-title">Tagged Output</h2>
