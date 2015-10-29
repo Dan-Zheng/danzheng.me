@@ -143,7 +143,6 @@ $(document).ready(function() {
             checkAgain = false;
             var index = moves.length - 1;
             console.log("index: " + index);
-            console.log(moves);
             if (index >= 1) {
                 if (moves[index-1] == moves[index]) { // duplicate'
                     console.log("moves[index-1]: " + moves[index-1]);
@@ -166,6 +165,11 @@ $(document).ready(function() {
                     moves.pop();
                     checkAgain = true;
                     console.log("checkagain");
+                } else if (moves[index-1][0] == moves[index][0] && moves[index-1][1] == '2') {
+                    console.log("three in a row");
+                    moves[index-1] = moveInverse(moves[index]);
+                    moves.pop();
+                    checkAgain = true;
                 }
             }
         }
