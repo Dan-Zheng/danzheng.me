@@ -45,8 +45,19 @@ body {
     font-weight: 300;
     font-size: 1.3em;
 }
-#projects * {
+#bg-dark {
+
+    background-color: #151515;
+}
+#projects h1, h2 {
+    color: #fff;
     font-weight: 300;
+}
+.list-group-item-heading, .list-group-item-text {
+    color: #151515;
+}
+.black-text {
+    color: #151515;
 }
 #title {
     margin-top: 10px;
