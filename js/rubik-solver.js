@@ -142,31 +142,24 @@ $(document).ready(function() {
         while (checkAgain === true) {
             checkAgain = false;
             var index = moves.length - 1;
-            console.log("index: " + index);
+
+            // if more than one move has been performed
             if (index >= 1) {
-                if (moves[index-1] == moves[index]) { // duplicate'
-                    console.log("moves[index-1]: " + moves[index-1]);
-                    console.log("moves[index]: " + moves[index]);
-                    if (moves[index-1].indexOf('2') == -1) {
-                        console.log("double " + moves[index-1] + ", make into 2 turn");
-                        moves[index-1] = moves[index][0] + '2';
-                        moves.pop();
-                        checkAgain = true;
-                        console.log("checkagain");
-                    } else if (moves[index-1].indexOf('2') == 1) {
-                        console.log("double " + moves[index-1] + ", make into nothing");
-                        moves.pop();
-                        moves.pop();
-                        checkAgain = true;
-                    }
+                // if there is a duplicate single move
+                if (moves[index-1] == moves[index] && moves[index-1].indexOf('2') == -1) {
+                    console.log(moves[index-1] + " + " + moves[index] + " -> " + moves[index] + "2");
+                    moves[index-1] = moves[index][0] + '2';
+                    moves.pop();
+                    checkAgain = true;
+                // if a move is followed by its inverse
                 } else if (moveInverse(moves[index-1]) == moves[index]) {
-                    console.log("inverse");
+                    console.log(moves[index-1] + " + " + moves[index] + " -> " + "[]");
                     moves.pop();
                     moves.pop();
                     checkAgain = true;
-                    console.log("checkagain");
+                // if a double move is followed by a single move
                 } else if (moves[index-1][0] == moves[index][0] && moves[index-1][1] == '2') {
-                    console.log("three in a row");
+                    console.log(moves[index-1] + " + " + moves[index] + " -> " + moveInverse(moves[index]));
                     moves[index-1] = moveInverse(moves[index]);
                     moves.pop();
                     checkAgain = true;
