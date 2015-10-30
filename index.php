@@ -24,7 +24,14 @@
     <div class="jumbotron text-center">
         <div class='row' id='main'>
             <h1>Hello, world!</h1>
-            <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>.</p>
+            <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>,
+                <span class="rw-words rw-words-1">
+                    <span>student.</span>
+                    <span>bilingual.</span>
+                    <span>developer.</span>
+                    <span>human being.</span>
+                </span>
+            </p>
             <!--<p class='text-center' id='liga'>->> >> -> <=> ==> >>= -- := =:= == != <= >= // /** /* */ && .& || !! :: >> __ ___ .. ...</p>-->
             <p class='section-module'><a class="btn btn-primary btn-lg" href="#" role="button" id='randomProject'>Random Project!</a></p>
             <ul class="list-inline social-buttons">
