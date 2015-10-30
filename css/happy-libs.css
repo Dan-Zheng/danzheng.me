@@ -44,6 +44,9 @@ h3 {
     margin-top: 0;
     margin-bottom: 5px;
 }
+.modal-body {
+    text-align: left;
+}
 
 @media (min-width: 784px) {
     #main {

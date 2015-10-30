@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
 	<script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/plax.js"></script>
 </head>
 
 <?php include("header.php");?>

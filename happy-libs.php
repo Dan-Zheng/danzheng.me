@@ -41,7 +41,80 @@
 
                 <div class='section-divider noselect'>
                     <button id='generate' type='button' class='btn btn-primary'>Generate</button>
-                    <button id='tag-explain' type='button' class='btn btn-primary'>Show Tags</button>
+                    <button id='tag-explain' type='button' class='btn btn-primary' data-toggle="modal" data-target="#tagModal">Show Tags</button>
+                </div>
+
+                <div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Tag Explanations</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class='row'>
+                                    <div class='col-md-3'>
+                                        <p>CC Coordinating conjunction</p>
+                                        <p>NN Noun, sing. or mass</p>
+                                        <p>CD Cardinal number</p>
+                                        <p>NNS Noun, plural</p>
+                                        <p>DT Determiner</p>
+                                        <p>NNP Proper noun, sing.</p>
+                                        <p>EX Existential there</p>
+                                        <p>NNPS Proper noun, plural</p>
+                                        <p>FW Foreign word</p>
+                                        <p>PDT Predeterminer</p>
+                                        <p>IN Preposition</p>
+                                    </div>
+                                    <div class='col-md-3'>
+                                        <p>POS Possessive ending</p>
+                                        <p>JJ Adjective</p>
+                                        <p>PP Personal pronoun</p>
+                                        <p>JJR Adj., comparative</p>
+                                        <p>PP$ Possessive pronoun</p>
+                                        <p>JJS Adj., superlative</p>
+                                        <p>RB Adverb</p>
+                                        <p>LS List item marker</p>
+                                        <p>RBR Adverb, comparative</p>
+                                        <p>MD Modal</p>
+                                        <p>RBS Adverb, superlative</p>
+
+                                    </div>
+                                    <div class='col-md-3'>
+                                        <p>RP Particle</p>
+                                        <p>WP$ Possessive-Wh</p>
+                                        <p>SYM Symbol</p>
+                                        <p>WRB Wh-adverb</p>
+                                        <p>TO "to"</p>
+                                        <p>$ Dollar sign</p>
+                                        <p>UH Interjection</p>
+                                        <p># Pound sign</p>
+                                        <p>VB verb, base form</p>
+                                        <p>" quote</p>
+                                        <p>VBD verb, past tense</p>
+
+                                    </div>
+                                    <div class='col-md-3'>
+                                        <p>) Right paren</p>
+                                        <p>VBP Verb, present</p>
+                                        <p>, Comma</p>
+                                        <p>VBZ Verb, present</p>
+                                        <p>. Sent-final punct</p>
+                                        <p>WDT Wh-determiner</p>
+                                        <p>: Mid-sent punct.</p>
+                                        <p>WP Wh pronoun</p>
+                                        <p>VBG verb, gerund</p>
+                                        <p>( Left paren</p>
+                                        <p>VBN verb, past part</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div id='tag'>
@@ -57,7 +130,6 @@
                         <p>FW Foreign word</p>
                         <p>PDT Predeterminer</p>
                         <p>IN Preposition</p>
-
                     </div>
                     <div class='col-md-3'>
                         <p>POS Possessive ending</p>
