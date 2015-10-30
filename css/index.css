@@ -1,5 +1,6 @@
 html, body {
     height: 100%;
+    background-color: #eee;
 }
 header {
     font-family: 'Monoid Regular';
@@ -129,10 +130,10 @@ h2 {
 
 @media (min-width: 1200px) {
     .jumbotron h1 {
-    	font-size: 10em;
+    	font-size: 12em;
     }
     .jumbotron p {
-        font-size: 2.4em;
+        font-size: 3em;
     }
     h1 {
         font-size: 6em;
