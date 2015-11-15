@@ -92,7 +92,6 @@ var mainState = {
             if (this.bird.angle > -15)
                 this.bird.angle -= 1;
         }
-        console.log(this.bird.angle);
 
         /*if (game.input.activePointer.withinGame) {
             this.bird.body.gravity.y = 1000;
