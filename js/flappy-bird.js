@@ -24,6 +24,7 @@ var mainState = {
         game.load.image('pipe', 'assets/pipeSprite.png');
         game.load.image('birdAlt', 'assets/purdue.png');
         game.load.image('pipeAlt', 'assets/iu.png');
+        game.load.image('fish', 'assets/fishSprite.png');
 
         // Load the jump sound
         game.load.audio('jump', 'assets/jump.wav');
@@ -35,9 +36,12 @@ var mainState = {
         this.pipes = game.add.group();
         this.pipes.enableBody = true;
 
-        if (mode === 1) {
+        if (mode === MODE_PURDUE) {
             this.bird = this.game.add.sprite(100, 235, 'birdAlt');
             this.pipes.createMultiple(20, 'pipeAlt');
+        } else if (mode === MODE_FISH) {
+            this.bird = this.game.add.sprite(100, 235, 'fish');
+            this.pipes.createMultiple(20, 'pipe');
         } else {
             this.bird = this.game.add.sprite(100, 235, 'bird');
             this.pipes.createMultiple(20, 'pipe');
@@ -81,9 +85,14 @@ var mainState = {
             $('#hidden-msg').fadeIn(700);
 
         game.physics.arcade.overlap(this.bird, this.pipes, this.hitPipe, null, this);
-
-        if (this.bird.angle < 15)
-            this.bird.angle += 1;
+        if (mode != MODE_FISH) {
+            if (this.bird.angle < 15)
+                this.bird.angle += 1;
+        } else {
+            if (this.bird.angle > -15)
+                this.bird.angle -= 1;
+        }
+        console.log(this.bird.angle);
 
         /*if (game.input.activePointer.withinGame) {
             this.bird.body.gravity.y = 1000;
@@ -106,7 +115,12 @@ var mainState = {
         }
 
         // Jump animation
-        game.add.tween(this.bird).to({angle: -20}, 100).start();
+        if (mode != MODE_FISH) {
+            game.add.tween(this.bird).to({angle: -20}, 100).start();
+        } else {
+            game.add.tween(this.bird).to({angle: 20}, 100).start();
+        }
+
 
         // Play sound
         this.jumpSound.play();
@@ -128,8 +142,7 @@ var mainState = {
         } else if (modeNew === MODE_FISH) {
             if (mode != MODE_FISH) {
                 mode = MODE_FISH;
-                console.log("fish mode");
-                this.bird.loadTexture('bird');
+                this.bird.loadTexture('fish');
                 //game.stage.backgroundColor = '#e0c198';
                 //this.pipes.setAll(key,'pipeAlt');
             } else {
