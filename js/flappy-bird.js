@@ -1,14 +1,22 @@
 /* jshint -W041 */
 
 var game = new Phaser.Game(400, 490, Phaser.AUTO, 'game', null, false, false);
-var changeSprite = false;
+var MODE_VANILLA = 0;
+var MODE_PURDUE = 1;
+var MODE_FISH = 2;
+var mode = MODE_VANILLA;
 
 var mainState = {
 
     preload: function() {
-        if (changeSprite) {
+        if (mode === MODE_PURDUE) {
+            console.log(mode);
             game.stage.backgroundColor = '#e0c198';
-        } else {
+        } else if (mode === MODE_FISH) {
+            console.log(mode);
+            game.stage.backgroundColor = '2185C5';
+        } else { //if (mode === MODE_VANILLA)
+            console.log(mode);
             game.stage.backgroundColor = '#74c6cd';
         }
 
@@ -27,7 +35,7 @@ var mainState = {
         this.pipes = game.add.group();
         this.pipes.enableBody = true;
 
-        if (changeSprite) {
+        if (mode === 1) {
             this.bird = this.game.add.sprite(100, 235, 'birdAlt');
             this.pipes.createMultiple(20, 'pipeAlt');
         } else {
@@ -38,7 +46,10 @@ var mainState = {
         this.timer = this.game.time.events.loop(1500, this.addRowOfPipes, this);
 
         game.physics.arcade.enable(this.bird);
-        this.bird.body.gravity.y = 1000;
+        if (mode != MODE_FISH)
+            this.bird.body.gravity.y = 1000;
+        else
+            this.bird.body.gravity.y = -1000;
         //game.input.onDown.add(enableBirdPhysics());
 
         // New anchor position
@@ -48,8 +59,12 @@ var mainState = {
         spaceKey.onDown.add(this.jump, this);
 
         var switchSpriteKey = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
-        switchSpriteKey.onDown.add(this.switchSprite, this);
+        switchSpriteKey.onDown.add(function() { this.switchSprite(MODE_PURDUE);}, this);
         switchSpriteKey.onDown.add(this.restartGame, this);
+
+        var modeFishKey = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
+        modeFishKey.onDown.add(function() { this.switchSprite(MODE_FISH);}, this);
+        modeFishKey.onDown.add(this.restartGame, this);
 
         this.score = -1;
         this.labelScore = this.game.add.text(20, 20, "0", { font: "30px monospace", fill: "#ffffff" });
@@ -84,7 +99,11 @@ var mainState = {
         if (this.bird.alive == false)
             return;
 
-        this.bird.body.velocity.y = -350;
+        if (mode != MODE_FISH)
+            this.bird.body.velocity.y = -350;
+        else {
+            this.bird.body.velocity.y = 350;
+        }
 
         // Jump animation
         game.add.tween(this.bird).to({angle: -20}, 100).start();
@@ -93,17 +112,32 @@ var mainState = {
         this.jumpSound.play();
     },
 
-    switchSprite: function() {
-        if (this.bird.key === 'bird') {
-            changeSprite = true;
-            this.bird.loadTexture('birdAlt');
-            game.stage.backgroundColor = '#e0c198';
-            //this.pipes.setAll(key,'pipeAlt');
-        } else {
-            changeSprite = false;
-            this.bird.loadTexture('bird');
-            game.stage.backgroundColor = '#74c6cd';
-            //this.pipes.setAll(key,'pipe');
+    switchSprite: function(modeNew) {
+        if (modeNew === MODE_PURDUE) {
+            if (mode != MODE_PURDUE) {
+                mode = MODE_PURDUE;
+                this.bird.loadTexture('birdAlt');
+                //game.stage.backgroundColor = '#e0c198';
+                //this.pipes.setAll(key,'pipeAlt');
+            } else {
+                mode = MODE_VANILLA;
+                this.bird.loadTexture('bird');
+                //game.stage.backgroundColor = '#74c6cd';
+                //this.pipes.setAll(key,'pipe');
+            }
+        } else if (modeNew === MODE_FISH) {
+            if (mode != MODE_FISH) {
+                mode = MODE_FISH;
+                console.log("fish mode");
+                this.bird.loadTexture('bird');
+                //game.stage.backgroundColor = '#e0c198';
+                //this.pipes.setAll(key,'pipeAlt');
+            } else {
+                mode = MODE_VANILLA;
+                this.bird.loadTexture('bird');
+                //game.stage.backgroundColor = '#74c6cd';
+                //this.pipes.setAll(key,'pipe');
+            }
         }
     },
 
@@ -125,7 +159,7 @@ var mainState = {
     },
 
     restartGame: function() {
-        game.state.start('main');
+        game.state.restart('main');
     },
 
     addOnePipe: function(x, y) {
