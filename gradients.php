@@ -35,7 +35,7 @@ Created for Vandyhacks
 <body>
     <div class='container noselect' id='main'>
         <!--<div id='game-title' class='text-center'>Gradients: a simple color game</div>-->
-        <div class = 'module text-center' id='level'></div>
+        <div class='module text-center' id='level'></div>
     	<div class='board module' id="sort"></div>
     	<div id="unsort" class='board module'></div>
         <div id='level-win'>

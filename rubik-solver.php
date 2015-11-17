@@ -26,11 +26,15 @@
     <script type="text/javascript" src='cubejs/lib/solve.js'></script>
     <script type="text/javascript" src='cubejs/lib/async.js'></script>
     <script type="text/javascript" src='js/rubik-solver.js'></script>
+    <script type="text/javascript" src='js/gcube.min.js'></script>
 </head>
 
 <?php include("header.php");?>
 
 <body>
+    <!--<g-cube>
+        <g-speed>3</g-speed>
+    </g-cube>-->
     <div class='container' id='main'>
         <div class='module text-center' id='status'></div>
         <div class='text-center' id='randomState'>

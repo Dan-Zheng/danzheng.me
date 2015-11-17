@@ -1,8 +1,9 @@
-body, header {
+header {
     font-family: 'Monoid Regular';
 }
 
 body {
+    font-family: 'Roboto', sans-serif;
     padding-top: 50px;
     overflow-y:hidden;
 }
@@ -40,21 +41,21 @@ body {
 #unsort {
 
 }
-#game-title {
-    font-weight: bold;
-    font-size: 2vw;
-}
 
 #level {
-    font-size: 32px;
+    /*font-size: 32px;*/
+    font-weight: 700;
+    font-size: 6em;
 }
 
 #win-message {
-    font-size: 20px;
+    font-weight: 300;
+    font-size: 1.8em;
     text-align: center;
 }
 
 #level-btn {
+    font-weight: 100;
     text-align: center;
 }
 

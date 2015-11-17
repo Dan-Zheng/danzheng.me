@@ -25,11 +25,11 @@
         <div class='row' id='main'>
             <h1>Hello, world!</h1>
             <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>,
-                <span class="rw-words rw-words-1">
-                    <span>student.</span>
-                    <span>bilingual.</span>
-                    <span>developer.</span>
-                    <span>human being.</span>
+                <span class="rw-words rw-words-1" id='textScroll'>
+                    <span id='text1'>student.</span>
+                    <span id='text2'>bilingual.</span>
+                    <span id='text3'>developer.</span>
+                    <span id='text4'>human being.</span>
                 </span>
             </p>
             <!--<p class='text-center' id='liga'>->> >> -> <=> ==> >>= -- := =:= == != <= >= // /** /* */ && .& || !! :: >> __ ___ .. ...</p>-->

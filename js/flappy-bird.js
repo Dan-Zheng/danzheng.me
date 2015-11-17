@@ -22,9 +22,11 @@ var mainState = {
 
         game.load.image('bird', 'assets/birdSprite.png');
         game.load.image('pipe', 'assets/pipeSprite.png');
-        game.load.image('birdAlt', 'assets/purdue.png');
-        game.load.image('pipeAlt', 'assets/iu.png');
+        game.load.image('purdue', 'assets/purdue.png');
+        game.load.image('iu', 'assets/iu.png');
         game.load.image('fish', 'assets/fishSprite.png');
+        game.load.image('coral', 'assets/coralSprite.png');
+        game.load.image('bubble', 'assets/bubbleSprite.png');
 
         // Load the jump sound
         game.load.audio('jump', 'assets/jump.wav');
@@ -37,11 +39,11 @@ var mainState = {
         this.pipes.enableBody = true;
 
         if (mode === MODE_PURDUE) {
-            this.bird = this.game.add.sprite(100, 235, 'birdAlt');
-            this.pipes.createMultiple(20, 'pipeAlt');
+            this.bird = this.game.add.sprite(100, 235, 'purdue');
+            this.pipes.createMultiple(20, 'iu');
         } else if (mode === MODE_FISH) {
             this.bird = this.game.add.sprite(100, 235, 'fish');
-            this.pipes.createMultiple(20, 'pipe');
+            this.pipes.createMultiple(20, 'coral');
         } else {
             this.bird = this.game.add.sprite(100, 235, 'bird');
             this.pipes.createMultiple(20, 'pipe');
@@ -90,7 +92,7 @@ var mainState = {
                 this.bird.angle += 1;
         } else {
             if (this.bird.angle > -15)
-                this.bird.angle -= 1;
+                this.bird.angle -= 0.6;
         }
 
         /*if (game.input.activePointer.withinGame) {
@@ -107,31 +109,53 @@ var mainState = {
         if (this.bird.alive == false)
             return;
 
-        if (mode != MODE_FISH)
+        if (mode != MODE_FISH) {
             this.bird.body.velocity.y = -350;
+            game.add.tween(this.bird).to({angle: -40}, 100).start();
+        }
         else {
             this.bird.body.velocity.y = 350;
-        }
-
-        // Jump animation
-        if (mode != MODE_FISH) {
-            game.add.tween(this.bird).to({angle: -20}, 100).start();
-        } else {
             game.add.tween(this.bird).to({angle: 20}, 100).start();
+            this.makeBubbles();
         }
-
 
         // Play sound
         this.jumpSound.play();
     },
 
+    makeBubbles: function() {
+        var bubble = game.add.sprite(this.bird.x, this.bird.y, 'bubble');
+        game.physics.arcade.enable(bubble);
+        bubble.scale.set(game.rnd.realInRange(0.3, 0.5));
+        //var speed = game.rnd.between(4000, 6000);
+        //game.add.tween(bubble).to({ y: 0 }, speed, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
+        //bubble.body.velocity.
+        bubble.body.velocity.y = -200;
+        bubble.body.velocity.x = -200;
+        bubble.checkWorldBounds = true;
+        bubble.outOfBoundsKill = true;
+    },
+
     switchSprite: function(modeNew) {
+        if (mode != modeNew) {
+            if (modeNew === MODE_PURDUE) {
+                this.bird.loadTexture('purdue');
+            } else if (modeNew === MODE_FISH) {
+                this.bird.loadTexture('fish');
+            }
+            mode = modeNew;
+        } else {
+            this.bird.loadTexture('bird');
+            mode = MODE_VANILLA;
+        }
+
+/*
         if (modeNew === MODE_PURDUE) {
             if (mode != MODE_PURDUE) {
                 mode = MODE_PURDUE;
-                this.bird.loadTexture('birdAlt');
+                this.bird.loadTexture('purdue');
                 //game.stage.backgroundColor = '#e0c198';
-                //this.pipes.setAll(key,'pipeAlt');
+                //this.pipes.setAll(key,'iu');
             } else {
                 mode = MODE_VANILLA;
                 this.bird.loadTexture('bird');
@@ -143,14 +167,14 @@ var mainState = {
                 mode = MODE_FISH;
                 this.bird.loadTexture('fish');
                 //game.stage.backgroundColor = '#e0c198';
-                //this.pipes.setAll(key,'pipeAlt');
+                //this.pipes.setAll(key,'iu');
             } else {
                 mode = MODE_VANILLA;
                 this.bird.loadTexture('bird');
                 //game.stage.backgroundColor = '#74c6cd';
                 //this.pipes.setAll(key,'pipe');
             }
-        }
+        }*/
     },
 
     hitPipe: function() {
@@ -192,10 +216,6 @@ var mainState = {
 
         this.score += 1;
         this.labelScore.text = this.score;
-    },
-
-    enableBirdPhysics: function() {
-        this.bird.body.gravity.y = 1000;
     }
 };
 

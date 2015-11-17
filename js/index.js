@@ -8,6 +8,12 @@ $(document).ready(function() {
     ];
         var project = projects[Math.floor(Math.random() * projects.length)];
         console.log(project);
-        window.location = "http://danzheng.me/" + project + ".php";
+        window.location = project + ".php";
     });
+    console.log($('#text1').width());
+    var width = $('#text1').width();
+    $('#textScroll').width(width);
+    setInterval(function() {
+        console.log($('#textScroll').width());
+    }, 100);
 });

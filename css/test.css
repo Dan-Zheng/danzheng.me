@@ -1,13 +1,7 @@
-html, body {
-    height: 100%;
-    background-color: #eee;
-}
 header {
     font-family: 'Monoid Regular';
 }
-
 body {
-    /*font-family: 'Monoid Regular';*/
     font-family: 'Roboto', sans-serif;
     padding-top: 50px;
 }
@@ -81,7 +75,7 @@ h2 {
         height: 100%;
     }
     .jumbotron h1 {
-    	font-size: 8em;
+       font-size: 8em;
     }
     .jumbotron p {
         font-size: 1.8em;
@@ -95,11 +89,6 @@ h2 {
     #slim {
         font-size: 1.6em;
     }
-    #main {
-        position: relative;
-        top: 50%;
-        transform: translateY(-50%);
-    }
     .lots-of-space {
         padding-top: 60px;
         padding-bottom: 60px;
@@ -108,7 +97,7 @@ h2 {
 
 @media (min-width: 992px) {
     .jumbotron h1 {
-    	font-size: 9em;
+       font-size: 9em;
     }
     .jumbotron p {
         font-size: 2.1em;
@@ -130,7 +119,7 @@ h2 {
 
 @media (min-width: 1200px) {
     .jumbotron h1 {
-    	font-size: 12em;
+       font-size: 12em;
     }
     .jumbotron p {
         font-size: 3em;
@@ -186,61 +175,61 @@ ul.social-buttons li a:active {
 }
 
 .rw-words{
-	display: inline;
-	text-indent: 10px;
+   display: inline;
+   text-indent: 10px;
 }
 .rw-words-1 span{
-	position: absolute;
-	opacity: 0;
-	overflow: hidden;
-	-webkit-animation: rotateWord 8s linear infinite 0s;
-	-ms-animation: rotateWord 8s linear infinite 0s;
-	animation: rotateWord 8s linear infinite 0s;
+   position: absolute;
+   opacity: 0;
+   overflow: hidden;
+   -webkit-animation: rotateWord 8s linear infinite 0s;
+   -ms-animation: rotateWord 8s linear infinite 0s;
+   animation: rotateWord 8s linear infinite 0s;
 }
 .rw-words-1 span:nth-child(2) {
     -webkit-animation-delay: 2s;
-	-ms-animation-delay: 2s;
-	animation-delay: 2s;
+   -ms-animation-delay: 2s;
+   animation-delay: 2s;
 }
 .rw-words-1 span:nth-child(3) {
     -webkit-animation-delay: 4s;
-	-ms-animation-delay: 4s;
-	animation-delay: 4s;
+   -ms-animation-delay: 4s;
+   animation-delay: 4s;
 }
 .rw-words-1 span:nth-child(4) {
     -webkit-animation-delay: 6s;
-	-ms-animation-delay: 6s;
-	animation-delay: 6s;
+   -ms-animation-delay: 6s;
+   animation-delay: 6s;
 }
 .rw-words-1 span:nth-child(5) {
     -webkit-animation-delay: 8s;
-	-ms-animation-delay: 8s;
-	animation-delay: 8s;
+   -ms-animation-delay: 8s;
+   animation-delay: 8s;
 }
 @-webkit-keyframes rotateWord {
     0% { opacity: 0; }
     2% { opacity: 0; -webkit-transform: translateY(-30px); }
-	5% { opacity: 1; -webkit-transform: translateY(0px);}
+   5% { opacity: 1; -webkit-transform: translateY(0px);}
     17% { opacity: 1; -webkit-transform: translateY(0px); }
-	20% { opacity: 0; -webkit-transform: translateY(30px); }
-	80% { opacity: 0; }
+   20% { opacity: 0; -webkit-transform: translateY(30px); }
+   80% { opacity: 0; }
     100% { opacity: 0; }
 }
 @-ms-keyframes rotateWord {
     0% { opacity: 0; }
     2% { opacity: 0; -ms-transform: translateY(-30px); }
-	5% { opacity: 1; -ms-transform: translateY(0px);}
+   5% { opacity: 1; -ms-transform: translateY(0px);}
     17% { opacity: 1; -ms-transform: translateY(0px); }
-	20% { opacity: 0; -ms-transform: translateY(30px); }
-	80% { opacity: 0; }
+   20% { opacity: 0; -ms-transform: translateY(30px); }
+   80% { opacity: 0; }
     100% { opacity: 0; }
 }
 @keyframes rotateWord {
     0% { opacity: 0; }
     2% { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
-	5% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px);}
+   5% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px);}
     17% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
-	20% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
-	80% { opacity: 0; }
+   20% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+   80% { opacity: 0; }
     100% { opacity: 0; }
 }
