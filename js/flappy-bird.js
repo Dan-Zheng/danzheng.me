@@ -36,6 +36,7 @@ var mainState = {
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
         this.pipes = game.add.group();
+        this.bubbles = game.add.group();
         this.pipes.enableBody = true;
 
         if (mode === MODE_PURDUE) {
@@ -124,16 +125,20 @@ var mainState = {
     },
 
     makeBubbles: function() {
-        var bubble = game.add.sprite(this.bird.x, this.bird.y, 'bubble');
-        game.physics.arcade.enable(bubble);
-        bubble.scale.set(game.rnd.realInRange(0.3, 0.5));
-        //var speed = game.rnd.between(4000, 6000);
-        //game.add.tween(bubble).to({ y: 0 }, speed, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
-        //bubble.body.velocity.
-        bubble.body.velocity.y = -200;
-        bubble.body.velocity.x = -200;
-        bubble.checkWorldBounds = true;
-        bubble.outOfBoundsKill = true;
+        for (var i = 0; i < 3; i++) {
+            var widthRange = this.bird.x + this.bird.width;
+            var heightRange = this.bird.y + this.bird.height / 2;
+            var bubble = this.bubbles.create(widthRange, heightRange, 'bubble');
+            game.physics.arcade.enable(bubble);
+            bubble.scale.set(game.rnd.realInRange(0.3, 0.5));
+            //var speed = game.rnd.between(4000, 6000);
+            //game.add.tween(bubble).to({ y: 0 }, speed, Phaser.Easing.Sinusoidal.InOut, true, 0, 0, false);
+            //bubble.body.velocity.
+            bubble.body.velocity.y = game.rnd.realInRange(-250, -150);
+            bubble.body.velocity.x = -200;
+            bubble.checkWorldBounds = true;
+            bubble.outOfBoundsKill = true;
+        }
     },
 
     switchSprite: function(modeNew) {
