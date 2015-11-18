@@ -10,10 +10,10 @@ $(document).ready(function() {
         console.log(project);
         window.location = project + ".php";
     });
-    console.log($('#text1').width());
+    /*console.log($('#text1').width());
     var width = $('#text1').width();
     $('#textScroll').width(width);
     setInterval(function() {
         console.log($('#textScroll').width());
-    }, 100);
+    }, 100);*/
 });

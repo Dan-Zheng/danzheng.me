@@ -26,7 +26,7 @@
 <body>
   <div class='container text-center'>
       <h1>Whale</h1>
-      <p id='subtitle'>This is a CSS test.</p>
+      <p id='subtitle'>This is a SCSS test. (It's a lot better than vanilla CSS.)</p>
       <div class="whale">
           <div class="fountain"></div>
       </div>

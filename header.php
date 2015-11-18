@@ -26,6 +26,8 @@
                             <li role="separator" class="divider"></li>
                             <li><a id='nav-rubik' href='rubik-solver.php'>Rubik Solver</a></li>
                             <li><a id='nav-libs' href='happy-libs.php'>Happy Libs</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a id='nav-whale' href='whale.php'>Whale (test)</a></li>
                         </ul>
                     </li>
                 </ul>

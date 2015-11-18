@@ -24,13 +24,13 @@
     <div class="jumbotron text-center">
         <div class='row' id='main'>
             <h1>Hello, world!</h1>
-            <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>,
-                <span class="rw-words rw-words-1" id='textScroll'>
+            <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>.
+                <!--<span class="rw-words rw-words-1" id='textScroll'>
                     <span id='text1'>student.</span>
                     <span id='text2'>bilingual.</span>
                     <span id='text3'>developer.</span>
                     <span id='text4'>human being.</span>
-                </span>
+                </span>-->
             </p>
             <!--<p class='text-center' id='liga'>->> >> -> <=> ==> >>= -- := =:= == != <= >= // /** /* */ && .& || !! :: >> __ ___ .. ...</p>-->
             <p class='section-module'><a class="btn btn-primary btn-lg" href="#" role="button" id='randomProject'>Random Project!</a></p>

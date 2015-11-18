@@ -1,0 +1,254 @@
+$s : 10px;
+$w : 5px;
+$blue : #1976D2;
+$l-blue: lighten($blue,20%);
+$white : lighten($blue,90%);
+$black : #212121;
+$grey: lighten($black,65%);
+$background : lighten($black,80%);
+$time: 1s;
+
+@mixin animation($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        @content;
+    }
+    @-o-keyframes #{$name} {
+        @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@include animation(move) {
+  0%{
+    box-shadow:
+       $s*3 $s*(-2) 0 $w $blue,
+       $s*3 $s*(-3) 0 $w $background,
+       $s*2 $s*(-4) 0 $w $background,
+       $s*4 $s*(-4) 0 $w $background,
+       $s*1 $s*(-3) 0 $w $background,
+       $s*5 $s*(-3) 0 $w $background;
+  }
+  25%{
+    box-shadow:
+       $s*3 $s*(-2) 0 $w $blue,
+       $s*3 $s*(-3) 0 $w $blue,
+       $s*2 $s*(-4) 0 $w $background,
+       $s*4 $s*(-4) 0 $w $background,
+       $s*1 $s*(-3) 0 $w $background,
+       $s*5 $s*(-3) 0 $w $background;
+  }
+  50%{
+    box-shadow:
+       $s*3 $s*(-2) 0 $w $blue,
+       $s*3 $s*(-3) 0 $w $blue,
+       $s*2 $s*(-4) 0 $w $blue,
+       $s*4 $s*(-4) 0 $w $blue,
+       $s*1 $s*(-3) 0 $w $background,
+       $s*5 $s*(-3) 0 $w $background;
+  }
+  75%{
+    box-shadow:
+       $s*3 $s*(-2) 0 $w $blue,
+       $s*3 $s*(-3) 0 $w $blue,
+       $s*2 $s*(-4) 0 $w $blue,
+       $s*4 $s*(-4) 0 $w $blue,
+       $s*1 $s*(-3) 0 $w $blue,
+       $s*5 $s*(-3) 0 $w $blue;
+  }
+  100%{
+     box-shadow:
+       $s*3 $s*(-2) 0 $w $background,
+       $s*3 $s*(-3) 0 $w $background,
+       $s*2 $s*(-4) 0 $w $background,
+       $s*4 $s*(-4) 0 $w $background,
+       $s*1 $s*(-3) 0 $w $background,
+       $s*5 $s*(-3) 0 $w $background;
+  }
+}
+
+body{
+  background : $background;
+  .whale{
+     position: absolute;
+     left: 50%;
+     margin-left: -60px;
+     top: 40%;
+     box-shadow:
+     $s*0 0 0 $w $black,
+     $s*1 0 0 $w $black,
+     $s*2 0 0 $w $black,
+     $s*3 0 0 $w $black,
+     $s*4 0 0 $w $black,
+     $s*5 0 0 $w $black,
+     $s*6 0 0 $w $black,
+
+     $s*(-1) $s*1 0 $w $black,
+     $s*0 $s*1 0 $w $l-blue,
+     $s*1 $s*1 0 $w $l-blue,
+     $s*2 $s*1 0 $w $l-blue,
+     $s*3 $s*1 0 $w $l-blue,
+     $s*4 $s*1 0 $w $l-blue,
+     $s*5 $s*1 0 $w $l-blue,
+     $s*6 $s*1 0 $w $l-blue,
+     $s*7 $s*1 0 $w $black,
+     $s*8 $s*1 0 $w $black,
+
+     $s*(-2) $s*2 0 $w $black,
+     $s*(-1) $s*2 0 $w $l-blue,
+     $s*0 $s*2 0 $w $l-blue,
+     $s*1 $s*2 0 $w $blue,
+     $s*2 $s*2 0 $w $blue,
+     $s*3 $s*2 0 $w $blue,
+     $s*4 $s*2 0 $w $blue,
+     $s*5 $s*2 0 $w $blue,
+     $s*6 $s*2 0 $w $blue,
+     $s*7 $s*2 0 $w $l-blue,
+     $s*8 $s*2 0 $w $l-blue,
+     $s*9 $s*2 0 $w $black,
+
+     $s*(-2) $s*3 0 $w $black,
+     $s*(-1) $s*3 0 $w $l-blue,
+     $s*0 $s*3 0 $w $blue,
+     $s*1 $s*3 0 $w $blue,
+     $s*2 $s*3 0 $w $blue,
+     $s*3 $s*3 0 $w $blue,
+     $s*4 $s*3 0 $w $blue,
+     $s*5 $s*3 0 $w $blue,
+     $s*6 $s*3 0 $w $blue,
+     $s*7 $s*3 0 $w $blue,
+     $s*8 $s*3 0 $w $blue,
+     $s*9 $s*3 0 $w $l-blue,
+     $s*10 $s*3 0 $w $black,
+     $s*14 $s*3 0 $w $black,
+     $s*16 $s*3 0 $w $black,
+
+     $s*(-2) $s*4 0 $w $black,
+     $s*(-1) $s*4 0 $w $l-blue,
+     $s*0 $s*4 0 $w $blue,
+     $s*1 $s*4 0 $w $blue,
+     $s*2 $s*4 0 $w $white,
+     $s*3 $s*4 0 $w $white,
+     $s*4 $s*4 0 $w $blue,
+     $s*5 $s*4 0 $w $blue,
+     $s*6 $s*4 0 $w $blue,
+     $s*7 $s*4 0 $w $blue,
+     $s*8 $s*4 0 $w $blue,
+     $s*9 $s*4 0 $w $blue,
+     $s*10 $s*4 0 $w $black,
+     $s*13 $s*4 0 $w $black,
+     $s*14 $s*4 0 $w $l-blue,
+     $s*15 $s*4 0 $w $black,
+     $s*16 $s*4 0 $w $l-blue,
+     $s*17 $s*4 0 $w $black,
+
+     $s*(-2) $s*5 0 $w $black,
+     $s*(-1) $s*5 0 $w $l-blue,
+     $s*0 $s*5 0 $w $blue,
+     $s*1 $s*5 0 $w $blue,
+     $s*2 $s*5 0 $w $black,
+     $s*3 $s*5 0 $w $white,
+     $s*4 $s*5 0 $w $blue,
+     $s*5 $s*5 0 $w $blue,
+     $s*6 $s*5 0 $w $blue,
+     $s*7 $s*5 0 $w $blue,
+     $s*8 $s*5 0 $w $blue,
+     $s*9 $s*5 0 $w $blue,
+     $s*10 $s*5 0 $w $black,
+     $s*13 $s*5 0 $w $black,
+     $s*14 $s*5 0 $w $l-blue,
+     $s*15 $s*5 0 $w $l-blue,
+     $s*16 $s*5 0 $w $l-blue,
+     $s*17 $s*5 0 $w $black,
+
+     $s*(-2) $s*6 0 $w $black,
+     $s*(-1) $s*6 0 $w $l-blue,
+     $s*0 $s*6 0 $w $blue,
+     $s*1 $s*6 0 $w $blue,
+     $s*2 $s*6 0 $w $blue,
+     $s*3 $s*6 0 $w $blue,
+     $s*4 $s*6 0 $w $blue,
+     $s*5 $s*6 0 $w $blue,
+     $s*6 $s*6 0 $w $blue,
+     $s*7 $s*6 0 $w $blue,
+     $s*8 $s*6 0 $w $blue,
+     $s*9 $s*6 0 $w $blue,
+     $s*10 $s*6 0 $w $blue,
+     $s*11 $s*6 0 $w $black,
+     $s*14 $s*6 0 $w $black,
+     $s*15 $s*6 0 $w $l-blue,
+     $s*16 $s*6 0 $w $black,
+
+     $s*(-2) $s*7 0 $w $black,
+     $s*(-1) $s*7 0 $w $white,
+     $s*0 $s*7 0 $w $white,
+     $s*1 $s*7 0 $w $white,
+     $s*2 $s*7 0 $w $white,
+     $s*3 $s*7 0 $w $white,
+     $s*4 $s*7 0 $w $blue,
+     $s*5 $s*7 0 $w $blue,
+     $s*6 $s*7 0 $w $blue,
+     $s*7 $s*7 0 $w $blue,
+     $s*8 $s*7 0 $w $blue,
+     $s*9 $s*7 0 $w $blue,
+     $s*10 $s*7 0 $w $blue,
+     $s*11 $s*7 0 $w $blue,
+     $s*12 $s*7 0 $w $black,
+     $s*13 $s*7 0 $w $black,
+     $s*14 $s*7 0 $w $l-blue,
+     $s*15 $s*7 0 $w $blue,
+     $s*16 $s*7 0 $w $black,
+
+     $s*(-1) $s*8 0 $w $black,
+     $s*0 $s*8 0 $w $grey,
+     $s*1 $s*8 0 $w $grey,
+     $s*2 $s*8 0 $w $grey,
+     $s*3 $s*8 0 $w $grey,
+     $s*4 $s*8 0 $w $black,
+     $s*5 $s*8 0 $w $blue,
+     $s*6 $s*8 0 $w $l-blue,
+     $s*7 $s*8 0 $w $grey,
+     $s*8 $s*8 0 $w $grey,
+     $s*9 $s*8 0 $w $grey,
+     $s*10 $s*8 0 $w $blue,
+     $s*11 $s*8 0 $w $blue,
+     $s*12 $s*8 0 $w $blue,
+     $s*13 $s*8 0 $w $blue,
+     $s*14 $s*8 0 $w $blue,
+     $s*15 $s*8 0 $w $black,
+
+     $s*0 $s*9 0 $w $black,
+     $s*1 $s*9 0 $w $black,
+     $s*2 $s*9 0 $w $black,
+     $s*3 $s*9 0 $w $black,
+     $s*4 $s*9 0 $w $black,
+     $s*5 $s*9 0 $w $black,
+     $s*6 $s*9 0 $w $l-blue,
+     $s*7 $s*9 0 $w $black,
+     $s*8 $s*9 0 $w $black,
+     $s*9 $s*9 0 $w $black,
+     $s*10 $s*9 0 $w $black,
+     $s*11 $s*9 0 $w $black,
+     $s*12 $s*9 0 $w $black,
+     $s*13 $s*9 0 $w $black,
+     $s*14 $s*9 0 $w $black,
+
+     $s*2 $s*10 0 $w $black,
+     $s*3 $s*10 0 $w $black,
+     $s*6 $s*10 0 $w $black,
+     $s*7 $s*10 0 $w $black;
+      .fountain{
+          -webkit-animation: move $time infinite;
+          -moz-animation: move $time infinite;
+          -o-animation: move $time infinite;
+           animation: move $time infinite;
+          -webkit-animation-timing-function: linear;
+           animation-timing-function: linear;
+      }
+  }
+
+}
