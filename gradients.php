@@ -35,12 +35,12 @@ Created for Vandyhacks
 <body>
     <div class='container noselect' id='main'>
         <!--<div id='game-title' class='text-center'>Gradients: a simple color game</div>-->
-        <div class='module text-center' id='level'></div>
+        <h1 class='module text-center' id='level'></h1>
     	<div class='board module' id="sort"></div>
     	<div id="unsort" class='board module'></div>
         <div id='level-win'>
             <div id='level-btn' class='module'><button type='button' class='btn btn-primary'>Next Level</button></div>
-            <div id='win-message'></div>
+            <p class ='text-center' id='win-message'></p>
         </div>
     </div>
 </body>

@@ -42,12 +42,94 @@ body {
 
 }
 
-#level {
+h1 {
     /*font-size: 32px;*/
-    font-weight: 700;
-    font-size: 6em;
+    font-weight: bold;
+    font-size: 2em;
 }
-
+h3 {
+    font-size: 1em;
+}
+@media (min-width: 784px) {
+    #main {
+        width: 764px;
+    }
+    h1 {
+    	font-size: 3.0em;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+    h3, p {
+        font-size: 1em;
+    }
+    #sentence-display {
+        margin-left: 0;
+        /*padding: 1% 0;*/
+    }
+}
+@media (min-width: 888px) {
+    #main {
+        width: 865px;
+    }
+    h1 {
+    	font-size: 3.5em;
+    }
+    h2 {
+        font-size: 1.4em;
+    }
+    h3, p {
+        font-size: 1.2em;
+    }
+}
+@media (min-width: 992px) {
+    #main {
+        width: 967px;
+    }
+    h1 {
+        font-weight: bold;
+    	font-size: 4em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    h3, p {
+        font-size: 1.4em;
+    }
+}
+@media (min-width: 1096px) {
+    #main {
+        width: 1068px;
+    }
+    h1 {
+        font-weight: bold;
+    	font-size: 4.5em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    h3, p {
+        font-size: 1.6em;
+    }
+}
+@media (min-width: 1200px) {
+    #main {
+        width: 1170px;
+    }
+    h1 {
+        font-weight: bold;
+    	font-size: 5em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    h3, p {
+        font-size: 1.8em;
+    }
+}
+#level {
+    font-size: 5em;
+}
 #win-message {
     font-weight: 300;
     font-size: 1.8em;
