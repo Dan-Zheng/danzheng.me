@@ -34,8 +34,7 @@ Created for Vandyhacks
 
 <body>
     <div class='container noselect' id='main'>
-        <!--<div id='game-title' class='text-center'>Gradients: a simple color game</div>-->
-        <h1 class='module text-center' id='level'></h1>
+        <h1 class='module text-center' id='level'>Level</h1>
     	<div class='board module' id="sort"></div>
     	<div id="unsort" class='board module'></div>
         <div id='level-win'>
@@ -43,6 +42,9 @@ Created for Vandyhacks
             <p class ='text-center' id='win-message'></p>
         </div>
     </div>
+    <footer id='game-title' class='footer section-center'>
+        <p>Inspired by <a href='https://github.com/V-Neck/v-neck.github.io/tree/master/Blekodu'>the original project by V-Neck</a>.</p>
+    </footer>
 </body>
 
 </html>

@@ -47,8 +47,11 @@ h1 {
     font-weight: bold;
     font-size: 2em;
 }
-h3 {
-    font-size: 1em;
+h2 {
+    font-size: 1.6em;
+}
+h3, p {
+    font-size: 1.8em;
 }
 @media (min-width: 784px) {
     #main {
@@ -60,7 +63,7 @@ h3 {
     h2 {
         font-size: 1.2em;
     }
-    h3, p {
+    h3 {
         font-size: 1em;
     }
     #sentence-display {
@@ -78,7 +81,7 @@ h3 {
     h2 {
         font-size: 1.4em;
     }
-    h3, p {
+    h3 {
         font-size: 1.2em;
     }
 }
@@ -93,7 +96,7 @@ h3 {
     h2 {
         font-size: 1.6em;
     }
-    h3, p {
+    h3 {
         font-size: 1.4em;
     }
 }
@@ -108,7 +111,7 @@ h3 {
     h2 {
         font-size: 1.8em;
     }
-    h3, p {
+    h3 {
         font-size: 1.6em;
     }
 }
@@ -121,9 +124,9 @@ h3 {
     	font-size: 5em;
     }
     h2 {
-        font-size: 2em;
+        font-size: 3em;
     }
-    h3, p {
+    h3 {
         font-size: 1.8em;
     }
 }
@@ -148,4 +151,18 @@ h3 {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.8em;
+    text-align: center;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+.section-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
