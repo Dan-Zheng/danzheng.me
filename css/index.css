@@ -74,6 +74,32 @@ h2 {
 #liga {
     font-size: 16px;
 }
+ul.social-buttons {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+ul.social-buttons li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    outline: 0;
+    color: #fff;
+    background-color: #222;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active {
+    background-color: #377bb5;
+    /*background-color: #2b618e;*/
+}
 
 @media (min-width: 768px) {
     .jumbotron {
@@ -104,6 +130,12 @@ h2 {
         padding-top: 60px;
         padding-bottom: 60px;
     }
+    ul.social-buttons li a {
+        width: 50px;
+        height: 50px;
+        font-size: 25px;
+        line-height: 50px;
+    }
 }
 
 @media (min-width: 992px) {
@@ -125,6 +157,12 @@ h2 {
     .lots-of-space {
         padding-top: 80px;
         padding-bottom: 80px;
+    }
+    ul.social-buttons li a {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+        line-height: 60px;
     }
 }
 
@@ -148,32 +186,12 @@ h2 {
         padding-top: 100px;
         padding-bottom: 100px;
     }
-}
-
-ul.social-buttons {
-    margin-bottom: 0;
-    text-align: center;
-}
-
-ul.social-buttons li a {
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    font-size: 20px;
-    line-height: 40px;
-    outline: 0;
-    color: #fff;
-    background-color: #222;
-    -webkit-transition: all .3s;
-    -moz-transition: all .3s;
-    transition: all .3s;
-}
-
-ul.social-buttons li a:hover,
-ul.social-buttons li a:focus,
-ul.social-buttons li a:active {
-    background-color: #2b618e;
+    ul.social-buttons li a {
+        width: 70px;
+        height: 70px;
+        font-size: 35px;
+        line-height: 70px;
+    }
 }
 
 .noselect {
