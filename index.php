@@ -14,14 +14,17 @@
 
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+    <!--<script type="text/javascript" src="bower_components/d3/d3.js"></script>-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/plax.js"></script>
+    <!--<script type="text/javascript" src="js/plax.js"></script>-->
+    <script type="text/javascript" src="js/app.js"></script>
 </head>
 
 <?php include("header.php");?>
 
-<body>
-    <div class="jumbotron text-center">
+<body id='home'>
+    <div class="jumbotron fullscreen text-center">
         <div class='row' id='main'>
             <h1>Hello, world!</h1>
             <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>.
@@ -42,7 +45,7 @@
             </ul>
         </div>
     </div>
-    <div id='bg-dark'>
+    <div class='fullscreen bg-dark'>
         <div class='container lots-of-space' id='projects'>
             <h1 class='text-center' id='title'>Projects</h1>
             <h2 class='text-center gimme-space'>Completed Projects</h2>
@@ -70,6 +73,15 @@
                     <h4 class="list-group-item-heading">happy-libs</h4>
                     <p class="list-group-item-text">A simple mad-libs generator.</p>
                 </a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class='container lots-of-space' id='contact'>
+            <h1 class='text-center' id='title'>Contact</h1>
+            <h2 class='text-center gimme-space'>Find me here.</h2>
+            <div id="contact" class="full-wh">
+                <div id="contact-svg-container"></div>
             </div>
         </div>
     </div>

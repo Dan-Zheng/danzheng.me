@@ -20,7 +20,7 @@
 <?php include("header.php");?>
 
 <body>
-    <div class="jumbotron text-center">
+    <div class="jumbotron fullscreen text-center">
         <div class="container" id='main'>
             <h1>Coming soon!</h1>
             <p class='section-module' id='subtitle'>Sorry, this page is still under construction.</p>

@@ -10,10 +10,25 @@ $(document).ready(function() {
         console.log(project);
         window.location = project + ".php";
     });
-    /*console.log($('#text1').width());
-    var width = $('#text1').width();
-    $('#textScroll').width(width);
-    setInterval(function() {
-        console.log($('#textScroll').width());
-    }, 100);*/
+    registerNavButtons();
 });
+
+function registerNavButtons() {
+  var sections = ['home', 'contact'];
+
+  sections.forEach(function(section) {
+    clickAndScroll('#nav-' + section, '#' + section);
+  });
+}
+
+function clickAndScroll(link, section) {
+  var delay = 700;
+
+  $(link).click(function() {
+    $('html, body').animate({
+      scrollTop: $(section).offset().top - 50
+    }, delay);
+
+    return false;
+  });
+}
