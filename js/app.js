@@ -119,8 +119,11 @@ Contact = function() {
         return 0 == b ? 0 : - 1e3
     }).on("tick", b), m = d3.select("#contact-svg-container")
                             .append("svg")
+                            .attr("id", "contact-svg")
                             .attr("width", i)
                             .attr("height", j)
+                            .attr("viewBox", "0 0 " + i + " " + j)
+                            .attr("perserveAspectRatio", "xMinYMid")
                             .attr("style", "outline: thin solid #222;"); // add border
     m.attr({
         xmlns: "http://www.w3.org/2000/svg",
@@ -149,3 +152,12 @@ Contact = function() {
 $(document).ready(function() {
     Contact();
 });
+/*
+var contact = $("#contact-svg"),
+    aspect = contact.width() / contact.height(),
+    container = contact.parent();
+$(window).on("resize", function() {
+    var targetWidth = container.width();
+    contact.attr("width", targetWidth);
+    contact.attr("height", Math.round(targetWidth / aspect));
+}).trigger("resize");*/
