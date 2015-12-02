@@ -58,8 +58,13 @@ body {
 .bg-dark h1, .bg-dark h2 {
     color: #fff;
 }
+#contact-svg-container {
+    border-color: #000;
+    border-width: 5px;
+}
 svg {
     background-color: #e5e5e5;
+    width: 100%;
 }
 .list-group-item-heading, .list-group-item-text {
     color: #151515;

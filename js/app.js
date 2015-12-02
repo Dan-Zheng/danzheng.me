@@ -117,7 +117,11 @@ Contact = function() {
         return 0 == a.source ? 0 : .9
     }).charge(function(a, b) {
         return 0 == b ? 0 : - 1e3
-    }).on("tick", b), m = d3.select("#contact-svg-container").append("svg").attr("width", i).attr("height", j);
+    }).on("tick", b), m = d3.select("#contact-svg-container")
+                            .append("svg")
+                            .attr("width", i)
+                            .attr("height", j)
+                            .attr("style", "outline: thin solid #222;"); // add border
     m.attr({
         xmlns: "http://www.w3.org/2000/svg",
         "xmlns:xmlns:xlink": "http://www.w3.org/1999/xlink",
