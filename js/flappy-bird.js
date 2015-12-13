@@ -64,6 +64,7 @@ var mainState = {
 
         var spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         spaceKey.onDown.add(this.jump, this);
+        game.input.onDown.add(this.jump, this);
 
         var switchSpriteKey = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
         switchSpriteKey.onDown.add(function() { this.switchSprite(MODE_PURDUE);}, this);
