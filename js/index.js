@@ -13,12 +13,22 @@ $(document).ready(function() {
     registerNavButtons();
 });
 
+$(function () {
+    $('.tlt').textillate({
+	    minDisplayTime: 1000,
+	    in: { effect: 'fadeInDown', sync: true },
+	    out :{  delay: 3, effect: 'fadeOutDown', sync: true},
+	    loop: true
+	});
+})
+
 function registerNavButtons() {
   var sections = ['home', 'contact'];
 
   sections.forEach(function(section) {
     clickAndScroll('#nav-' + section, '#' + section);
   });
+  clickAndScroll('#name', '#contact');
 }
 
 function clickAndScroll(link, section) {

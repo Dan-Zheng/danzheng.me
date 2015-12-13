@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0">
     <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.min.css'>
     <link rel='stylesheet' href='bower_components/font-awesome/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='bower_components/animate.css/animate.min.css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/header.css" type="text/stylesheet">
     <link rel="stylesheet" href="css/fonts.css" type="text/stylesheet">
@@ -14,6 +15,8 @@
 
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
+    <script type="text/javascript" src='bower_components/letteringjs/jquery.lettering.js'></script>
+    <script type="text/javascript" src='bower_components/textillate/jquery.textillate.js'></script>
     <!--<script type="text/javascript" src="bower_components/d3/d3.js"></script>-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
@@ -27,22 +30,34 @@
     <div class="jumbotron fullscreen text-center">
         <div class='row' id='main'>
             <h1>Hello, world!</h1>
-            <p class='section-module' id='subtitle'>I'm <a href="http://github.com/Dan-Zheng">Dan Zheng</a>.
-                <!--<span class="rw-words rw-words-1" id='textScroll'>
-                    <span id='text1'>student.</span>
-                    <span id='text2'>bilingual.</span>
-                    <span id='text3'>developer.</span>
-                    <span id='text4'>human being.</span>
-                </span>-->
-            </p>
+            <div id='scroll-wrapper'>
+                <div class='section-module sub' id='subtitle'>I'm <a id='name'>Dan Zheng</a>:
+                    <!--<br></br>
+                    <span class="rw-words rw-words-1 text-center" id='textScroll'>
+                        <span id='text1'>student.</span>
+                        <span id='text2'>bilingual.</span>
+                        <span id='text3'>developer.</span>
+                        <span id='text4'>human being.</span>
+                    </span>-->
+                    <span class="tlt">
+						<ul class="texts">
+							<li>bilingual.</li>
+							<li>web developer.</li>
+                            <li>human being.</li>
+						</ul>
+					</span>
+                </div>
+            </div>
             <!--<p class='text-center' id='liga'>->> >> -> <=> ==> >>= -- := =:= == != <= >= // /** /* */ && .& || !! :: >> __ ___ .. ...</p>-->
-            <p class='section-module'><a class="btn btn-primary btn-lg" href="#" role="button" id='randomProject'>Random Project!</a></p>
-            <ul class="list-inline social-buttons">
-                <li><a href="https://github.com/Dan-Zheng" target="_blank"><i class="fa fa-github"></i></a>
-                </li>
-                <li><a href="https://www.facebook.com/VoidQuery" target="_blank"><i class="fa fa-facebook"></i></a>
-                </li>
-            </ul>
+            <div class='noselect'>
+                <p class='section-module'><a class="btn btn-primary btn-lg" href="#" role="button" id='randomProject'>Random Project!</a></p>
+                <ul class="list-inline social-buttons">
+                    <li><a href="https://github.com/Dan-Zheng" target="_blank"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li><a href="https://www.facebook.com/VoidQuery" target="_blank"><i class="fa fa-facebook"></i></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class='fullscreen bg-dark'>
