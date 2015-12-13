@@ -31,7 +31,7 @@
         <div class='row' id='main'>
             <h1>Hello, world!</h1>
             <div id='scroll-wrapper'>
-                <div class='section-module sub' id='subtitle'>I'm <a id='name'>Dan Zheng</a>:
+                <div class='section-module sub' id='subtitle'>I'm <a id='name' href='#contact'>Dan Zheng</a>:
                     <span class="tlt">
 						<ul class="texts">
 							<li>bilingual.</li>
