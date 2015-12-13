@@ -27,18 +27,11 @@
 <?php include("header.php");?>
 
 <body id='home'>
-    <div class="jumbotron fullscreen text-center">
+    <div class="jumbotron fullscreen text-center stripes-vita">
         <div class='row' id='main'>
             <h1>Hello, world!</h1>
             <div id='scroll-wrapper'>
                 <div class='section-module sub' id='subtitle'>I'm <a id='name'>Dan Zheng</a>:
-                    <!--<br></br>
-                    <span class="rw-words rw-words-1 text-center" id='textScroll'>
-                        <span id='text1'>student.</span>
-                        <span id='text2'>bilingual.</span>
-                        <span id='text3'>developer.</span>
-                        <span id='text4'>human being.</span>
-                    </span>-->
                     <span class="tlt">
 						<ul class="texts">
 							<li>bilingual.</li>
@@ -48,10 +41,9 @@
 					</span>
                 </div>
             </div>
-            <!--<p class='text-center' id='liga'>->> >> -> <=> ==> >>= -- := =:= == != <= >= // /** /* */ && .& || !! :: >> __ ___ .. ...</p>-->
-            <div class='noselect'>
+            <div class='noselect text-center'>
                 <p class='section-module'><a class="btn btn-primary btn-lg" href="#" role="button" id='randomProject'>Random Project!</a></p>
-                <ul class="list-inline social-buttons">
+                <ul id='btn-box' class="list-inline social-buttons col-xs-4 col-centered">
                     <li><a href="https://github.com/Dan-Zheng" target="_blank"><i class="fa fa-github"></i></a>
                     </li>
                     <li><a href="https://www.facebook.com/VoidQuery" target="_blank"><i class="fa fa-facebook"></i></a>
