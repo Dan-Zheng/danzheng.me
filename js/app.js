@@ -123,7 +123,7 @@ Contact = function() {
                             .attr("width", i)
                             .attr("height", j)
                             .attr("viewBox", "0 0 " + i + " " + j)
-                            .attr("perserveAspectRatio", "xMinYMid")
+                            .attr("perserveAspectRatio", "xMinYMid meet")
                             .attr("style", "outline: thin solid #222;"); // add border
     m.attr({
         xmlns: "http://www.w3.org/2000/svg",

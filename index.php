@@ -87,7 +87,7 @@
         <div class='container lots-of-space' id='contact'>
             <h1 class='text-center' id='title'>Contact</h1>
             <h2 class='text-center gimme-space'>Find me here.</h2>
-            <div id="contact" class="full-wh">
+            <div id="contact">
                 <div id="contact-svg-container"></div>
             </div>
         </div>

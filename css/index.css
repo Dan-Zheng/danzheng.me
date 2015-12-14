@@ -59,15 +59,15 @@ body {
     color: #fff;
 }
 #name {
-    font-weight: 300;
+    font-weight: 700;
 }
 #contact-svg-container {
     border-color: #000;
     border-width: 5px;
 }
-.stripes-vita {
+.stripes {
     /*https://color.adobe.com/Vitamin-C-color-theme-492199*/
-    background: repeating-linear-gradient(
+    /*background: repeating-linear-gradient(
         45deg,
         rgba(0, 67, 88, 0.35),
         rgba(0, 67, 88, 0.35) 30px,
@@ -79,7 +79,7 @@ body {
         rgba(255, 225, 26, 0.4) 135px,
         rgba(253, 116, 0, 0.4) 135px,
         rgba(253, 116, 0, 0.4) 140px
-    );
+    );*/
     /*background: repeating-radial-gradient(
         circle,
         purple,
@@ -93,15 +93,15 @@ body {
     background: repeating-linear-gradient(
         -30deg,
         rgba(66, 89, 87, 0.35),
-        rgba(66, 89, 87, 0.35) 30px,
-        rgba(129, 172, 139, 0.4) 30px,
-        rgba(129, 172, 139, 0.4) 70px,
-        rgba(242, 229, 162, 0.4) 70px,
-        rgba(242, 229, 162, 0.4) 105px,
-        rgba(248, 152, 131, 0.4) 105px,
-        rgba(248, 152, 131, 0.4) 135px,
-        rgba(217, 102, 102, 0.4) 135px,
-        rgba(217, 102, 102, 0.4) 140px
+        rgba(66, 89, 87, 0.35) 60px,
+        rgba(129, 172, 139, 0.4) 60px,
+        rgba(129, 172, 139, 0.4) 140px,
+        rgba(242, 229, 162, 0.4) 140px,
+        rgba(242, 229, 162, 0.4) 210px,
+        rgba(248, 152, 131, 0.4) 210px,
+        rgba(248, 152, 131, 0.4) 270px,
+        rgba(217, 102, 102, 0.4) 270px,
+        rgba(217, 102, 102, 0.4) 280px
     );
     /*background: repeating-radial-gradient(
         circle,
