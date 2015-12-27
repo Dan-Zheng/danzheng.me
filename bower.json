@@ -1,0 +1,28 @@
+{
+  "name": "Dan Zheng",
+  "homepage": "danzheng.me",
+  "authors": [
+    "Dan Zheng <zheng321@purdue.edu>"
+  ],
+  "description": "My personal website.",
+  "main": "index.php",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "d3": "~3.5.10",
+    "font-awesome": "~4.4.0",
+    "jquery-ui": "~1.11.4",
+    "jquery.pep": "~0.6.7",
+    "xcolor": "https://github.com/infusion/jQuery-xcolor.git#~1.8.0",
+    "phaser": "~2.4.4",
+    "textillate": "~0.4.0"
+  }
+}
