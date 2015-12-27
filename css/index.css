@@ -101,7 +101,9 @@ body {
         rgba(248, 152, 131, 0.4) 210px,
         rgba(248, 152, 131, 0.4) 270px,
         rgba(217, 102, 102, 0.4) 270px,
-        rgba(217, 102, 102, 0.4) 280px
+        rgba(217, 102, 102, 0.4) 280px,
+        rgba(255, 255, 255, 0.3) 280px,
+        rgba(255, 255, 255, 1) 282px
     );
     /*background: repeating-radial-gradient(
         circle,
