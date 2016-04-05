@@ -9,7 +9,7 @@
 
 	// Default rendering values
 	$DEFAULTS = Array(
-		'fmt'   => 'png',
+		'fmt'   => 'svg',
 		'pzl'   => '3',
 		'size'  => '128',
 		'view'  => '',
@@ -27,7 +27,9 @@
 		'dist'  => '5',
 	);
 
-
+	// Location of ImageMagick's 'convert' binary.
+	// NOTE: if the $PATH variable is set up correctly using just 'convert' is sufficient
+	$CONVERT="convert";
 
 
 	// -------------[ Cache related configuration ]---------------
@@ -37,6 +39,7 @@
 	// job will need to be set up to prune the database
 	$ENABLE_CACHE = false;
 	// Database Configuration (for image caching)
+	$DB_HOST="localhost";
 	$DB_NAME="DATABASE_NAME";
 	$DB_USERNAME="DATABASE_USERNAME";
 	$DB_PASSWORD="DATABASE_PASSWORD";

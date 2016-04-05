@@ -26,7 +26,6 @@
     <script type="text/javascript" src='cubejs/lib/solve.js'></script>
     <script type="text/javascript" src='cubejs/lib/async.js'></script>
     <script type="text/javascript" src='js/rubik-solver.js'></script>
-    <script type="text/javascript" src='js/gcube.min.js'></script>
 </head>
 
 <?php include("header.php");?>
