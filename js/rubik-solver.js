@@ -194,5 +194,8 @@ $(document).ready(function() {
         progressHandle = setInterval(progress, 500);
 
         cubeTest();
+
+        // async precomputing
+        Cube.asyncInit('cubejs/lib/worker.js', initialized);
     });
 });
