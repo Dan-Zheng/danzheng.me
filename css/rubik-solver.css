@@ -3,6 +3,7 @@ body, header {
 }
 
 body {
+    font-family: 'Menlo', monospace;
     padding-top: 50px;
 }
 
@@ -12,12 +13,16 @@ body {
 #main {
     padding: 25px 0;
 }
+#title {
+    font-family: 'Menlo', monospace;
+    font-size: 26px;
+    font-weight: bold;
+}
+.algorithm {
+    color: #337ab7;
+}
 #algMoves {
 
-}
-#resultText {
-    font-weight: bold;
-    font-size: 22px;
 }
 #result {
     height: 320px;
@@ -31,10 +36,26 @@ body {
 #resultBack {
     flex-grow: 1;
 }
-#lastMoves {
-    font-size: 16px;
+#algInput {
+    height: 36px;
+}
+pre, code, textarea {
+  font-family: "Menlo", monospace;
 }
 
+code {
+  line-height: 1em;
+}
+
+textarea {
+  font-size: 100%;
+}
+
+body > pre {
+    border-left: solid 2px #ccc;
+    padding-left: 18px;
+    margin: 2em 0 2em -20px;
+}
 .module {
     margin-top: 0;
     margin-bottom: 15px;

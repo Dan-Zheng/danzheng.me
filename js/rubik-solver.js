@@ -5,30 +5,13 @@
  */
 
 $(document).ready(function() {
-    var start, progressHandle;
+    var startTime, progressHandle;
     var lastAlgorithm = [];
     var moves = [];
-
-    var cubeTest = function() {
-        var cube = new Cube();
-        console.log(cube.asString());
-        //cube.move("F");
-        cube.move("R");
-
-        console.log(cube.toJSON());
-        console.log(cube.asString());
-
-        Cube.initSolver();
-        var result = cube.solve();
-        cube.move(cube.solve());
-
-        if (cube.isSolved()) {
-            console.log("the cube is solved");
-            console.log(result);
-        } else {
-            console.log("the cube is not solved");
-        }
-    };
+    var future = [];
+    var useHistory = true;
+    var isLooping = false;
+    var cube = new Cube();
 
     var progress = function() {
         // add dot to represent progress
@@ -45,9 +28,10 @@ $(document).ready(function() {
         //cubeTest();
         // if finished loading stop adding dots
         clearInterval(progressHandle);
+        Cube.initSolver();
 
-        var end = new Date(),
-            duration = (end - start) / 1000;
+        var endTime = new Date(),
+            duration = (endTime - startTime) / 1000;
         $('#status').text('Done! (' + duration + ' seconds)');
 
         // visualize scramble
@@ -55,9 +39,25 @@ $(document).ready(function() {
         // $('#randomState').css('visibility', 'visible');
         $('#randomState').show();
         $('#result').hide();
+        $('#start').on('click', start);
         $('#scramble').on('click', generateScramble);
+        $('#solve').on('click', function() {
+            solve();
+            changeResultText();
+            $('#resultText').hide();
+            makeImage();
+        });
+        $('#undo').on('click', function() {
+            undo();
+        });
+        $('#redo').on('click', function() {
+            redo();
+        });
         $('#doAlg').on('click', function() {
             var stringToUse = $('input[id=algInput]').val();
+            cube = new Cube();
+            cube.move(stringToUse);
+            console.log(cube.asString());
             lastAlgorithm = stringToArray(stringToUse);
             moves = [];
             changeResultText();
@@ -79,29 +79,119 @@ $(document).ready(function() {
             $('input[id=algInput]').val(algList.randomElement());
         });
         $('.alg-button').on('click', function() {
-            moves.push(this.value);
-            showMoves();
-            makeImage();
+            twist(this.value);
         });
+    };
+
+    var start = function() {
+        // hide status
+        $('#status').hide();
+        $('#solution').hide();
+        $('#start').hide();
+
+        // show algorithm textbox and buttons
+        $('#result').css({"display":"flex"});
+        $('#algText').show();
+        $('#scramble').show();
+        $('#solve').show();
+        $('#undo').show();
+        $('#redo').show();
+        $('#algMoves').show();
+        changeResultText();
+        makeImage();
     };
 
     var generateScramble = function() {
         // hide status
         $('#status').hide();
+        $('#solution').hide();
 
-        // show algorithm textbox and button
-        $('#result').css({"display":"flex"});
+        // show algorithm textbox and buttons
         $('#algText').show();
         $('#algMoves').show();
 
         // make a scramble
         Cube.asyncScramble(function(alg) {
             lastAlgorithm = stringToArray(alg);
+            console.log(alg);
+            cube = new Cube();
+            cube.move(alg);
             moves = [];
+            history = [];
             changeResultText();
             makeImage();
         });
     };
+
+    var solve = function() {
+        if (!cube.isSolved()) {
+            // hide status
+            $('#status').hide();
+
+            // show algorithm textbox and button
+            $('#result').css({"display":"flex"});
+            $('#algText').show();
+            $('#algMoves').show();
+            $('#solution').show();
+
+            // solve
+            var solution = cube.solve();
+            $('#solution').html("Cube solution: <span class=\"algorithm\">" + solution + "</span>");
+            console.log("cube solution: " + solution);
+            cube.move(solution);
+            lastAlgorithm = "";
+            moves = [];
+        }
+    };
+
+    var twist = function(value) {
+        moves.push(value);
+        cube.move(value);
+        console.log(cube.asString());
+        future = [];
+        showMoves();
+        makeImage();
+    }
+
+    var undo = function() {
+        if (moves.length) {
+            var move = moves.pop();
+            future.unshift(move);
+            console.log("future: " + future)
+            showMoves();
+            makeImage();
+            return move;
+        }
+    }
+
+    var doMove = function() {
+        console.log("future: " + future)
+        if (future.length) {
+            var move = future.shift();
+            if (useHistory) {
+                moves.push(move);
+            }
+            showMoves();
+            makeImage();
+            return move;
+        } else if (isLooping) {
+            future = moves.slice();
+            moves = [];
+            showMoves();
+            makeImage();
+        }
+    }
+
+    var redo = function() {
+        return doMove();
+    }
+
+    var empty = function(emptyHistory) {
+        future = [];
+        if (emptyHistory) {
+            moves = [];
+        }
+    }
 
     var stringToArray = function(string) {
         var array = string.split(" ");
@@ -119,22 +209,23 @@ $(document).ready(function() {
     var changeResultText = function() {
         $('#lastMoves').hide();
         newResultText = arrayToString(lastAlgorithm);
-        $('#resultText').html("Last Algorithm: " + newResultText);
+        $('#resultText').show();
+        $('#resultText').html("Last Algorithm: <span class=\"algorithm\">" + newResultText + "</span>");
     };
 
     var makeImage = function() {
         var stringOne = arrayToString(lastAlgorithm).replace(/\s+/g, '');
         var stringTwo = arrayToString(moves).replace(/\s+/g, '');
         var string = stringOne + stringTwo;
-        var urlOne = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&alg=" + string;
-        var urlTwo = "../visualcube/visualcube.php?fmt=png&size=300&bg=t&r=y225x-34&alg=" + string;
+        //var height = $(window).height -
+        var urlOne = "../visualcube/visualcube.php?fmt=svg&size=300&bg=t&alg=" + string;
+        //var urlTwo = "../visualcube/visualcube.php?fmt=svg&size=300&bg=t&r=y225x-34&alg=" + string;
+        var urlTwo = "../visualcube/visualcube.php?fmt=svg&size=300&bg=t&r=y225x34z180&alg=" + string;
         //var urlOne = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&alg=" + string;
         //var urlTwo = "http://cube.crider.co.uk/visualcube.php?fmt=png&size=300&bg=t&r=y225x34z180&alg=" + string;
-        //console.log(urlOne);
-        //console.log(urlTwo);
 
-        $('#resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">" + "");
-        $('#resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">" + "");
+        $('#resultFront').html("(Front view):<br><img src=\"" + urlOne + "\">");
+        $('#resultBack').html("(Back view):<br><img src=\"" + urlTwo + "\">");
     };
 
     var showMoves = function() {
@@ -167,12 +258,13 @@ $(document).ready(function() {
             }
         }
         console.log(moves);
-        $('#lastMoves').html('Moves: ' + arrayToString(moves));
+        $('#solution').hide();
+        $('#lastMoves').html("Moves: <span class=\"algorithm\">" + arrayToString(moves) + "</span>");
         $('#lastMoves').show();
     };
 
     var moveInverse = function(move) {
-        if (move.indexOf('\'') != -1) {
+        if (move.indexOf('\'') !== -1) {
             move = move.slice(0, -1);
         } else if (move.indexOf('2' === -1)) {
             move = move + '\'';
@@ -184,16 +276,41 @@ $(document).ready(function() {
         return this[Math.floor(Math.random() * this.length)];
     };
 
+    // Keyboard listener
+    window.onkeyup = function(e) {
+        if (e.target.tagName.toLowerCase() !== 'input' &&
+            e.target.tagName.toLowerCase() !== 'textarea') {
+            //var key = e.keyCode ? e.keyCode : e.which;
+            var key = String.fromCharCode(e.which);
+            if ('RrLlUuDdFfBb'.indexOf( key ) >= 0) {
+                var move;
+                if (e.shiftKey) {
+                    move = key + "\'";
+                } else {
+                    move = key;
+                }
+                console.log(move);
+                twist(move);
+            }
+        }
+    };
+
     $(function() {
+        $('.tlt').textillate({
+            minDisplayTime: 1500,
+            initialDelay: 500,
+            in: { effect: 'fadeInLeft', sync: false },
+            //out :{  delay: 3, effect: 'fadeOutDown', sync: true},
+            loop: false
+        });
+
         $('#status').text('Loading');
 
         // begin measuring time
-        start = new Date();
+        startTime = new Date();
 
         // begin adding dots
         progressHandle = setInterval(progress, 500);
-
-        cubeTest();
 
         // async precomputing
         Cube.asyncInit('cubejs/lib/worker.js', initialized);
