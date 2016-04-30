@@ -9,9 +9,9 @@
     <link rel='stylesheet' href='bower_components/font-awesome/css/font-awesome.min.css'>
     <link rel='stylesheet' href='bower_components/animate.css/animate.min.css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/header.css" type="text/stylesheet">
-    <link rel="stylesheet" href="css/fonts.css" type="text/stylesheet">
-    <link rel="stylesheet" href="css/index.css" type="text/stylesheet">
+    <link rel="stylesheet" href="css/header.css" type="text/css">
+    <link rel="stylesheet" href="css/fonts.css" type="text/css">
+    <link rel="stylesheet" href="css/index.css" type="text/css">
 
 	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script type="text/javascript" src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
