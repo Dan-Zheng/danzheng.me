@@ -27,7 +27,12 @@
     <script type="text/javascript" src='js/happy-libs-test.js'></script>
 </head>
 
-<?php include("header.php");?>
+<script>
+$(function(){
+  $("#header").load("header.html");
+});
+</script>
+<div id="header"></div>
 
 <body>
     <div class='container text-center' id='main'>

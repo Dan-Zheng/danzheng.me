@@ -17,7 +17,12 @@
     <script src="js/index.js"></script>
 </head>
 
-<?php include("header.php");?>
+<script> 
+$(function(){
+  $("#header").load("header.html");
+});
+</script>
+<div id="header"></div>
 
 <body>
     <div class="jumbotron fullscreen text-center">

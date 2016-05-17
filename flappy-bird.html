@@ -23,7 +23,12 @@
     <script type="text/javascript" src="js/flappy-bird.js"></script>
 </head>
 
-<?php include("header.php");?>
+<script>
+$(function(){
+  $("#header").load("header.html");
+});
+</script>
+<div id="header"></div>
 
 <body>
   <div class='container text-center'>

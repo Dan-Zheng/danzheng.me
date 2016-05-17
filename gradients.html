@@ -30,7 +30,12 @@ Created for Vandyhacks
 	<script type="text/javascript" src="js/gradients.js"></script>
 </head>
 
-<?php include("header.php");?>
+<script>
+$(function(){
+  $("#header").load("header.html");
+});
+</script>
+<div id="header"></div>
 
 <body>
     <div class='container noselect' id='main'>

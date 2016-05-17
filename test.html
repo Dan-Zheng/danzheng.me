@@ -19,7 +19,12 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
 </head>
 
-<?php include("header.php");?>
+<script>
+$(function(){
+  $("#header").load("header.html");
+});
+</script>
+<div id="header"></div>
 
 <body>
     <div class="jumbotron text-center">

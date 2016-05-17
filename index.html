@@ -24,7 +24,12 @@
     <script type="text/javascript" src="js/app.js"></script>
 </head>
 
-<?php include("header.php");?>
+<script>
+$(function(){
+  $("#header").load("header.html");
+});
+</script>
+<div id="header"></div>
 
 <body id='home'>
     <div class="jumbotron fullscreen text-center stripes-vita">
